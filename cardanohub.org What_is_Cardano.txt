@@ -1,0 +1,11 @@
+Tradução EN -> PT https://www.cardanohub.org/en/what-is-cardano/ 2018 02 05
+
+O que é Cardano?
+
+Cardano é a casa da criptomoeda Ada que pode ser usado para enviar e receber fundos digitais. Esta moeda digital representa o futuro de dinheiro tornando possível transações rápidas e diretas que são garantidas por um meio seguro através do uso de criptografia.
+
+Cardano é mais do que apenas uma criptomoeda, é uma plataforma technológica que será capaz de correr aplicações financeiras actualmente utilizadas diariamente por indivíduos, organizações e governos em todo o mundo. A plataforma está a ser construída por camadas o que fornece ao sistema a flexibilidade de ser mantida com maior facilidade e permite melhorias sob a forma de soft forks. Depois da camada de liquidação, que correrá Ada, tiver completa, uma camada computacional separada será realizada de modo a lidar com contratos inteligentes, acordos legais digitais que apoiarão o futuro de comércio e o negócio. Cardano também correrá aplicações decentralizadas, ou dapps, cujos serviços não são controlados por uma única entidade pelo contrário operados numa blockchain.
+
+Este é o primeiro projeto de blockchain desenvolvido a partir de uma filosofia científica e é a única concebida e construída através de uma equipa global de académicos e engenheiros de ponta. É essencial que a tecnologia seja segura, flexível e escalável para ser usado por milhões de utilizadores. Consequentemente, considerável pensamento e cuidado foi colocado pela equipa de peritos nas respetivas áreas de especialização do projeto e informaram decisões de concepção. O rigor científico aplicado a sistemas de missões críticas tais como nas indústrias aeroespacial ou financeira apoiam a área das criptomoedas com uma elevada certeza na implementação. Nós acreditamos que é a primeira vez que assim acontece.
+
+A maior inovação de Cardano é o de trazer um equilíbrio entre as necessidades dos utlizadores e dos reguladores e como tal combinar a privacidade com a regulação. A visão para Cardano é a de um novo estilo de regulação da computação que trará maior inclusão financeira por fornecer um livre acesso a todos a serviços financeiros.
