@@ -1,0 +1,19 @@
+﻿Tradução EN -> PT https://www.cardanohub.org/en/block-explorer/ 2016 02 06
+
+Explorador de blocos - Block Explorer
+
+Cardano tem o seu próprio explorador de blocos. Esta ferramenta é útil uma vez que permite verificar o histórico de transações que ocorreram na plataforma Cardano.
+
+Todas as transações Ada são gravadas publicamente na blockchain e o explorador pode ser utilizado para procurar detalhes sobre qualquer transação.
+
+O explorador de blocos Cardano ajuda na verificação de transações na rede de testes Cardano que está actualmente em operação ao mesmo tempo que está em operação na versão real da rede que será lançado em breve. (A rede de test Cardano é uma versão piloto da rede em que os engenheiros estão a correr testes de modo a assegurar suave e segura operação antes do lançamento da rede real.)
+
+Desenvolvedores estão a criar capacidades no explorador de blocos Cardano e está planeado tornar-se num recurso completo que terá estatísticas, gráficos e muitas outras características.
+
+Como utilizar o explorador de blocos Cardano.
+
+A página inicial mostrará uma tabela que indica a atividade mais recente na blockchain Cardano, entitulado "Last Slots". Esta tabela mostra qual a época que a blockchain alcançou, o número do slot correspondente nessa época e há quanto tempo cada étapa foi atingido. Pode também ver o número de transações que ocorreram, a quantia de Ada transaccionada e o tamanho do bloco. Pode clicar nos slots para descobrir mais informação sobre a blockchain em qualquer fase.
+
+A página inicial também contém um "Transactions Feed" ("Feed de Transações"), uma tabela no fundo da página que mostra as últimas transações que ocorreram. Esta tabela lista o número identificador da transação, a data e hora da transação e a quantia enviada de Ada. Pode clicar em qualquer transação para revelar mais detalhes sobre a mesma. Pode clicar em qualquer endereço para ver detalhes do endereço e o histórico das transações realizadas de e para esse endereço.
+
+Saiba Mais - Learn More.
