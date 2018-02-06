@@ -1,0 +1,6 @@
+Tradução EN -> PT https://www.cardanohub.org/en/shop-with-cardano/
+
+Compras com Cardano - Shop with Cardano
+
+Gastar Ada tal como faz com qualquer outra moeda, é realizado com o cartão de débito Cardano. Uma vez solicitado e entregue o cartão, podes enviar Ada da carteira Daedalus para carregar o cartão de débito. Os fundos serão automaticamente convertidos na moeda local à escolha, por exemplo em Yen ou Yuan. O cartão de débito pode ser usado para pagar a comerciantes conforme normalmente faz, quer em lojas online quer em lojas físicas. 
+O chip e o pin do cartão de débito Cardano será ligado à aplicação que pode ser usado para observar quanto Ada está no cartão e as transacções que foram realizadas. Todos os detalhes sobre como obter o cartão de débito Cardano serão fornecidos brevemente.
