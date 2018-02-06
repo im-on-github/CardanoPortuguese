@@ -1,0 +1,38 @@
+﻿Tradução - EN -> PT https://www.cardanohub.org/en/team/ 2015 02 06
+
+Equipa - Team
+
+Existem três organizações que contribuem para o desenvolvimento de Cardano. A primieira é a Fundação Cardano, um organismo de normalização independente baseado na Suíça, cuja responsabilidade é de apoiar a comunidade de utilizadores de Cardano e auxiliar as autoridades em matérias comerciais e de regulação. A segunda entidade a trabalhar em Cardano é IOHK, uma empresa pioneira na investigação e desenvolvimento de criptomoedas e que detém um contrato de desenvolvimento da plataforma até 2020. O último parceiro é Emurgo, que investe em empresas start-up e assiste-lhes nos empreendimentos comerciais na blockchain Cardano.
+
+A Fundação Cardano - The Cardano Foundation
+A missão central da Fundação Cardano é a normalização, proteção e promoção do protocolo tecnológico Cardano.
+
+Objetivos - Goals
+
+	* Investigar e propor a regulação de blockchain e criptomoeda
+	* Agir como um organismo de normalização de blockchain e criptomoedas
+	* Proteger, realçar e evoluir o ecosistema Cardano
+	* Agregar, educar e crescer a comunidade Cardano
+	* Servir como uma organização objetiva para empresas se juntarem
+
+Emurgo
+
+O papel de Emurgo é o de desenvolver, apoiar e incubar empreendimentos comerciais e auxiliar na integração destes negócios no ecosistema decentralizado da blockchain Cardano. Emurgo é focado no investimento e investe de duas formas:
+
+	* Através de investimento direto em empreendimentos start-up e;
+	* No desenvolvimento comercial de parceiros que querem utilizar a technologia blockchain para revolucionar as suas indústrias.
+
+Emurgo estabeleceu centros de investigação e desenvolvimento em geografias chave como as Filipinas, Koreia do Sul, Vietnam e com sede no Japão. Numa primeira fase de construção da comunidade, Emurgo focar-se-á em estabelecer a infrastrutura de modo a que mais tarde possa dedicar fundos a projetos estratégicos e desenvolvedores de aplicações.
+
+Empresas existentes - Existing companies
+
+Emurgo crescerá a comunidade auxiliando as empresas existentes a implementar uma estratégia blockchain e desenvolver aplicações decentralizadas em software Cardano para indústrias chave. Empresas poderão ter assistência em empreendimentos especializados na comunidade Emurgo tais como a Emurgo Finance, Emurgo Legal e Emurgo Logistics cujo foco será no desenvolvimento de aplicações comerciais para negócios à procura de soluções nas respetivas áreas.
+
+
+Fases iniciais nos Empreendimentos Blockchain - Early Stage Blockchain Ventures
+
+Emurgo irá identificar, auxiliar e investir em fases iniciais de empresas blockchain que desenvolvam aplicações em Cardano. Além do investimento, empreendimentos serão conectados ao projeto trabalhado a par de outras empresas blockchain, terão acesso a instalações dedicadas à pesquisa e desenvolvimento e poderão ligar a empresas externas que requerem desenvolvimento de aplicações.
+
+IOHK
+
+Fundado em 2015 por Charles Hoskinson e Jeremy Wood, IOHK é uma empresa de engenharia e tecnologia de classe mundial dedicada ao uso inovações das redes peer-to-peer para fornecer serviços financeiros a três biliões de pessoas que não têm acesso aos mesmos. O groupo está contratado para a conceção, execução e manutenção da plataforma Cardano até 2020.
