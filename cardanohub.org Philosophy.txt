@@ -1,0 +1,22 @@
+﻿Tradução EN -> PT https://www.cardanohub.org/en/philosophy/ 2018 02 07
+
+Cardano é um projeto que começou em 2015 num esforço para mudar a forma como criptomoedas eram concebidas e desenvolvidas. Em geral o foco, além de um conjunto de inovações, é o de fornecer um maior equilíbrio e sustentabilidade ao ecosistema, que melhor tem em conta as necessidades dos utilizadores além dos outros sistemas que procuram a integração.
+
+No espírito de muitos projetos de código aberto, Cardano não começou com um roteiro compreensivo ou mesmo um white paper autoritário. Em vez disso, adotou uma coleção de princípios de conceção, melhores práticas de engenharia e avenidas de exploração. Estas incluem as seguintes:
+
+-Separação da liquidação e computação em camadas diferentes
+-Implementação de componentes chave em código funcional altamente modular
+-Pequenos grupos de académicos e desenvolvedores competem com pesquisa com revisão de pares académicos
+-Uso intensivo de equipas multidisciplinares que incluem a utilização de peritos InfoSec
+-Rápida iteração entre white papers, implementação e nova pesquisa necessária para corrigir problemas descobertos durante uma revisão
+-Desenvolver com a capacidade de atualizar sistemas pós-implementação sem destruir a rede
+-Uma visão de longo prazo na melhoria da conceção de criptomoedas de modo que possam funcionar com dispositivos móveis com uma experiência para o utilizador razoável e segura
+-Trazer partes interessadas mais próximo das operações e manutenção da sua criptomoeda
+-Reconhecer a necessidade de contar com múltiplos ativos numa mesma razão
+-Abstrair transações de modo a incluir metadados de modo a melhorar a conformidade às necessidade dos sistemas legados
+-Aprender lições das perto de 1000 altcoins abraçando as características que possam fazer sentido
+-Adotar um processo dirigido por normas inspirado na Internet Engineering Task Force usando uma base dedicada ao bloqueio da conceção final do protocolo
+-Explorar os elementos sociais do comércio
+-Encontrar um meio termo saudável para reguladores interagirem com o comércio sem comprometer alguns princípios herdados da Bitcoin.
+
+Deste conjunto de ideias não estruturadas, os diretores a trabalhar em Cardano começam todas a explorar a literatura sobre criptomoedas e construir um conjunto de ferramentas de abstrações. O output desta pesquisa é uma extensa biblioteca de artigos da IOHK, numerosos resultados de questionários como recentemente a visão geral das recentes linguagens de scripting ou a ontologia de contratos inteligentes e o projeto Scorex. Estas lições gerarm uma apreciação do crescimento invulgar e em tempos contra produtiva da industria de criptomoedas.

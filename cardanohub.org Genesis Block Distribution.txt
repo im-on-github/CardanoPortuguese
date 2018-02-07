@@ -1,0 +1,28 @@
+﻿Tradução EN -> PT https://www.cardanohub.org/en/genesis-block-distribution/ 2018 02 07
+
+Distribuição do bloco génesis - Genesis block distribution
+
+A distribuição de Ada em vouchers de tokens, que fazem parte da camada de liquidação de Cardano, tomou lugar na Ásia em quatro fases entre Outubro 2015 e o princípio de Janeiro 2017. Esta distribuição, essencialmente o evento de pré-lançamento de vendas, foi o primeiro na indústria de criptomoedas a definir diretrizes sobre as normas Know Your Customer e uma auditoria foi realizado sobre o processo de distribuição. Informação e estatísticas sobre a distribuição dos vouchers são detalhados abaixo na seção de estatísticas da distribuição dos vouchers de Ada. Além do Ada em vouchers, a distribuição do bloco génesis inclui um montante igual a 20% do Ada dos vouchers vendido durante o periodo de venda, ou 5,185,414,108 Ada vouchers. Estes foram gerados e distribuídos pelas três entidades do ecosistema Cardano que fazem parte do agrupamento técnico e de desenvolvimento do negócio: IOHK, Emurgo e a Fundação Cardano. O montante total de Ada disponível no lançamento será portanto igual a 31,112,484,646 Ada.
+
+Estatísticas da distribuição de vouchers Ada - Ada voucher distribution stats 
+(Por detentor de vouchers ADA, bilhetes e distribuidores)
+
+As quatro tranches de distribuição estão demonstradas com o número de vouchers individuais de Ada distribuídos que teve lugar durante cada fase e a proporção da distribuição geral que ocorreu durante uma tranche em particular. A soma tomada durante cada tranche é visível em Bitcoin, Ada ou equivalente em dólares americanos. (Todas as transações de detentores de vouchers Ada foram realizados em Bitcoin ou Yen convertido em Bitcoin de modo a evidenciar a a contabilidade transparente na blockchain.)
+A proporção de detentores de vouchers Ada de cada região é demonstrada juntamente com o tamanho médio dos vouchers detidos e existe também informação sobre os distribuidores.
+
+Detentores de vouchers Ada por tranche - Ada voucher holders per tranche
+
+Detentores de vouchers Ada é mostrado na imagem abaixo. Cada tranche é por conseguinte desagregada por região em que o detentor do voucher é domicilado. Japão é a maior região de distribuição durante todas as quatro fases de distribuição.
+
+Distribuição de vouchers Ada por preço de bitcoin - Ada voucher distribuition BTC price
+O preço médio da Bitcoin durante cada uma das tranches de distribuição encontra-se abaixo. O preço médio da Bitcoin aumenta à medida que progride cada uma das étapas.
+
+Distribuição de vouchers Ada por detentores de vouchers
+A proporção de vouchers Ada conforme tipo de detentor do voucher Ada. Existiram quase 10000 participantes que detinham vouchers Ada no final do processo de distribuição.
+
+Distribuição cronológica de vouchers Ada - Ada voucher distribution timeline
+A distribuição cronológica de vouchers Ada demonstra ou o montante de vouchers detidos pelo seus detentores ou o equivalente valor em dólares americanos e a soma acumulada do total do valor de vouchers Ada distribuídos.
+
+Distribuição do montante de vouchers Ada detidos por detentor
+A distribuição do montante de vouchers Ada detidos por detentor é diferente conforme a moeda tal como o volume distribuído por transação.
+
