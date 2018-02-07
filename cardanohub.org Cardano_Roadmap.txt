@@ -1,0 +1,172 @@
+﻿Tradução EN -> PT https://cardanoroadmap.com/ 2018 02 06
+
+Roteiro Cardano - Cardano Roadmap
+
+A equipa completa de Cardano é constituída por peritos em todo o mundo, a equipa de tecnologia contém Well Typed, Serokell, Runtime Verification, Predictable Netwotrk Solutions e ATIX com IOHK como líder. Auditores externos como Grimm, RPI Cryptography Group e FP Complete asseguram a qualidade do produto e tornam IOHK responsáveis pelos mesmos.
+
+Os três princípios que guiam o desenvolvimento do roteiro são: primeiro, o crescimento da comunidade e das suas necessidades; segundo, uma rede resiliente e distribuída, fiel à visão original de Satoshi e terceiro, equilibrar o ritmo de investigação e desenvolvimento de modo que a vantagem comercial não se sobrepõe à aplicação do rigor científico.
+
+Actualmente estamos em Byron, a fase bootstrap onde estão a ser implementadas melhorias. Estas melhorias ao código incluem, por exemplo em middleware a depuração do código. Iremos melhorar a conceção de Daedalus e tornar a integração através de APIs com terceiros mais simples. A seguir, iremos transitar de Byron para Shelley, na qual a rede tornar-se-á decentralizada. Nos próximos 18 meses haverão contributos para a estabilização, interoperabilidade e à governação da plataforma. Ao longo do arco de desenvolvimento, os protocolos de Cardano irão crescer em complexidade, interdependência e utilizará primitivas criptográficas mais exóticas.
+
+Uma criptomoeda é tão boa quanto a comunidade por trás. Sentimo-nos humildes face à postura surpreendente, paciente e útil da nossa comunidade. A nossa esperança é que o roteiro nos fará crescer em conjunto ao longo do tempo e tornar-se num dos nossos pilares mais fortes.
+
+Existem modelos de contratos inteligentes que pecam por falta de bases rigorosas cujo desenvolvimento de IOHK visa corrigir. Para fazê-lo, IOHK tem empregue mentes líderes nas áreas de teoria de linguagens de programação para conceber contratos inteligentes.
+
+Aumentamos a alocação de recursos em dois caminhos de pesquisa. Um é focado em corrigir problemas constatados nos contratos inteligentes de Ethereum e será uma área de desenvolvimento para o Professor Grigore Rosu da Universidade de Illinois e Runtime Verification. O outro caminho é focado na conceção geral base, ou a ontologia, de contratos inteligentes além dos modelos computacionais que atingem os mesmos fins sem requererem a complexidade e o custo de Ethereum.
+
+A próxima fase para o desenvolvimento de Cardano será Shelley, um caminho para a total decentralização de Cardano. Os principais marcos desta fase estão listados abaixo.
+
+Iremos introduzir os Cardano Improvement Proposals (CIPs). Colocámos muito esforço e investimento em construir um sistema de votação, mais detalhes serão publicados brevemente. Estas melhorias ao protocolo entram em vigor depois de Shelley e apesar de no início IOHK realizar todos os CIP, haverá um mecanismo cada vez melhor para obter o consentimento das propostas.
+
+O roteiro Cardano será atualizado regularmente com um contra-relógio indicando o próximo lançamento. Queremos ouvir da comunidade sobre as ideias por trás do roteiro e estamos a abrir canais de comunicação com os mesmos - aguarda por mais detalhes. O roteiro Cardano não é propriedade de IOHK, da Fundação Cardano ou de Emurgo, pertence à comunidade. Quando uma criptomoeda é recente, carece de bons pastores para a guiar, apesar de no futuro estar inteiramente nas mãos dos seus utilizadores.
+
+Byron
+
+O lançamento de Cardano marca quase dois anos de pesquisa e mais de um ano de desenvolvimento. IOHK concebeu e construiu uma criptomoeda tecnológica com concepção nova e com 100% do código completamente nova. A tecnologia encontra-se na fase Byron também conhecida pela era bootstrap.
+
+Após estabilizar e refinar Byron, IOHK irá realizar melhorias substanciais aos componentes chave. O propósito desta fase de desenvolvimento é tornar Cardano SL completamente decentralizado de modo a conviver num mundo maioritariamente centralizado. Muito do trabalho relacionar-se-á com a camada da rede e tornar Ouroboros mais robusto. Em parallelo, características comuns de criptomoedas como endereços de multiplas assinaturas e clientes leves serão adicionados. Outras características menos comuns serão implementadas como assinaturas resistentes à computação quântica.
+
+Desde o lançamento de Cardano no final de Setembro, além de trabalhar em Byron, a equipa têm planeado os requisitos e preparar para Shelly. Neste roteiro partilhamos este trabalho preparatório e estão agora focados em planear Goguen.
+
+Goguen verá a integração de contratos inteligentes.
+
+Basho está centrado em melhorias de desempenho.
+
+Finalmente, em Voltaire, IOHK adicionará o sistema de tesouraria e governação.
+
+Melhorias de intercâmbio - Exchange enhancements
+
+Estamos a realizar melhorias ao desempenho do código de modo a aumentar o ritmo da atividade nas plataformas de câmbio. Estas plataformas serão capazes de realizar retiradas para múltiplos utilizadores numa única transação. Isto aumentará significativamente o ritmo de retiradas que as plataformas de câmbio poderão processar através do aumento do número utilizadores que podem ser servidos com um volume fixo de transações. Um novo interface de programação de aplicações (API) está a ser implementada para apoiar esta característica. Além disso, outros APIs estão em revisão de modo a assegurar que seja possível integrar mais plataformas de câmbio.
+
+Estamos a trabalhar juntamente com as plataformas de câmbio Binance e Bittrex para assegurar que problemas de  manutenção são testados, implementados e resolvidos atempadamente. Equipas de desenvolvimento e de operações têm testado o trabalho realizado nestas áreas. De modo a melhorar as tarefas de manutenção com as plataformas de câmbio, criamos um sistema de monitorização de pedidos recebidos.
+
+Mecanismo de submissão de logs - Log Submission Mechanism
+Reconhecemos que o interface gráfico do utilizador da carteira Daedalus requer um modo mais simples para submeter logs. A forma de submeter relatórios de erros através da aplicação será adicionada para os utilizadores. Estes relatórios fornecem logs detalhados para os nossos engenheiros diagnosticarem e resolverem os problemas. Ao criar um mecanismo de submissão de logs mais simples, aumentará o número de logs que a equipa receberá e consequentemente adquirir maior visibilidade na experiência do utilizador. Estes relatórios permitem-nos compreender melhor os problemas individuais existentes na comunidade melhorando o tempo de resposta e qualidade de resolução de qualquer problema.
+
+Shelley
+
+Byron estabaleceu uma base para Cardano permitir que os utilizadores troquem e transfiram Ada. Shelley está focado em assegurar que elementos chave estão em prática de modo a que a tecnologia cresça tornando-se num sistema totalmente decentralizado e autónomo. Esperado no segundo trimestre de 2018.
+
+Abrir delegação em Ouroboros - Open Ouroboros Delegation
+Elemento chave para a decentralização é a capacidade das partes interessadas delegarem a sua participação. Num sistema tipo prova de participação, tal como é Cardano, as partes interessadas têm a obrigação de tomar parte do protocolo. De modo a tornar-se prático, as partes interessadas podem delegar as suas obrigações a terceiros - os chamadas agrupamentos de interesses - que são capazes de cumprir com as obrigações. Agrupamentos de partes interessadas operam nós principais estando sempre ligados à rede e tomam parte do protocolo e produzem blocos na blockchain.
+
+Transações com múltiplas assinaturas - Multisignature transactions
+Transações com múltiplas assinaturas em Cardano permitirá ao Daedalus suportar carteiras partilhadas entre múltiplas pessoas com controlo conjunto dos fundos. Permite por exemplo uma carteira conjunta detida por duas pessoas onde ambos são necessários para assinarem todas as transações. Também permite arranjos mais complexos tal como uma carteira detida por três pessoas em que qualquer par entre eles podem assinar as transações. Isto torna-se numa característica muito útil em termos de segurança para proteger contra as chaves serem comprometidas ou uma característica útil que permite o controlo conjunto de fundos que requer consenso antecipada à compra.
+
+
+Backend da carteira - Wallet Backend
+O back-end da carteira é a componente de software que fornecem as características HD de Daedalus e fornece ligações entre Daedalus e a rede Cardano. As capacidades incluem derivações de chaves HD e criação de transações seguras e monitorizar a blockchain à procura de alterações que possam afetar a carteira. Reconceber esta parte de software aumentará o desempenho de Daedalus e tornará mais simples a integração de Cardano em sistemas de terceiros.
+
+
+Incentivos ao consenso e encargos
+O objetivo é conceber um esquema de incentivos que assegura que é do interesse do próprio comportar-se de um modo que o sistema como um todo funcione de forma mais estável e fiável. Isto inclui haver recompensas apropriadas para os nós completos operarem, incentivos para delegarem participação, um mecanismo que determina os encargos de transações e ainda outros. Esquemas de incentivos são muito delicados e é simples para criarem consequências indesejadas acidentalmente, por isso o esquema de incentivos será fundamentado em bases sólidas de matemática, teoria dos jogos e teoria económica. Depois da necessária pesquisa estar completa tornaremos o resultado e implementaremos em código.
+
+Assinaturas resistentes à computação quântica - Quantum Resistant Signatures
+Estamos a adicionar um novo tipo de transação que utilizará BLISS - um esquema de assinatura resistente à computação quântica. Isto permite a proteção de fundos contra o roubo mesmo que computadores quânticos sejam desenvolvidos até um nível que quebrem a criptografia moderna baseada em curvas elíticas.
+
+Supporte a clientes leves - Light Client Support
+Um cliente leve é uma característica que reduzirá significativamente o tempo de sincronização da blockchain. Permitirá utilizadores começarem a utilizar Daedalus sem terem que esperar que a blockchain acabe de descarregar. O modo de cliente leve envolverá a escolha de uma subscrição a um ponto de verificação através de fornecedor fiável. Estes pontos de verificação são retratos instantâneos ao estado da blockchain em determinados instantes. Enquanto se socorre dos pontos de verificação, Daedalus apenas requer a sincronização com a blockchain a partir do retrato instantâneo fornecido. Isto será mais útil, não só no momento de iniciar Daedalus pela primeira vez mas também quando Daedalus não foi utilizado durante algumas semanas.
+
+Endereços humano-amigáveis - Human friendly addresses
+Carteiras consistem num conjunto de endereços, com Ada em cada endereço. Actualmente, endereços de carteiras são longos strings de caracteres e números que não são facilmente distinguidos entre si à primeira vista. Esta característica tornará possível encurtar os endereços de carteiras e assim facilitando a comunicação. Em particular, os endereços em Cardano são muito mais compridos que os endereços de Bitcoin. O objetivo deste trabalho é tornar os endereços mais próximos ao comprimento dos endereços em Bitcoin. Isto será realizado minimizando a informação representada nos endereços, melhorando a forma como a informação sobre a delegação de participação é representada.
+
+Redes - Networking
+Uma criptomoeda totalmente decentralizada requer uma camada da rede totalmente decentralizada. Isto é parte do sistema que permite aos nós juntarem-se à rede e enviar e receber transações e blocos. De modo a ser totalmente decentralizada, funcionará num modo peer-to-peer sem a dependência de qualquer autoridade central. Permitirá também funcionar, tal como actualmente, sem requerer qualquer firewall especial ou definições de internet domiciliárias. A camada da rede está a ser concebida para atingir um nível de desempenho que assegura que os blocos alcançem os nós a tempo. A rede terá de ser aberta para permitir a qualquer um se juntar, no entanto existem grandes redes P2P abertas que têm sido vulneráveis a um reduzido número de nós hostis. Outros investigadores aprenderam as lições destas redes P2P existentes e estamos actualmente a seguir as melhores práticas que agora recomendam. Por fim, a nova camada da rede está concebida de modo a fornecer um grau de proteção a ataques DDoS (distribuído negação de serviço) em grande escala.
+
+Centro de votação - Voting Centre
+Numa rede totalmente decentralizada, atualizações de software e protocolos não devem ser decididos por uma autoridade central. Para assegurar que o protocolo seja desenvolvido ao longo do tempo, Cardano terá um centro de votação para atualizações. Atualizações a software e ao protocolo serão propostos onde utilizadores poderão votar nas propostas em que os votos são proporcionais à participação que detêm. Aos utilizadores que não se preocupam com os detalhes técnicos, estes podem delegar o seu direito de voto a um agrupamento de participações que possam tomar uma decisão mais informada e responsável em seu nome.
+
+Carteiras em papel - Paper wallets
+Uma carteira em papel é um novo tipo de carteira que será disponível em Daedalus. Carteiras em papel são carteiras de endereço único (carteiras não HD) que podem ser usados para conservar Ada a longo prazo e de forma segura colocando os fundos em armazenamento frio num meio físico. Opcionalmente, carterias em papel podem ser criadas com esquemas de assinaturas resistentes à computação quântica que os torna seguros mesmo quando computadores quânticos estiverem disponíveis.
+
+Utilizadores podem imprimir os seus certificados em papel que conterá a chave privada encriptada da carteira e uma frase mnemónica que é necessária para desencriptar a chave privada durante a restauração da carteira. O certificado em papel incluíra um endereço da carteira que pode receber Ada enquanto a carteira é guardada offline.
+
+A chave privada pode ser removida da carteira Daedalus para carteiras em papel guardadas em armazenamento frio. Após a remoção da chave privada, a carteira em papel pode ainda ser utilizada em Daedalus num modo de leitura. Isto permite aos utlizadores verificarem o balanço da carteira e ver as transações enquanto a carteira de mantém armazenada offline.
+
+Estratégia de lançamento - Release Strategy
+Agora que a rede mainnet foi lançada, os engenherios focam-se numa abordagem ao desenvolvimento. Atualizações serão mais regulares ao software onde a vantagem desta abordagem reside na capacidade de entregar mais características antecipadamente aos utilizadores. Outro benefício destes novos processos de trabalho é permitir uma conceção mais detalhada dos testes ao software. A forma como a equipa planeia estas atividades está explicado na totalidade neste post.
+
+Espaço para co-working, Hong Kong - Co-working space, Hong Kong
+O espaço será o centro onde os desenvolvedores se juntam, partilham ideias e se organizam em equipas para construir aplicações para a blockchain Cardano.
+
+Encontro entre desenvolvedores e empresas, Tokyo - Meetup for developers and entreprises, Tokyo
+O objetivo é criar a comunidade de desenvolvedores e negócios que são interessados em usar Cardano. O encontro irá encorajar desenvolvedores a construírem aplicações em Cardano e cria consciência da presença de Cardano entre as empresas.
+
+Parceria com Chinaccelerator e Mox - Partnership with Chinaccelerator and Mox
+MOX tem uma plataforma única de distribuição de aplicações móveis que ajuda start-ups a alcançarem 190 milhões de utilizadores de smartphone no Sudeste Asiático e América Latina sem qualquer custo de aquisição por parte do utilizador. A parceria estratégica fornece aos empreendedores que estão a construir aplicações na blockchain Cardano aceder a numerados programas de aceleração de topo na região.
+
+Investimento num projeto blockchain, Shanghai - Investment in a blockchain project, Shanghai
+LiqEase é uma aplicação baseado na blockchain para a faturação financeira. Atualmente está em desenvolvimento em Solidity e planeia usar a blockchain Cardano e a máquina virtual IELE uma vez lançado Cardano CL.
+
+Centro I&D, Vietnam - R&D Center, Vietnam
+O centro conduzirá pesquisa para Cardano, desenvolver ferramentas e APIs para o software e oferece serviços de consultoria às empresas. Estas ferramentas vão assistir desenvolvedores que pretendem criar aplicações em Cardano.
+
+Programa de aceleração em Hong Kong - Acceleration program in Hong Kong
+Emurgo irá oferecer programas exaustivos de 3-6 meses, fundos e espaço de co-trabalho onde as equipas irão colaborar e ligar com todas as ferramentas necessárias para o lançamento dos seus projetos. As equipas do programa comprometem-se a desenvolver um protótipo da aplicação e completar a preparação dos procedimentos dos tokens até ao fim do programa. Equipas cujos projetos resolvam problemas reais e que tiram total partido do protocolo da blockchain Cardano e que ajudará ao crescimento da comunidade Cardano são benvindos.
+
+Investigação na distribuição de futuros - Distributed futures research
+A Fundação Cardano seleccionou o Z/Yen Group, um grupo de reflexão respeitado da City de Londres, como o seu parceiro  para um programa de pesquisa em aplicações blockchain. A agenda da investigação na distribuição de futuros vai explorar como é que a tecnologia blockchain irá ter impacto numa variedade de indústrias e assim impulsionar o desenvolvimento de Cardano. A parceria irá focar-se numa variedade de indústrias incluíndo a banca, comércio e seguros e visa desenvolver um compromisso entre reguladores, investidores e legisladores.
+
+Carteira Ledger - Ledger Wallet
+Em parceria com Metalair, uma consultora líder em blockchain, apoiar Cardano em ser adoptado para os dispositivos de armazenamento Ledger Wallet. Isto significa que os utilizadores Cardano poderão ter o seu Ada offline através de um meio de armazenamento frio conveniente e altamente seguro. O processo de integração já começou e os prazos do projeto serão adicionados brevemente.
+
+Cartões de débito - Debit Cards
+Parecerias estão em desenvolvimento para integrar Ada com um cartão de débito para criptomoedas. Este cartão permitirá gastar Ada tal como faria com outra moeda qualquer através do uso do cartão de débito. Uma vez solicitado e obtido o cartão, poderá enviar Ada da carteira Daedalus e carregar o cartão de débito Cardano. Os fundos serão automaticamente convertidos na moeda local à escolha, por exemplo em Yen ou Yuan. O cartão de débito pode ser usado para pagar a comerciantes conforme normalmente faz, quer em lojas online quer em lojas físicas. 
+
+Auditoria ao software Cardano - Cardano Software Audit
+A Fundação Cardano mantém FP Complete para fornecer uma exaustiva revisão ao código de IOHK do lançamento Shelley e subsequentemente às atualizações ao código de Cardano. Além disso, a documentação de IOHK está a ser revista em termos de compreensibilidade, correção e exaustividade. Trata-se de um contrato contínuo e uma auditoria independente que ajudará a gerar confiança na qualidade do código base de Cardano. A verificação independente da tecnologia de Cardano por FP Complete irá fomentar confiança e irá fornecer transparência, elemento crucial para a adoção do software pela indústria.
+
+Goguen
+
+Sidechains - Sidechains
+Sidechains permitem múltiplos blockchain interoperarem entre si. Existirão várias blockchains Cardano. A blockchain principal de Cardano é a camada de liquidação, onde residem as contas que detêm Ada. A camada de liquidação será simples, permitindo a gestão e transferência de fundos; não permitirá escrever código complexo. Ao manter esta camada simples, limitando as suas características, permite melhor segurança pois existem menos pontos fracos onde um adversário poderá atacar. Sidechains permitem criar blockchains em separado habilitando mais características para Cardano. Por exemplo, a sidechain de contratos inteligentes ou a camada de computação de Cardano irá ser rico em características e permitirá experssar contratos com Turing-Completude sem afetar a segurança da blockchain principal.
+Ao permitir sidechains interoperarem significa que Ada pode ser movido de uma blockchain para outra. Assim, podem ser cunhados Ada numa blockchain e movidos para uma sidechain, mudar de proprietário e voltar para a blockchain principal. Mover moedas entre blockchains acontece automaticamente através da carteira do cliente sem requerer uma interação com o utlilizador. Todas as sidechains são de dois sentidos; se tiver Ada numa blockchain pode mover para outra e de volta novamente à original. Esta propriedade é chave para permitir escalar e fundamental para o desenvolvimento de blockchains. Ao retirar trabalho da cadeia principal para outras sidechains os limites de capacidades da cadeia principal são alargados permitindo uma forma de fragmentar a blockchain. Sidechains permitem atualizações suaves porque novas características experimentais podem ser implementadas sem a necessidade de bifurcar a blockchain. Pessoas que pretendem utilizar a característica podem mover as suas moedas para a sidechain e tirar partido dessa característica e depois mover as moedas de volta.
+
+Modelo de contabilidade - Accounting Model
+Em criptomoedas, existem diferentes modelos de contabilidade prevalentes; o modelo de Bitcoin com output de transações não utilizados e o modelo por contas utilizado por Ethereum. Cardano vai utilizar um sistema com múltiplas camadas: camadas diferentes de Cardano podem usar estilos diferentes de contabilidade. A camada de liquidação (ou a blockchain principal) utiliza o model de output de transações não utilizadas  enquanto que a camada de computação (sidechain) é baseado no IELE que utiliza um estilo de contabilidade como Ethereum. De modo a transferir valor de forma segura entre a blockchain principal e a sidechain, é indispensável uma relação clara e sem ambiguidade entre os diferentes estilos de contabilidade.
+Baseamos este entendimento em definições formais dos esquemas de contabilidade. Com isto, podemos provar construtivamente a sua equivalência no sentido em que pode simular um ao outro. Isto garante que o valor não poderá ser criado nem perdido quando movido entre blockchains.
+
+Plutus Core - Plutus Core
+A filosofia da camada de liquidação é manter simplicidade e segurança. Ao manter esta filosofia, a camada de liquidação terá apenas uma linguagem de script com interações muito simples entre o script e a blockchain. Plutus Core é a linguagem usada. É altamente expressiva no entanto segura e simples. É baseado em ideias bem compreendidas da teoria de linguagem de programação, por exemplo programação puramente funcional que permite certas técnicas de verificação assegurarem a retidão dos scripts. Plutus Core não foi concebido para ser escrito diretamente por programadores, o alvo são os compiladores incluíndo a linguagem Plutus.
+Plutus Core será usado na camada de computação executando diretamente ou através do IELE. Neste contexto terá interações ricas com a blockchain permitindo o uso de sofisticados contratos inteligentes.
+
+Máquina Virtual IELE v1 - IELE Virtual Machine v1
+Baseado na pesquisa que define KEVM, a semântica de EVM em K, a equipa K está a conceber uma nova máquina virtual. IELE servirá como uma plataforma uniforme de baixo nível para traduzir e executar contratos inteligentes de linguagens de alto nível que podem interagir entre eles através de correntes funções de chamada. IELE será uma máquina baseada em registo tal como LLVM. Tem um ilimitado número de registos e suporta um número ilimitado de inteiros.
+A máquina virtual fornecerá um model de gás uniforme em todas as linguagens. A filosofia de conceção geral do cálculo de gás em IELE é a de que não há limitações e que se paga o que se consome.
+IELE tornará a redação de contratos inteligentes mais simples. Isto inclui a redação de especificações de requisitos que contratos inteligentes deverão obedecer, além de tornar mais simples o desenvolvimento automático de técnicas que verifiquem matematicamente e provem o rigor destes contratos inteligentes no que respeita às suas especificações.
+A conceção de IELE foi realizado num estilo baseado em semântica usado em K. Juntamente com um backend de execução rápida (baseada em LLVM) para K, é esperado que o intéprete obtido automaticamente da semântica do IELE seja suficiente para servir como uma referência para a implementação do IELE. Para validar IELE e em específico o model de gás, tradutores / compiladores de Solidity e Plutus Core a IELE serão desenvolvidos o mais cedo possível.
+
+Integration and implementation - Integration and implementation
+Todo o trabalho anterior será integrado na camada de computação (CL) e na camada de liquidação (SL) de Cardano. A integração inclui juntar as sidechains e pesquisa sobre contabilidade e implementar quer em SL quer em CL que permitirá ativos serem movidos entre SL e CL. Este trabalho inclui integrar Plutus Core e IELE  em CL que também executará contratos inteligentes em CL.
+
+Implementação e interação de contratos inteligentes - Smart contracts deployment & interaction
+Cardano será enviado com um conjunto de ferramentas que permitirá aos desenvolvedores terem experiência de alta qualidade. Incluído estará a rede de desenvolvimento Cardano, a rede de testes privada para testar código antes da implementação à rede real; REPL (uma linguagem shell de interação com computadores) interativo para interagir com o API do nó Cardano e Plutus; compilar e implementar contratos inteligentes com facilidade usando um interface em linha de comando.
+
+Basho (Melhoria do desempenho) - Basho (Performance Improvement)
+As características em Basho são focados no desempenho, segurança e capacidade de escalar. Irá apresentar a implementação de Ouroboros Praos e a revisão da camada de rede.
+
+Voltaire - (Escalar e Certeza) Voltaire (Scalability & Assurance)
+Voltaire é focado na certeza e em escalar e verá a introdução do modelo de tesouraria. Irá assegurar a sustentabilidade e auto-suficiência da blockchain e da comunidade.
+
+
+Keywords
+
+Introdução - Introduction
+Novo - New
+Progresso - Progress
+Implementado - Deployed
+Em implementação - Implementing
+Cardano SL - Cardano SL
+Cardano CL - Cardano CL
+Daedalus - Daedalus
+Investimento Emurgo - Emurgo Investment
+Evento Emurgo - Emurgo Event
+Parceria Emurgo - Emurgo Partnership
+Fundação Cardano - Cardano Foundation
+Próxima atualização em - Next update in
+
+
+
+
+
+
