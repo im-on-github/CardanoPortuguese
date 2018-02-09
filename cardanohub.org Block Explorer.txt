@@ -4,9 +4,9 @@ Explorador de blocos - Block Explorer
 
 Cardano tem o seu próprio explorador de blocos. Esta ferramenta é útil uma vez que permite verificar o histórico de transações que ocorreram na plataforma Cardano.
 
-Todas as transações Ada são gravadas publicamente na blockchain e o explorador pode ser utilizado para procurar detalhes sobre qualquer transação.
+Todas as transações Ada são gravadas publicamente na blockchain, e o explorador pode ser utilizado para procurar detalhes sobre qualquer transação.
 
-O explorador de blocos Cardano ajuda na verificação de transações na rede de testes Cardano que está actualmente em operação ao mesmo tempo que está em operação na versão real da rede que será lançado em breve. (A rede de test Cardano é uma versão piloto da rede em que os engenheiros estão a correr testes de modo a assegurar suave e segura operação antes do lançamento da rede real.)
+O explorador de blocos Cardano ajuda na verificação de transações na rede de testes Cardano, que está atualmente em operação, ou na versão verdadeira da rede Cardano, que será lançada em breve. (A rede de teste Cardano é uma versão piloto da rede na qual os engenheiros estão a correr testes de modo a assegurar a operação suave e segura antes do lançamento da rede real.)
 
 Desenvolvedores estão a criar capacidades no explorador de blocos Cardano e está planeado tornar-se num recurso completo que terá estatísticas, gráficos e muitas outras características.
 
