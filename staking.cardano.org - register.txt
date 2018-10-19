@@ -1,0 +1,10 @@
+
+Tradução EN -> PT https://staking.cardano.org/register/ 2018 10 19
+
+Registo de Agrupamentos de Participação em Cardano
+
+Cardano progride a partir da atual fase de desenvolvimento federada de Byron de modo a tornar-se descentralizado como resultante da fase Shelly. A equipa de desenvolvimento da IOHK irá preparar o terreno para a comunidade se envolver na participação e delegação, com os incentivos associados que advêm da participação. a começar em 3ºT 2018, characterísticas da descentralizaçãoserão testadas com a participação da comunidade através de redes de tests e posteriormente o lançamento do mainnet por etapas.
+Terceiros interessados em administrar agrupamentos de participação na rede de testes Shelley são convidados a completar o formulário que se segue entre 5 de Abril e 31 de Maio 2018.
+Brevemente após o fecho do registo, IOHK irá fornecer os detalhes sobre quando serão selecionados os agrupamentos de participação e visíveis em Daedalus como parte da rede de testes. Estes detalhes incluirão documentação de utilização e os canais de feedback.
+
+Registos encerrados.
