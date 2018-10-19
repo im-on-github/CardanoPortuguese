@@ -1,0 +1,35 @@
+
+Tradução EN -> PT https://staking.cardano.org 2018 10 19
+
+Website Footer
+
+Cardano é um projeto em código aberto
+Cardano é uma plataforma de software APENAS e não realiza qualquer diligência independente sobre, ou revisão substantiva de qualquer ativo da blockchain, moeda digital, criptomoeda ou fundos associados. O utilizador é total e unicamente responsável por avaliar os seus próprios investimentos, determinar se cambiará ativos da blockchain baseados no seu juízo próprio e para todas as decisões se cambiará ativos blockchain com Cardano. Em muitos casos, ativos blockchain que cambiar baseados na sua própria pesquisa poderão não aumentar de valor e poderão diminuir de valor. De modo semelhante, ativos blockchain que cambiar na base da sua própria pesquisa poderão aumentar ou diminuir em valor após o seu câmbio.
+Desempenhos passados não são indicador de resultados futuros. Qualquer investimento em ativos blockchain envolve o risco de perda de parte ou totalmente do seu investimento. O valor do ativo blockchain que cambiar está sujeito ao mercado e outros investimentos de risco.
+
+O Projeto | O Protocolo | A Fundação | Aprenda Mais
+
+
+Mais sobre Cardnao
+Explorador de Cardano
+Documentação
+Roteiro Cardano
+Cardano SL Source
+Fundação Cardano
+Cardano.org
+Daedalus
+Participação em Cardano
+Rede de tests Cardano
+Cardano Rust
+
+Junta-te à comunidade
+Comunidade Cardano
+Telegram Cardano
+Forum Cardano
+Reddit Cardano
+IOHK
+Blog IOHK
+YouTube IOHK
+Twitter Fundação Cardano
+
+
