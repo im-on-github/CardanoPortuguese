@@ -1,0 +1,184 @@
+
+Tradução EN -> PT https://staking.cardano.org 2018 10 17
+
+Incentivos e participação em Cardano
+
+Equipa de incentivos e delegação
+
+Os detalhes abaixos refletem o trabalho em desenvolvimento sobre incentivos em Cardano. A informação foi retirada de uma apresentação realizada por Lars Brünjes, diretor de educação de IOHK em 2018 e demonstra a orientação genérica da pesquisa deste tópico apesar de poder haver afinações e adicionamentos à medida que os trabalhos prossigam.
+
+Ler o artigo: Reward Sharing Schemes for Stake Pools
+
+
+Introdução
+
+O que são incentivos?
+Incentivos no contexto das criptomoedas são formas de encorajar pessoas a participarem no protocolo, seguirem-no com fé e a comportarem-se de acordo com os melhores interesses dos outros utilizadores e do próprio sistema.
+No caso de Bitcoin, isto significa minar blocos e incluir o maior número de transações possível em cada bloco. Em Cardano, significa estar ligado à rede e criar o bloco quando esse utilizador foi eleito o líder do slot de modo a participar no processo de eleição do líder do slot para criar o bloco.
+Participar no protocolo de Cardano incorre em muito menos custos computacionais do que participar em Bitcoin. Mesmo assim, haver líderes de slots ligados quando é a sua vez de criar o bloco ou a participar no process de eleição é importante quer para a segurança quer para a eficiência do protocolo.
+
+Incentivos monetários
+Quando se fala em incentivos, referimos a incentivos monetários sob a forma de Ada. Em troca da participação no protocolo e suportar a eficiente operação do sistema, a partes interessadas são recompensadas através de uma quantia de Ada.
+Contudo, existem outros tipos de incentivos também: fatores como o idealismo ou moral ou um desejo geral de realizar o que deve ser feito.
+O objetivo é que os incentivos monetários e morais alinhem perfeitamente. Contudo, este ideal nem sempre é atingindo.
+
+Nosso objectivo
+Em Cardano, esforçá-mo-nos para atingir o perfeito alinhamento de incentivos.
+Queremos incentivar partes interessadas a estarem ligados à rede quando tiverem que participar no protocolo, por exemplo para criar um bloco. Pessoas a quem falta o interesse, conhecimento técnico ou tempo de estarem ligados quando necessários podem continuar a participar através da delegação da sua participação a um agrupamento de participações.
+
+Delegação
+
+Configuração dos agrupamentos de participações
+Para a máxima eficiência e segurança, uma sólida maioria de participações (cerca de 80%) deverá ser delegada a um número de agrupamentos de participações (100 parece ser um número razoável).
+Os agrupamentos de participações deverão estar ligados à rede quando necessário e deverão fornecer nós de transmissão, que é infrastrutura adicional para a rede. A restante proporção das participações (cerca de 20%) deverão pertencer a estas "pequenas" partes interessadas, que podem decidir a participar no protocolo por si só ou simplesmente não fazerem nada.
+
+Delegar a participação em Cardano
+Cardano é um sistema em prova de participação, portanto ser detentor de participação, ie detendo Ada, significa mais do que ser detentor de Bitcoin para o protocolo de Bitcoin.
+Cardano é uma criptomoeda multi-funcional, pois Ada pode ser utilizado para comprar bens e serviços. Além disso, ao deter Ada advém o direito e a obrigação de participar no protocolo e criar blocos.
+Estes dois aspetos de serem detentores de Ada podem ser separados através da delegação: uma parte interessada pode delegar o seu direito na participação no protocolo enquanto retém o valor monetário.
+
+Controlo dos fundos
+O ato de delegar não renuncia ao poder de compra. Apenas o direito de participar no protocolo é delegado. Fundos podem ser gastos normalmente a qualquer momento.
+
+Endereços
+Existem três tipos de endereços distintos, cada um dos quais está associado com dois pares de chaves criptográficas, um par para pagamento e outro para para a participação. Todos os três tipos funcionam de forma idêntica no que respeita ao pagamento.
+	* 
+Endereço base: a chave para participação está diretamente ligado ao endereço 
+	* 
+Endereço indicador: Este endereço contém um indicador ao certificado de delegação na blockchain que define a chave de participação
+	* 
+Endereço de empresa: Participação não é possível. Este endereço é destinado aos câmbios que não é suposto utilizar os fundos lhes são confiados para participarem no protocolo.
+
+
+
+Certificados de delegação
+Um certificado de delegação delega os direitos de participação de uma chave de uma parte interessada para outra chave.
+Este certificado poderá ser publicado na blockchain como parte dos metadados da transação, nesse caso o endereço indicador poderá apontar até lá. Tal publicação do certificado é chamado peso pesado. No caso de haver certificados conflituosos, mais tarde na blockchain ganhará.
+Os custos de transação de criar o certificado de delegação peso pesado são os custos de transação contidos na transação.
+Um certificado peso pluma não é publicado na blockchain, é por sua vez incluido nos cabeçalhos do bloco de modo a provar os direitos de participação para o endereço que foi eleito líder do slot. Conterá também um "número de série" para situações de desempate.
+
+Registo de agrupamentos de participações
+Quem queira criar o seu próprio agrupamento de participações cria um certificado de registo embutindo esse certificado na transação que paga os custos de transação que paga os custos de registo a um endereço especial.
+O certificado contém a chave de participação do líder do agrupamento.
+Pessoas que desejem delegar a um agrupamento têm que criar um certificado de delegação (peso pesado) delegando a sua participação para aquela chave.
+
+Cenários
+Usando combinações de endereços de base e indicadores e "cadeias" de certificados de delegação, um elevado número de cenários podem ser cobertos incluíndo:
+	* 
+Carteiras de utilizadores comuns
+	* 
+Carteiras de utilizadores que estão offline em "participação offline"
+	* 
+Carteiras com privacidade avançada
+	* 
+Carteiras de agrupamentos de participações
+	* 
+Carteiras de empresas de câmbio
+
+
+
+
+Custos
+Custos de transações
+Existem duas razões principais para haver um custo para as transações em Cardano, ou outra criptomoeda qualquer:
+	* 
+Previnem ataques de negação de serviço distribuido (DDoS). Num ataque DDoS um atacante inunda uma rede com transações que são spam. Se for exigido ao atacante um pagamento suficientemente elevado por cada transação simulada, esta form de ataque torna-se proibitivo.
+	* 
+Fornecer fundos para os incentivos.
+
+
+
+Como  funcionam os custos de transações
+Quando alguém pretende transferir umaquantia de Ada, um custo mínimo é pago para essa transação. Esse custo mínimo valida a transação, apesar do remetente ser livre de pagar custos mais elevados se assim o pretender.
+
+
+Expansão monetária
+Quantia total de Ada hoje é aproximadamente 31,000,000,000.
+A quantia máxima de Ada é de 45,000,000,000.
+Portando existem quase 14,000,000,000 Ada disponível para incentivos.
+Esta quantia é muito elevada, no entanto finita - o seu uso deverá decrescer de forma exponencial com o tempo. 
+
+Custos mínimos
+Por exemplo, uma transação de 200 bytes de tamanho (tamanho normal) custa:
+0.155381 ADA + 0.000043946 ADA/byte × 200 byte = 0.1641702 ADA
+Os custos mínimos da transação são calculados de acordo com a fórmula:
+a+b*tamanho
+onde:
+a - é uma constante que atualmente é de 0.155381 Ada
+b - é uma constante que atualment é de 0.000043946 Ada/byte
+tamanho - é o tamanho da transação em bytes.
+
+A razão por haver o parâmetro a é para prevenir o ataque DDoS mencionados acima. Mesmo um número muito pequeno de transações deverão custar o suficiente para ferir o atacante que tenta gerar muitos milhares de transações.
+O parâmetro b foi introduzido de modo a reflectir os custos atuais: armazenar as transações maiores requer mais memória do computador do que transações mais pequenas, portanto maiores transações deverão pagar mais do transações mais pequenas.
+Apesar dos valores específicos terem sido calculados para os parâmetros a e b, estes valoes serão provavelmente ajustados no futuro para melhor refletir os custos atuais.
+
+Justificação
+Ao longo do tempo e à medida que mais pessoas utilizam Cardano, mais custos de transação ficarão disponíveis para compensar pelo decréscimo da expansão monetária.
+Um exemplo arbitrário da redução exponencial da expansão exponencial poderia ser através da implementação de uma política de usar 5% da restante Ada por ano para incentivos.
+
+Ano | Quantia para Incentivos | Restante
+
+
+Distribuição de incentivos
+Na operação de Ouroboros, o protocolo em  prova de participação usado em Cardano, tempo é dividido em épocas e slots. Um slot demora 20 segundos enquanto uma época contem 21,600 slots e dura 5 dias.
+Incentivos são distribuídos em cada época. Custos de transação dos blocos criados durante uma época (junto com a Ada da expansão monetária) são aggregados numa recompensa virtual e o total é distribuídos pelos diferentes participantes.
+
+Idea básica da distribuição
+As recompensas do agrupamento de uma época é distribuído pelos agrupamentos de participações (e participantes indivíduais do protocolo) de acordo com a sua participação.
+Existem duas formas concebíveis para realizar:
+Proporcional à participação controlada no início de cada época
+Proporcional ao número de slots que um agrupamento de participação foi eleio líder do slot (e não ao número de blocos criados)
+
+
+Nota
+Devido à forma como o protocolo de Cardano funciona, este métodos têm a mesma recompensa esperada porque a probabilidade de se ser eleito líder do slot é proporcional à participação total controlada.
+
+
+Primeiro refinamento: Agrupamentos grandes
+Como primeiro refinamento à ideia básica, a proporção máxima das recompensas dos agrupamento que cada agrupamento pode receber será limitado por 1/k, onde k é o número de agrupamentos desejados (k~100).
+
+Exemplo
+Assumindo k=100 e consider agrupamentos de participação A e B com 0.3% e 1.2% de participação respetivamente. Então A receberá 0.3% das recompensas  mas B apenas receberá 1%.
+
+Motivação
+Esta política deverá prevenir agrupamentos de participações de crescerem em demasia, assegurando que existe a descentralização dos utilizadores.
+
+Segundo refinamento: Estar online
+Conforme explicado na introdução, o objetivo dos incentivos é de incentivar pessoas a seguir o protocolo. Portanto agrupamentos de participação deverão ser penalizados por não seguirem o protocolo e por não estar online quando é a sua vez de estar.
+
+Eligibilidade
+Como consequência, haverá um predicado que, olhando para as slots a que um dado agrupamento de participação foi eleito líder e o número de blocos que efetivamente criou irá determinar se o agrupamento é eligível para a sua porção da recompensa.
+Este predicado poderá não ser tudo ao nada, no entanto por sua vez atribuir uma certa percentagem das recompensas disponíveis baseado na aderência ao protocolo.
+Este predicado não pode ser tão simples quanto "criou pelo menos X% de blocos que deveria ter criado" porque isto pode levar a que ninguém esteja online junto da parte final de uma época.
+
+
+
+Características
+Fundos não distribuídos
+É de notar que os dois refinamentos explicados anterioremente podem levar à situação onde nem todos os fundos contidos no agrupamento de recompensas será distribuído. Esta é uma característica que permite que os restantes fundos possam ser utilizados para a tesouraria.
+
+
+Ataques de mineração egoísta
+Ataques como o da mineração egoísta ou reteanção de blocos não pode ocorrer porque os agrupamentos estão cercados de um ao outro. As ações de um agrupamento apenas afetam as suas próprias recompensas.
+
+
+Nenhuma competição
+A forma como a distribuição dos fundos funciona significa que não existe competição entre agrupamentos: não existe nada que um agrupamento possa fazer para aumentar as suas recompensas através da redução das recompensas de outros agrupamentos.
+É de também notar que a distribuição dos fundos funciona implica que não existe competição entre agrupamentos: não existe nada que um agrupamento possa fazer para aumentar as suas recompensas através da redução das recompensas de outros agrupamentos.
+Nem existe qualquer incentivo  para um agrupamento sabotar os esforços de outro agrupamento.
+
+Distribuição a membros dos agrupamentos de participação
+Após as recompensas serem divididas por entre os diferentes agrupamentos de participações, cada líder do agrupamento de participação tem que distribuir a sua quota de recompensas pelos diferentes membros do agrupamento i.e. a pessoa que delega a sua participação para o seu agrupamento.
+Este procedimento funcionará com duas linhas orientadoras:
+Cada líder do agrupamento deverá compensar-se pelos seus custos (computação, tempo online) e ser recompensados pelos seus esforços.
+Os membros do agrupamento deverão deverão ser recompensados de forma proporcional à sua participação que delegaram para o agrupamento.
+
+Exemplo
+Um exemplo arbitrário, considere um líder de agrupamento Alice com 0.2% de participação, que forma o seu agrupamento com Bob (0.1% de participação) e Charlie (0.2% de participação). Vamos assumir que a recompensa para uma época fictícia contendo 5,000,000 ADA e a Alice criou blocos durante todos os slots para os quais ela foi eleita. Então o agrupamento da Alice, que detém 0.5% da participação, receberá 25,000 ADA da recompensa por esta época.
+Dos 25,000 ADA, Bob irá receber metade dos que Charlie receberá, mas Charlie irá receber menos do que a própria Alice, de modo a recompensar Alice pelo custo e trabalho de administrar o seu agrupamento.
+Se a Alice receber 5,000 ADA a mais pelo seu trabalho, ela receberá no final com 13,000 ADA, Bob com 4,000 ADA e Charlie com 8,000 ADA
+
+Nota
+Trata-se de um exemplo hipotético destinado a explicar o conceito da distribuição de recompensas. Estes números utilizados não refletem quantias reais de recompensas futuras.
+
+
