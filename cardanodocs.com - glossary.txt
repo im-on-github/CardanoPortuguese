@@ -1,0 +1,91 @@
+ 
+Tradução EN --> PT https://cardanodocs.com/glossary/ 2018 10 24
+ 
+Glossário
+ 
+ADA
+A designação da nossa moeda em honra da Ada Lovelace.
+ENDEREÇO
+Um identificador único de um nó. Para mais detalhes ler Endereços em Cardano SL.
+BALANÇO
+Ver razão.
+BLOCO
+Uma parte fundamental do razão. Para detalhes técnicos ler Blocos em Cardano SL.
+BLOCKCHAIN
+Ver razão.
+CARDANO SL
+Cardano SL (ou Cardano camada de liquidação) é a moeda criptográfica descentralizada concebida e desenvolvida por IOHK. A denominação é em honra de Gerolamo Cardano.
+ATIRAR MOEDA-AO-AR
+Atirar moeda-ao-ar é o protocolo que permite dois ou mais partidos a obter um valor aleatório uniformemente. Pode-se utilizar o protocolo de moeda-ao-ar como base de SSC. Para mais detalhes sobre Atirar moeda-ao-ar ler 
+ALGORITMO DE CONSENSO
+Uma forma de descentralizar um sistema de modo a alcançar uma visão consistente das coleções partilhadas de dados. Cardano SL utiliza o algoritmo de Consenso Ouroboros, que é um algoritmo baseado em prova de participação.
+CRIPTOMOEDA
+Um sistema informático que utiliza protocolos criptográficos para gerar um razão. Para mais detalhes ler Básicos de Criptomoedas.
+DAEDALUS
+Uma aplicação de carteira em Cardano SL. Proporciona um interface gráfico ao utilizador para que possam aceder aos seus fundos, enviar e receber transações, etc. Para mais detalhes ler Frontend Carteira em Cardano SL.
+DESCENTRALIZAÇÃO
+A noção de um sistema informático que opera através da interação independente de nós. No caso de manterem uma coleção partilhada de dados tal como m razão, um consenso é necessário para garantir a consistência e fiabilidade dos dados.
+ÉPOCA
+Um período de tempo maior para o qual se sabe em antecipação quem terá o direito de gerar um bloco em cada slot. Para detalhes técnicos ler o artigo (página 3)
+SEGUE O SATOSHI
+Um mecanismo onde partes interessadas são aleatoriamente selecionados para cunhar um novo bloco na blockchain com a probabilidade proporcional de serem eleitos dependendo da quantia de participação tiverem no protocolo.
+ENTREGA DE OUTPUT GARANTIDO
+Entrega de output garantido é o mecanismo que prova que a partidos honestos são garantidos de completarem uma computação multipartidária de sucesso. Utilizamos entrega de output garantido em SSC.
+MAIORIA HONESTA
+Maioria honesta é uma situação quando um número de participantes honestos estritamente maior do que a quantia de adversários, isto é, pelo menos 50% +1. Maioria honesta é assumido por defeito.
+KADEMLIA
+Ver descoberta de pares.
+LÍDER DE ELEIÇÃO
+O processo de selecionar que irá gerar blocos durante a época seguinte. Líderes são eleitos com uma probabilidade proporcional à participação (ver Prova de Participação e Segue o Satoshi)
+RAZÃO
+Uma coleção de dados que mantém o rasto de valor assignado a indivíduos. Para mais detalhes técnicos ver artigo (página 32).
+LOVELACE
+Nome da unidade mais pequena da nossa moeda. Designado em nome de Ada Lovelace.
+CUNHAR
+O processo de criação de um novo bloco em sistemas de Prova de Participação.
+NÓ
+Um programa informático que participa no sistema descentralizado do protocolo. Para mais detalhes ler Visão técnica geral.
+ARTIGO
+Relatório do protocolo oficial Ouroboros: A Provably Secure Proof of Stake Blockchain Protocol. É de notar que a implementação em Cardano SL difere do artigo, para mais detalhes leia sobre as diferenças.
+DESCOBERTA DE PARES
+Uma forma como um nó encontra outros nós após a execução. Na descoberta de pares utilizamos Kademlia DHT. Para mais detalhes técnicos ler o artigo sobre Kademlia.
+PLUTUS
+Linguagem de programação funcional estritamente digitada utilizado para definir contratos inteligentes em Cardano. Para mais detalhes ler sobre Plutus.
+PROVA DE PARTICIPAÇÃO
+O algoritmo de Prova de Participação Ouroboros é a parte mais importante do protocolo. Define a forma como os nós obtêm consenso sobre o estado do razão. Para mais detalhes técnicos ler Algoritmo em Prova de Participação Ouroboros.
+PVSS
+Segredo partilhado publicamente verificável é um esquema criptográfico que utilizamos em SSC. Para mais detalhes ler Implementação de PVSS em Cardano SL.
+RICHMAN
+Parte interessada com suficiente participação suficiente para participar numa determinada ação. Nomeadamente existem três tipos de ações: geração de aleatoriedade (para o processo de eleição de líderes de slot), delegação de participação de peso-pesado e para votação na atualização dos protocolos.
+ASSINAR
+Uma forma de gerar uma prova de genuína autenticidade de qualquer espécie de informação usado em criptografia.
+SLOT
+Um pequeno período de tempo físico que é significativamente superior do que a diferença expectável entre relógios em diferentes nós. Para mais detalhes técnicos ler o artigo (página 4).
+LÍDER DE SLOT
+Um líder de slot é um nó que foi eleito a ter o direito a criar um bloco no slot atual. Para mais detalhes técnicos ler artigo (página 7).
+SSC
+A Computação de semente partilhada é parte do processo de eleição do líder de slot. Esta parte é implementado como um protocolo Atirar a moeda-ao-ar com entrega de output garantido. Como resultado de SSC obtemos aleatoriedade que é posteriormente utilizado no mecanismo Segue o Satoshi.
+PARTICIPAÇÃO
+Para uma explicação ler Balanço e participação em Cardano SL.
+PARTE INTERESSADA
+Um nó com participação positiva.
+TRANSAÇÃO
+Os dados que representa o ato de transferir valor. Para mais detalhes ler Transações em Cardano SL.
+CUSTOS DE TRANSAÇÃO
+Para uma explicação ler Custos de transação em Cardano SL.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
