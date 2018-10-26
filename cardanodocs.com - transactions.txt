@@ -1,0 +1,51 @@
+Tradução EN -->PT https://cardanodocs.com/cardano/transactions/ 2018 10 23
+
+Transações em Cardano SL
+
+Visão geral
+Uma transação (tx) é um tipo de dado especial que representa o ato de transferência de valor entre nós (de um ponto de vista do utilizador transferindo entre carteiras). Portanto, quando a utilizadora Alice envia dinheiro para o utilizador Bob, surge uma nova transação. Chamemos a esta transação XXX, o nó sob a carteira da Alice XXX e o nó sob a carteira do Bob XXX.
+Portanto, o nó XXX executa os seguintes passos:
+1. Cria a transação XXX e assina-a com a sua chave privada
+2. Envia a transação a todos os nós conhecidos (i.e. vizinhos)
+3. Guarda a transação nos seus dados locais.
+Cada um dos XXX vizinhos envia a transação XXX aos seus vizinhos e por aí adiante e um líder de slot irá armazenar a transação num bloco dentro do razão. É de notar que se a rede está sob elevada carga, poderá levar algum tempo para a transação ser realmente adicionada ao bloco.
+
+Design
+Cada transação contém uma lista de inputs e uma lista de outputs; outputs de uma transação XXX podem ser utilizados como inputs de outra transação xxx e por aí em diante.
+Inputs e outputs trazem informação sobre o fluxo de dinheiro; inputs informam donde o dinheiro veio e os outputs informam para onde o dinheiro vai. É de notar que existe XXX e XXX, porque o número real de inputs e outputs pode ser diferente.
+Portanto cada input contém:
+1. Um identificador da transação XXX, cujo output é utilizado para este input. O identificador da transação é a uma hash BLAKE2b-256 da hash da chave pública do nó XXX, algo parecido com XXX. Para mais informações ler Endereços em Cardano SL.
+2. A quantia de dinheiro que queremos enviar. Este valor é um inteiro de 64-bits cujo valor máximo é de XXX.
+Por exemplo:
+XXX
+Nó XXX gera a transação XXX e esta transação informa-nos que:
+1. Queremos enviar 100 ADA do nó corrente com o endereço XXX para o nó com o endereço XXX
+2. Este dinheiro corresponde ao XXº output da transação anterior com o identificador XXX.
+
+Verificação
+Conforme mencionado acima, o output da transação torna-se o input de outra transação. Neste caso trata-se cada output como um output de transação gasta. Portanto um output XXX da transação XXX é um output gasto porque já é um input da transação XXX.
+No entanto, tais gastos não ocorrem imediatamente, daí que um output que não é gasto um input de uma outra transação é chamado um output de transação não gasto. Apenas outputs não-gastos podem ser utilizados como inputs de outras transações, de modo a prevenir gasto duplo.
+Portanto todos os nós na rede não só aceitam as transações, mas também as verifica. Para tal, todos os nós têm que acompanhar os outputs não-gastos, permite a validação que os inputs publicados numa transação são de facto outputs não gastos. Na verdade, todos os outputs não-gastos são chamados utxo e fazem parte de uma base de dados de valores chave especial chamado Estado Global.
+Prova de transação legítima
+Em cada transação em Cardano SL é acompanhado por uma prova (também designado por testemunha) que mostra que a transação é legítima. Mesmo que a transação seja uma não-gasta é necessário provar que temos o direito de a gastar. Uma vez que a transação XXX pode ter múltiplos inputs, a testemunha consiste na testemunha de todos inputs XXX e se e só se todos os inputs forem legítimos, XXX também é legítimo. Se uma dada transação não for legítima será rejeitada pela rede.
+Uma vez que existem dois tipos de endereços disponíveis utilizamos duas versões correspondentes de testemunhas: uma baseada numa chave pública e outra baseada em script.
+Por exemplo, a primeira opção funciona com a chave pública XXX e a assinatura da transação: input legítimo tem de ser assinado com a chave privada que corresponde com XXXX. Assim, é possível verificar esta assinatura e aceitar ou rejeitar o input.
+Testemunhas são armazenadas na blockchain para toda a gente constatar, inspecionar e verificar de forma independente para si próprio. No entanto, após algum tempo um nó pode apagar provas antigas para libertar espaço. A técnica de armazenamento de transações em separado das provas chama-se "testemunha segregada" (poderá ter ouvido falar da recente implementação em Bitcoin). Sob este esquema, transações e provas são armazenados em dois locais diferentes no bloco e podem ser processados de forma independente.
+
+Distribuição de participação
+A distribuição de participação é outra parte de Cardano SL, não diretamente relacionado com a delegação, mas podemos explorar o seu benefício.
+Alguns endereços têm múltiplos detentores que causa um problema para a computação uma vez que de acordo com o Segue o Satoshi cada moeda deve ser contada uma única vez de acordo com a participação total de cada parte interessada. Ao contrário do balanço (quantia real de moedas no balanço), participação atribui ao utilizador poder de controlo sobre diferentes partes do protocolo: ser líder de slot, votar na atualização do sistema, fazer parte de MPC/SSC.
+A distribuição de participação é um valor associado a cada endereço. Tecnicamente a distribuição de participação é um valor que é uma parte dos atributos do endereço. Este valor corresponde a um dos três casos abaixo:
+1. Distribuição na era Bootstrap: Este é um valor especial que é obrigatório durante a era Bootstrap, mas pode ser utilizado após esta era também.
+2. Distribuição chave única, significa que toda a participação irá para uma determinada parte interessada. Neste caso a distribuição contém o identificador da parte interessada.
+3. Distribuição chaves múltiplas, significa que toda a participação irá para múltiplas partes interessadas (pelo menos duas). Neste caso a distribuição contém pares de "identificadores de partes interessadas - porções de output". Outputs de transações têm um valor, uma porção deste valor é a participação.
+Distribuições de participação são considerados quer para o processo de eleição do líder do slot quer para computações Richmen.
+Esta característica pode ser utilizada de forma similar para delegar, no entanto existem diferenças.
+1. Não existem certificados: para revogar uma distribuição de participação XX tem que mover os fundos, resultando numa nova distribuição de participação
+2. A porção de distribuição XXX pode ser delegada via distribuição. Pelo contrário, delegação requer que se delegue todos os fundos de um endereço de uma só vez.
+
+
+
+
+
+
