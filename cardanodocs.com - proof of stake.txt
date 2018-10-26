@@ -1,0 +1,57 @@
+Tradução EN -->PT https://cardanodocs.com/cardano/proof-of-stake/   2018 10 22
+
+Algoritmo Ouroboros de prova de participação.
+
+O algoritmo Ouroboros de prova de participação é a parte mais importante do protocolo. O protocolo define a forma como os nós alcançam consenso sobre o estado de um razão.
+Ouroboros é único dado que se baseia num algoritmo de prova de participação que foi cientificamente provado como sendo seguro.
+Porquê a prova de participação?
+O aspeto mais importante na escolha do algoritmo de Prova de Participação sobre a prova de trabalho (conforme adotado por Bitcoin) são as considerações sobre o consumo de energia. Correr o protocolo de Bitcoin é um esforço extremamente dispendioso que utiliza quantidades enormes de energia. É estimado que 3.8 casas americanas podem ser fornecidas de energia por dia que é gasto na geração de uma transação. Estes requisitos energéticos para correr o protocolo de Bitcoin continuam a crescer à medida que mais e mais mineiros de Bitcoin afundam dinheiro para a sua mineração. Além disso, é necessária mais energia à medida que a dificuldade dos problemas que os computadores ou equipamentos de mineração aumenta. Esta é a razão pela qual investigadores procuram alternativas de alcançar o consenso - tais como os chamados algoritmos de consenso BFT (Byzantine Fault Tolerante) ou algoritmos PoS.
+O que é a prova de participação?
+A prova de participação é uma forma inovadora para a criação de blocos. A ideia chave da prova de participação é que em vez de despender eletricidade em resolver problemas computacionais pesados, um nó é selecionado a gerar (ou cunhar) um novo bloco com uma probabilidade proporcional à quantidade de moedas este nó tem. Se um nó tiver participação positiva é denominado "parte interessada". Se um nó eventualmente se tornar o escolhido para cunhar um novo bloco é o chamado "líder de slot".
+Prova
+A parte referente à "prova" de prova de participação refere-se à evidência de que os blocos de transações são legítimos.
+Participação
+Enquanto que "participação" significa o valor relativo detido por endereços num nó. Por relativo entende-se "toda a quantidade detida em carteiras num nó em particular dividido pelo valor total no sistema Cardano SL". Para mais informações consultar: Balanço e participação em Cardano SL.
+Sobre líderes de slots
+Nós com participação positiva são chamados "partes interessadas" e apenas partes interessadas podem participar a executar o protocolo. Além disso, para gerar novos blocos para a blockchain, uma parte interessada tem de eleger o líder de slot. O líder de slot pode ouvir as transações anunciadas pelos outros nós, fazer um bloco dessas transações, assinar o bloco com a sua chave secreta e publicar o bloco à rede.
+Pode-se pensar o líder de slot como um mineiro de Bitcoin, mas consenso mencionado anteriormente define quem terá a capacidade de minar, quando e quanto.
+Épocas e slots
+O protocolo Ouroboros divide tempo físico em épocas e cada época divide-se em slots. Por exemplo:
+XXX
+Nota: Um slot é um período de tempo relativamente curto (por exemplo 20 segundos).
+Cada slot tem um e apenas um líder (líder de slot, SL).
+XXX
+O líder de slot tem o único direito de produzir um e apenas um bloco durante o seu slot.
+XXX
+Isto significa que o número de líderes de slots é estritamente igual ao número de slots em cada época (chamemos a este número xxx), portanto é impossível produzir mais do que XXX blocos durante uma época.
+Se um líder de slot perder o seu slot (por exemplo estando offline), o direito de produzir o bloco perdeu-se até voltar a ser reeleito.
+Nota: Um ou mais slots podem permanecer vazios (sem a geração de blocos) mas a maioria dos blocos (pelo menos 50% +1) têm que ser gerados durante uma época.
+Como funciona a eleição de líderes de slots
+Líderes de slots são eleitos de um grupo de partes interessadas. É de notar que nem todas as partes interessadas participam no processo de eleição, no entanto apenas aqueles que tem participação suficiente (por exemplo 2% da participação total). Este grupo de partes interessadas são conhecidos como "eleitores".
+Eleitores elegem os líderes de slots para a próxima época durante a época corrente. Portanto, no fim de uma época XXX é já conhecido quem são os líderes para a próxima época XXX e não podem ser alterados.
+Pode-se pensar esta eleição como uma "lotaria justa"; qualquer um do grupo de partes interessadas pode tornar-se o líder do slot. No entanto, uma ideia importante para PoS é que quanto maior a participação de uma parte interessada tanto maiores são as probabilidades de ser eleito líder de slot.
+Nota: Uma parte interessada pode ser eleita como líder de slot para mais do que um slot durante uma época.
+Computação Multipartidária
+Um dos problemas fundamentais da eleição do líder de slot é a imparcialidade. Um certo grau de aleatoriedade é necessário como base para a eleição, neste caso, o resultado da eleição são aleatórios e justos. Portanto a questão a colocar é donde é obtida fonte de aleatoriedade?
+A abordagem pela computação multipartidária (MPC) é usada para obter esta aleatoriedade onde cada eleitor executa de forma independente uma ação que é chamado "atirar a moeda-ao-ar" e em seguida partilha o resultado com os outros eleitores. A ideia é que os resultados são aleatoriamente gerados por cada eleitor, no entanto eventualmente concordam no mesmo valor final.
+Fase de compromisso
+Antes de mais, um eleitor gera um segredo (ou um valor especial aleatório). Em seguida, um eleitor forma um compromisso que é uma mensagem que contém participações encriptadas (ver explicação abaixo) e prova do segredo.
+O próximo passo é quando o eleitor assina este compromisso com a chave secreta, especifica o número da época e anexa a chave pública. Neste caso, todos podem verificar quem criou este compromisso e a que época este compromisso se refere.
+Subsequentemente, um eleitor envia o compromisso a outros eleitores, portanto eventualmente cada eleitor coleciona os compromissos de todos os eleitores.
+Nota: estes compromissos são colocados num bloco, isto é, tornam-se parte da blockchain.
+Fase de revelação
+A fase de revelação é onde o eleitor envia uma "abertura" ou um valor especial para abrir um compromisso. Um compromisso é como uma caixa trancada (com um segredo no seu interior) e o ato de abertura envolve a chave que abre a caixa recuperando o segredo.
+Nota: todas as aberturas são colocadas num bloco, isto é, tornam-se parte da blockchain.
+Fase de recuperação
+A fase final do processo é a fase de recuperação.
+Ao longo do tempo, os eleitores honestos têm quer compromissos quer aberturas. Teoricamente alguns eleitores podem ser adversários e podem publicar o seu compromisso, mas não publicar a sua abertura.
+Neste caso, os eleitores honestos podem submeter todas as participações (mencionado acima) para reconstruir o segredo. A ideia é simples: uma eleição acaba com sucesso mesmo que alguns eleitores sejam adversários.
+Subsequentemente, um eleitor verifica que compromissos e aberturas coincidem e nesse caso extrai os segredos dos compromissos e forma uma semente (byte string gerado de forma aleatória) de todos os segredos. Por isso, todos os eleitores recebem a mesma semente e será usado no algoritmo chamado “Segue o Satoshi”.
+Segue o Satoshi
+Neste momento, eleitores receberam a semente (aleatoriedade que precisamos). Agora têm de selecionar um líder de slot para a próxima época. É aqui que entre em efeito o algoritmo Segue o Satoshi (SoS).
+XXX
+De modo a explicar como é que um líder de slot é selecionado, temos que pensar na unidade mais atómica de valor de uma moeda chamado "Lovelace".
+Fundamentalmente, o razão produz a distribuição de moedas desde que os líderes de slots possam apenas ser selecionados da distribuição de participação das partes interessadas. SoS é um algoritmo que verifica a seleção da moeda detida pela parte interessada XX selecionada, XXX torna-se o líder da slot. É claro que quantas mais moedas XXX tiver, a maior probabilidade de ser escolhido.
+A razão pelo nome "Segue o Satoshi" é que em Bitcoin a parte atómica de Bitcoin é denominado Satoshi em honra de Satoshi Nakamoto, o criador de bitcoin.
+Maioria honesta
+A principal suposição do protocolo é conhecida pela maioria honesta. Isto significa que participantes que detêm pelo menos 50%+1 do total de participação são honestos. Neste case podemos provar que adversários não conseguem quebrar a persistência e vivacidade da blockchain. Para mais informações ver o artigo (páginas 2 e 3).
