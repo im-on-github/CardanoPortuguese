@@ -1,0 +1,24 @@
+
+
+
+
+Tradução EN -->PT https://cardanodocs.com/cardano/balance-and-stake/ 2018 10 23
+
+Como funciona o balanço e participação em Cardano SL
+Existem dois conceitos importantes em Cardano SL: estes são balanço e participação. Este capítulo explica a diferença entre estes dois conceitos e como ambos funcionam.
+
+
+Balanço
+Balanço é a quantia real de moedas que cada utilizador possui. Quando se instala a carteira Daedalus no computador e executa o processo de redenção de Ada, receberá uma quantia de Ada. Esta quantia de Ada é o chamado balanço. Pode-se enviar uma quantia de Ada (até ao limite do balanço) para outros utilizadores além de poder receber Ada de outros utilizadores.
+Portanto, quando nos referimos a balanço falamos do dinheiro real do utilizador.
+
+Participação
+Ao contrário de balanço (a quantia real de dinheiro que alguém possui), participação é um elemento chave de todo o poder financeiro em Cardano SL. Participação atribui o poder de controlar várias partes do algoritmo de Cardano SL por exemplo: ser líder de slot, votar na atualização do sistema, tomar parte em MPC/SSC. Eis o porquê de todos os limites do protocolo de Cardano SL serem expressos em termos de participação em vez de balanço.
+Portanto, quando nos referimos a participação, falamos sobre a capacidade de controlo real sobre Cardano SL. Para mais informações sobre participação refira-se ao seguinte artigo.
+
+
+A relação entre balanço e participação
+Todas as moedas em Cardano SL estão associadas com o balanço e participação. Utilizamos o output de transação para associar a moeda XXX com o balanço do utilizador e usamos a distribuição de participação para associar a moeda XXX com a participação do utilizador.
+Nota: É possível alterar a associação entre moeda e participação utilizando a chamada delegação de participação.
+
+
