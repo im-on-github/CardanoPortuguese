@@ -1,0 +1,14 @@
+Tradução EN -->PT https://cardanodocs.com/installation/   2018 10 22
+
+Instalação
+
+Plataformas suportadas
+
+As plataformas suportadas são Windows, macOS 3 Linux. Existem instaladores para Windows e macOS, que incluem um nó principal e a carteira Daedalus.
+
+O instalador Linux será lançado brevemente. Atualmente existem duas opções de modo a obter o Cardano SL em Linux
+1. Executar o código de base (recomendado). Referir-se ao manual Como executar o Cardano SL e Daedalus do código de base.
+2. Utilizar um pacote não-oficial para Arch Linux
+    * cardano-sl
+    * daedalus-bridge
+    * daedalus
