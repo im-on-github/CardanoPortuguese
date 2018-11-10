@@ -1,0 +1,62 @@
+
+
+Tradução EN -->PT https://cardanodocs.com/cardano/explorer/  2018 11 02
+
+Explorador de Cardano SL
+trata-se de uma visão geral do serviço do explorador de Cardano SL (daqui em diante referido como Explorador).
+O Explorador é um serviço online para a pesquisa de endereços, transações, épocas e slots na rede Cardano.
+
+Endereço
+É possível encontrar informação sobre os endereços de utilizadores. Após inserir o hash do endereço será possível ver:
+•	O número de transações relacionadas a este endereço
+•	O balanço final neste endereço
+•	O código QR associado a este endereço.
+Exemplo do hash de um endereço: XXX
+
+Transação
+Podemos encontrar informação sobre uma transação. Após inserir a identificação da transação podemos ver:
+•	Data e hora da transação
+•	O endereço fonte da transação
+•	O endereço destino da transação
+•	A quantia de ADA transferida pela transação
+•	Custo de transação.
+Exemplo da identificação de uma transação: XXX
+
+Tempo
+Podemos encontrar informação sobre a transação também através do tempo. Agora é possível especificar apenas a época e o slot. Após inserir o índice da época e o índice de slot podemos ver:
+1.	O número de transações para este slot.
+2.	A quantia total de ADA transferido durante o slot.
+3.	O tamanho do bloco gerado neste slot.
+
+Slot
+É possível obter informação sobre um slot em particular. Após inserir o hash da slot podemos ver:
+•	O número de transações para este slot
+•	O valor total de output
+•	Volume de ADA estimado para este slot
+•	Custos
+•	Identificação do slot
+Além disso, podemos ver informação sobre hashes:
+•	O hash deste slot
+•	O hash do slot anterior (se existir)
+•	O hash do próximo slot (se existir)
+•	A raiz de Merkle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

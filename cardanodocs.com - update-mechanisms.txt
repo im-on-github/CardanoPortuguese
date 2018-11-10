@@ -1,0 +1,99 @@
+
+
+Tradução EN --> PT  https://cardanodocs.com/cardano/update-mechanism/  2018 10 29
+
+Visão geral sobre pesquisa sobre atualizações
+
+Na pesquisa sobre os mecanismos de atualização, propomos um sistema de atualização que é capaz de produzir atualizações do software estanques e indolor tal como proporcionar às partes interessadas com a opção de voto para hard forks (atualizações ao protocolo com incompatibilidade retroativa) sem a necessidade de introduzir quaisquer ferramentas não ao nível protocolar.
+Propomos a utilização de participação para soft e hard forks.
+
+Atualização do modelo do sistema
+Para CSL, decidimos adicionar suporte para atualizações do protocolo ao nível da própria camada do protocolo. Introduza alguma sobrecarga ao processamento da blockchain, no entanto tem vários benefícios importantes:
+1.	Para cada cliente que implemente o protocolo a versão mais recente existe da blockchain e é conhecida.
+2.	Não existe entidade central responsável pela manutenção e distribuição de atualizações, qualquer atualização é proposta sob acordo explícito ou implícito da maioria de participação e então é distribuída de forma descentralizada.
+3.	Não dependemos de atualizações de software de clientes nos seus computadores a tempo, isto é processado de forma automática e atualizações são anunciadas diretamente na blockchain.
+4.	Caso uma gralha de segurança seja detetada nalguma versão do protocolo CSL ou em alguma implementação em particular, existirá um mecanismo para distribuir uma atualização rapidamente (e ainda sob o acordo da maioria de participação).
+
+Atualização da aplicação: anunciar e assinar
+Consideramos vários formas para atualizar a aplicação de forma segura. Atualizações ao protocolo são um tópico em separado que serão abordados na secção relevante deste documento.
+Para uma qualquer atualização ser aplicada, a sua proposta carece de aprovação em primeiro lugar. Atualizações ao protocolo podem ser aprovadas se pelo menos um de dois acordos é alcançado:
+1.	Acordo explícito: tem votos positivos da maioria do total de participação (i.e., estritamente superior a XXX)
+2.	Acordo implícito: tem mais votos positivos de mais participação do que votos negativos e está na blockchain há pelo menos XXX slots.
+Esta abordagem parece-nos encaixar naturalmente no modelo de CSL, uma vez que uma criptomoeda em PoS todas as partes interessadas têm a responsabilidade de manter o sistema proporcionalmente à dimensão relativa da sua participação e a blockchain é mantida via consenso por entre as suas partes interessadas.
+Atualizações de software são também uma parte deste processo de manutenção, por isso as partes interessadas devem acordar se devem considerar esta atualização de confiança.
+
+Acordo implícito
+
+O fato das partes interessadas serem responsáveis pelas atualizações do sistema não nos limita a um sistema onde cada atualização requer a assinatura da maioria de participação. Pode-se incorporar o conceito de maioria implícita.
+Uma atualização tem de ter limite mínimo (XXX na configuration.yaml) de participação assinada de modo a ser publicada na blockchain. Não é suficiente para partes interessadas assinar a atualização, têm de votar a favor ou contra a mesma.
+
+Incorporação de clientes alternativos
+IOHK irá manter uma lista oficial de clientes. Ao mesmo tempo existe espaço para clientes alternativos como terceiros ao protocolo mantidos pela comunidade. Um cliente alternativo requer assinaturas suficientes das partes interessadas para publicar a sua a atualização ao sistema, que poderá ser uma "atualização", ou um cliente diferente desenvolvido de raiz ou uma bifurcação do cliente oficial. Desde que a atualização tem assinaturas suficientes das partes interessadas, a rede considerá-la de confiança e é atualizada via o mesmo mecanismo do cliente oficial.
+
+Atualização da aplicação: Entrega e aplicação
+Uma lista de espelhos HTTP executados por IOHK serão suficientes para começar.
+Ao longo do tempo, planeamos manter uma solução tipo Bittorrent para a distribuição de atualizações. Em geral, a distribuição de atualizações P2P é um requisito de negócio crucial devido às implicações legais. Será ainda decidido qual a solução em particular que será utilizada.
+
+Mais, é interessante notar que a atualização em si não requer um canal seguro e de confiança de modo a ser entregue dado que é assinado com uma chave conhecida de antemão ou chaves confiáveis (ou conjunto de chaves).
+Atualizações de aplicação são preparadas com bsdiff e aplicadas quer diretamente quer via um instalador. Estamos a considerar migrar para courgette no futuro.
+
+Atualização do protocolo
+Primeiro, é necessário distinguir entre atualizações ao protocolo soft e hard.
+Um soft fork propõe modificar as regras de consenso da blockchain de modo que os blocos da versão mais recente continuam compatíveis com antigas versões de clientes. Um hard fork visa não manter a compatibilidade retroativa com a versão anterior.
+BIP-99 fornece excelentes critérios para distinguir entre os dois tipos de bifurcações:
+•	Um soft fork introduz novas regras, ou restrições aos blocos. Dessa forma, tudo que foi anteriormente invalidado mantém-se invalidado enquanto que alguns blocos que anteriormente teriam sido considerados válidos tornam-se inválidos.
+•	Um hard fork é uma bifurcação que torna blocos anteriormente inválidos como válidos.
+Soft forks têm algumas vantagens no desenvolvimento como a compatibilidade retroativa e não requerem o consenso de toda a gente, dado que a maioria de participação das partes interessadas pode impor novas regras. Pelo contrário, hard forks requerem que todos realizem a atualização.
+Em teoria, um hard fork pode levar à situação quando uma rede se divide em duas partes, cada uma mantendo uma blockchain em separado: uma com os nós que adotam as últimas atualizações do sistema e outra com os nós que rejeitaram a atualização. Isto significa que alguns blocos da primeira parte são considerados inválidos pela outra parte e vice-versa.
+Definimos uma versão do protocolo como uma enupla XXX.
+•	Versão maior (2 bytes): raramente alterada, alterações não são retroativamente compatíveis e produziriam um hard fork.
+•	Versão menor (2 bytes): inteiro a ajustar para cada atualização
+o	Alterações deverão ser retroativamente compatíveis no sentido em que um bloco gerado pela nova versão será de alguma forma aceite pela versão anterior
+o	Um bloco poderá conter endereços do tipo indefinido: para cada caso como este, uma solução alternativa concisa deverá ser encontrada de modo a não afetar a estabilidade e retidão do sistema.
+•	Versão alternativa (1 byte): inteiro para gerir múltiplas soluções simultâneas das propostas de atualização do protocolo.
+A versão do protocolo será anunciada na aplicação de atualização e será mais tarde colocado em cada bloco criado pelo software atualizado.
+Uma alteração à versão maior desencadeia no futuro um hard fork.
+Uma alteração à versão menor notifica a rede que a aplicação subsequente modifica o protocolo gerido através de um soft fork.
+
+A versão alternativa é um marcador das novas características. Permite aos programadores introduzir múltiplas alterações ao protocolo simultaneamente. Por exemplo, se um vendedor decide introduzir uma característica X através de um soft fork e outro propõe característica Y (também através de um soft fork) o software irá emitir blocos com versões XXX e XXX que podem coexistir na blockchain. No entanto, apenas um será eventualmente adotado.
+
+Atualizações por soft forks
+
+Há uma linha muito ténue entre o que se pode e não pode fazer comum soft fork:
+1.	Uma versão anterior do cliente deverá sempre encontrar blocos válidos recentes (isto é o que o BIP-99 chama "tudo que é inválido continua inválido".
+2.	Alguns blocos emitidos por uma versão antiga do cliente poderão ser considerados inválido por uma versão mais recente.
+Obviamente que impondo a regra nº2 conforme está poderá causar a rede a dividir em duas partes: a parte interessada com uma quantia suficientemente grande poderia atualizar e manter a sua própria blockchain, rejeitando os blocos dos outros, mas outros poderiam ainda manter a sua própria blockchain rejeitando os blocos desta parte interessada (uma vez que não tem a maioria de participação e por isso não consegue acompanhar com o resto da multidão, portanto a blockchain é mais curta). Uma regra simples de resolução poderia ser: se 95% dos últimos 2016 blocos têm uma versão mais recente, os blocos com a versão mais antiga são rejeitados.
+Nota: a versão dos blocos referidos aqui e mais tarde têm o mesmo significado que as versões do protocolo.
+Pode parecer estranho porque quereríamos a qualquer momento criar uma versão do bloco inválida. A introspeção chave aqui é que a nova característica é na verdade uma restrição naquilo que havia anteriormente. Por exemplo, atualmente temos transações simples que podem conter quer um endereço baseado em chave pública ou baseado em script. Então a certo ponto decidimos incluir o terceiro tipo de endereço (independentemente do seu fim). Qual a estratégia é necessário para verificar um bloco com uma transação com o endereço do tipo desconhecido? Obviamente a única opção é não verificar este endereço.
+Em seguida, imaginemos que alguém propõe uma transação para este endereço, possivelmente com a intenção de assegurar fundos de serem gastos até determinadas condições serem cumpridas - e depois observá-las a serem gastas nalguma transação num bloco com a versão 1. Essa é a questão. Não podemos utilizar uma restrição sem esperar pelo resto da rede assumir a antiga descontinuada (uma vez que apenas se pode rejeitar blocos quando a versão donde preveniram for descontinuada).
+Também, não podemos simplesmente aceitar todos os blocos com a versão que é a mais recente do que a atualmente adotada, uma vez que a implementação de cada bloco tem um campo especial que é usado para armazenar informação auxiliar. Um atacante pode afirmar que tem uma versão mais recente do protocolo e gerar um bloco cujos atributos são poluídos com chaves sem significado nenhum. Se aceitámos esta transação isto inflaciona a blockchain.
+Esta é a motivação para a lógica descrita abaixo.
+Na implementação, a versão do bloco pode existir em vários estados:
+•	Adotada, quando a regra de resolução de um soft fork (ver abaixo) para a confirmação de um bloco é desencadeada.
+•	Confirmada, quando existe uma proposta de atualização que contem a versão confirmada do software e esta versão do bloco. É de notar que a "versão confirmada do software" é um termo técnico definido noutro local. Se existem múltiplas versões de blocos onde o software correspondente é confirmado, mas estas versões não são adotadas chamamos-lhes em competição. Por exemplo, podem existir as versões 2.0.0, 2.0.1, 1.2.0, 1.2.1, 1.1.1 e 1.1.2 com a última versão adotada 1.1.3. Neste caso as versões que estão em competição são 2.0.0, 2.0.1, 1.2.0 e 1.2.1. As versões mais antigas 1.1.1 e 1.1.2 não estão em competição porque 1.1.3 já está em adoção.
+•	Tudo o resto. Por exemplo, uma nova versão do bloco é proposta, mas a versão do software ainda não foi confirmada. Não existe um nome específico para este estado.
+A regra de resolução de soft forks funciona da seguinte forma:
+•	Informalmente, uma versão de bloco torna-se adotada quando uma certa percentagem de participação (75% na atual implementação, mas pode ser diferente aquando do mainnet) cria o bloco com a versão x.
+•	Formalmente, faz-se o seguinte. Primeiro, recordemos que por conceção, o nosso sistema não permite a reversão da blockchain mais profundo do que um determinado limite global k, que permite a definição de participação estável de todos os líderes de todos os slots desde o início da existência da rede. Para cada bloco com a versão x que está atualmente em competição, tiramos todos os blocos estáveis criados com a versão x, tiramos um conjunto de todos os líderes de blocos e a acumulação da sua participação. Se uma versão tem mais do que 75% torna-se adotada. Se mais do que uma versão tem mais do que 75%, tomámos um deles de forma determinística.
+É de notar que a versão do bloco adotada não pode ser alterada durante uma época (apenas entre épocas), portanto todos os blocos de uma época são verificados de acordo com as mesmas regras (porque as regras são definidas por adoção da versão do bloco). É errado assumir que todos os blocos numa época têm a mesma versão do bloco. Depois da versão do bloco é adotada outra versão do bloco pode ficar em competição e outros nós podem criar blocos com esta nova versão.
+
+Assim, agregando tudo:
+1.	Uma vez confirmada a atualização, a versão do protocolo (digamos 0.5.0) pode ser usada.
+2.	Comportamento de nós que foram atualizados (i.e., podem emitir e validar blocos com a versão mais recente):
+1.	Antes do soft fork estar resolvido (i.e., antes da regra de resolução ser desencadeada), blocos emitidos com a nova versão 0.5.0, mas não que não incluem quaisquer novos atributos (se existirem). Tratem e validem blocos com a versão 0.5.0 como blocos da versão 0.4.0.
+2.	Uma vez resolvido o soft fork, emitir e validar blocos por versão 0.5.0, incluindo os novos atributos.
+3.	Comportamento de nós que ainda não foram atualizados (i.e., não podem emitir e validar blocos com a nova versão):
+1.	Antes do soft fork estar resolvido, emitir e validar blocos pela versão 0.4.0. Entre outras coisas, um bloco não é aceite se contiver atributos desconhecidos.
+2.	Uma vez resolvido o soft fork, iniciar a aceitação de blocos com a versão 0.5.0, incluindo aqueles com atributos desconhecidos. Continuar a validação como a versão 0.4.0.
+Atualizações hard fork
+Hard forks são resolvidos utilizando provas de destruição modificados. Como ainda não foi implementado, omitimos esta secção do documento e pulicaremos como um documento em separado.
+
+
+
+
+
+
+
+
+
+

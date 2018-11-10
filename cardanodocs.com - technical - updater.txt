@@ -1,0 +1,90 @@
+Tradução EN --> PT  https://cardanodocs.com/technical/updater/ 2018 11 06
+
+
+Generalidades sobre a implementação do atualizador de Cardano SL
+A implementação do sistema da atualização pode ser encontrada na família de módulos Pos.Update. A abordagem geral à implementação é a mesma do que em outros subsistemas de CSL tais como as Txp, Ssc e a delegação. O sistema de atualização tem um estado global, armazenado numa base de dados. O estado global pode ser derivado ausente de ambiguidade através da informação que está na blockchain. O estado local, por vezes referido como "mempool" é armazenado em memória. O mempool é utilizado para a transferência de dados e a inclusão de dados transferidos para os blocos. O protocolo de rede (construído com padrão Inv/Req/Data pattern) é descrito no documento ao nível da aplicação com o protocolo binário descrito em documento sobre protocolos de binário.
+Atualmente, está tudo pronto para adicionar funcionalidades num hard fork através de uma atualização do software e em seguida executar um hard fork conforme descrito na secção sobre pesquisa; soft forks (ou atualizações de software) são totalmente implementadas.
+
+Campos atualizáveis com um soft fork
+Um UpdateProposal contém campos para a modificação de parâmetros usados em Cardano SL (por exemplo duração do slot). Em concreto, upBlockVersion é usado para significar que a proposta efetua tais alterações; se upBlockVersion é maior do que a última versão do bloco, as alterações resultantes de upBlockVersionData serão aplicados.
+
+upBlockVersionData é do tipo BlockVersionData.
+Os campos são descritos abaixo:
+
+•	bvdScriptVersion - uma versão de linguagem script usado para validar transações script. Se uma proposta aumentar upBlockVersion terá que aumentar bvdScriptVersion com 1 (e não o pode deixar inalterado).
+•	bvdSlotDuration - duração do slot ( em milissegundos)
+•	bvdMaxBlockSize - tamanho do bloco (em bytes). A proposta não pode aumentar o limite do tamanho do bloco mais do que duas vezes quando comparado com o limite anterior
+•	bvdMaxHeaderSize - limite do tamanho do cabeçalho do bloco (em bytes)
+•	bvdMaxTxSize - limite para o tamanho da transação (em bytes, atualmente 4096) limitando o tamanho de TxAux
+As verificações descritas acima são efetuadas em verifyNextBVData.
+
+Mais, existem alguns campos que estão, por enquanto, por usar, mas que serão no futuro. O seu significado é descrito abaixo:
+
+•	bvdMpcThd - limite de elegibilidade por MPC
+•	bvdHeavyDelThd - limite para a delegação peso pesado
+•	bvdUpdateVoteThd - porção de participação total necessária para votar a favor ou contra uma atualização
+•	bvdUpdateProposalThd - porção de participação total tal que blocos que contêm UdateProposal têm que conter votos positivos para esta proposta de partes interessadas que sejam detentores de pelo menos esta quantia de participação
+•	bvdUpdateImplicit - número de slots depois do qual uma atualização é implicitamente aprovada (a menos que tenha mais votos negativos do que positivos)
+•	bvdUpdateSoftforkThd - porção de participação total tal que se a participação total dos emissores de blocos com uma versão de bloco é maior do que esta porção , esta versão do bloco é adotada.
+
+
+Estrutura do mempool
+MemPool consiste em votos e propostas. À parte MemState contém a ponta, slot e PollModifier correspondente ao MemPool (e ao atual GState, i.e., a aplicação de MemPool ao GState). Independentemente da origem da alteração ao estado de proposta vindo da rede / mempool ou pelo carregamento da blockchain, PollModifier representa a modificação do estado global que será realizado se for aplicado o mempool.
+
+Atualizar o mempool
+
+À medida que nós desserializam cargas de mensagens do sistema de atualizações, modificam também o mempool conforme implementado aqui.
+
+Mempool é atualizado em três casos:
+1.	Quando uma nova proposta / voto é recebido. Neste case uma das funções do processo, que por sua vez chama verifyAndApplyUSPayload e depois atualiza o atual PollModifier e MemPool.
+2.	Quando um novo slot inicia. Neste caso alguns dados no MemPool podem-se tornar inválidos. De facto, acontece apenas quando uma época muda. Isto pode acontecer porque a distribuição de participação estável altera-se e alguns votos podem não ter participação suficiente para inclusão. É realizado na função processNewSlot
+3.	Quando GState é atualizado. É chamado usNormalize. Dados podem ter ficado inválidos em resultado da aplicação do bloco(s) ou retrocesso. Por exemplo, temos uma proposta em memória, aplicar o bloco com esta proposta e torna-se inválida (porque já está no bloco). Devemos deixar cair tais propostas. Ou temos um voto para uma proposta para algum bloco e depois retrocedemos com este bloco  e o voto já não é válido. É implementado por aplicação de dados locais para um estado vazio, ignorando todos os dados que já não são válidos.
+
+
+Propostas e acumulação de votos
+Para votar numa proposta, nós devem enviar os seus votos. Propostas e votos são armazenados em mempool (mesmo que as propostas não tenham votos suficientes para serem incluídos em blocos), desta forma os votos podem ser recolhidos automaticamente) ou recolhidos da blockchain por ordem de modo a determinar qual a proposta adotada.
+
+Interação com a base de dados
+De modo a verificar os dados de atualização do sistema, temos que obter estes dados do estado global (base de dados). Para proporcionar este interface é apresentado um tipo de classe bem documentado chamado MonadPollRead. Este tipo de classe é usado não só para a base de dados de interação, mas também para ter em conta a mempool quando os dados recebidos pela rede forem processados. É importante que esta implementação dependa das funções encontradas no módulo Pos.Update.DB.
+
+Tipos de core
+Os tipos de core são mencionados no documento dos protocolos de binário. Estes tipos refletem os conceitos da secção de pesquisa de forma clara. Para mais informações referir-se ao módulo dos tipos de core.
+
+Aprovação da proposta de atualização
+Uma parte muito importante da implementação do mecanismo de atualização é a parte que trabalho com o bloco génese para as épocas. Esta lógica reside na função processGenesisBlock. A terminologia relativa a este processo é explicada abaixo.
+
+Limites
+Suponhamos que existe a versão de bloco x e todos os outros blocos com a versão x criados em slots s (onde s é um conjunto de slots). Se a participação total relativa a líderes de todos os slots em s é maior ou igual a softforkResolutionThreshold (referido como limite no código) então x é adotado. Para uma descrição mais detalhada ver generalidades da pesquisa.
+
+Estados da proposta
+Propostas de atualização podem estar num dos estados abaixo descritos
+
+Por decidir
+Significa que a proposta de atualização está num dos blocos, mas não teve 50% dos votos a favor ou contra (aqui 5o% significa a participação total de eleitores que são a favor ou contra a proposta relativa ao total de participação de todos as partes interessadas no sistema) e a regra de acordo implícito ainda não foi desencadeada.
+
+Aprovado
+Significa que a proposta tem mais do que 50% dos votos a favor ou foi adicionado ao bloco há já bastante tempo (de acordo com a regra de acordo implícita) e tem mais votos positivos do que negativos (em comparação por participação, claro)
+
+Rejeitado
+Uma proposta é rejeitada se a proposta tem mais do que 50% dos votos contra ou foi adicionado ao bloco há já bastante tempo (de acordo com a regra de acordo implícita) e tem mais votos negativos do que positivos (novamente em comparação por participação)
+
+Confirmado
+Uma proposta aprovada diz-se confirmada se pelo menos há k blocos a proposta tornou-se aprovada. Nesta altura podemos ter a certeza que a proposta não se tornará rejeitada porque retrocessos com profundidade mais do que k não são possíveis.
+
+Descartado
+Uma proposta rejeitada torna-se descartada, se pelo menos há k blocos a proposta tornou-se rejeitada. Nesta altura podemos ter a certeza que a proposta não se tornará aprovada porque retrocessos com profundidade mais do que k não são possíveis.
+
+Descarregar uma nova versão
+No módulo Pos.Update.Download os algoritmos seguintes são implementados. Atualizações descarregadas são aplicadas utilizando uma ferramenta chamada cardano-launcher.
+
+Confirmação  de atualização descarregado
+Para descarregar uma atualização confirmada, extrai-se o hash da atualização de ConfirmedProposalState. A extração depende se estamos ou não a utilizar um instalador numa determinada plataforma. Se o hash da atualização é extraído com sucesso, o algoritmo "Descarregar atualização por hash" é invocado para descarregar e guardar a atualização confirmada.
+
+Descarregar atualização por hash
+Para descarregar uma atualização por hash, percorre-se todas as atualizações conhecidas nos servidores na tentativa de descarregar a atualização com um dado hash utilizando httpLBS do HTTP. É simples: no final, ou tem-se uma atualização completamente descarregada ou esgotamos a lista no servidor e um error é reportado. URI de servidores de atualização são definidos utilizando o argumento --update-server do executável cardano-node.
+
+
+
+
+
+

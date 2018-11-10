@@ -1,0 +1,36 @@
+Tradução EN-->PT https://cardanodocs.com/technical/explorer/ 2018 11 09
+
+
+
+Explorador de Cardano SL
+Conforme mencionado anteriormente, o explorador é um serviço para a pesquisa de informação sobre transações, endereços e períodos de tempo (épocas e slots) na rede de Cardano.
+
+Workflow do backend do explorador
+O explorador inicia com CLI-options. Todas as opções suportadas podem ser observadas no comando cardano-explorer --help.
+Depois o explorador corre um nó interno através da biblioteca cardano-sl. Por isso podemos assemelhar o backend do explorador um nó comum com dois plugins especiais: explorerPlugin e notifierPlugin.
+
+O primeiro plugin serve o explorador web API. O segundo inicia o servidor de notificação. Este servidor tipo websocket notifica o interface do utilizador sobre mudanças com os blocos / transações.
+
+Backend API do Explorador
+Atualmente, o explorador web API fornece uma série de métodos para obter informações sobre a rede Cardano. A biblioteca Haskell servant fornece uma abordagem modular à criação de APIs. Esta biblioteca utiliza combinadores quer para ações atómicas HTTP quer para unir estes métodos atómicos de modo a formar um maior e mais completo API.
+
+
+HTTP API
+O API para o explorador web é definido aqui. Se o evento de requisito falhar, existe um tipo ExplorerError que é simplesmente um invólucro sobre Text de modo a mostrar o que aconteceu.
+
+Documentação para o API do explorador web está disponível aqui.
+
+
+SOCKET.IO API
+Atualmente temos estes eventos a que um cliente se pode registar:
+XXX
+Uma subscrição pode ser um dos seguintes eventos:
+XXX
+e os respetivos eventos no servidor são:
+XXX
+Um utilizador pode chamar os eventos desejados e subscrevê-los:
+XXX
+É possível correr purescript repl (pulp psci) e depois alterar com os eventos:
+XXX
+
+

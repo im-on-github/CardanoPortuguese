@@ -1,0 +1,31 @@
+Tradução EN -->PT https://cardanodocs.com/timeline/bootstrap/ 2018 11 04
+
+
+Era Bootstrap
+
+Depois da era Testnet de Cardano SL e o lançamento de Cardano SL, a rede irá operar em modo bootstrap para um período de tempo chamada a era bootstrap. À medida que as pessoas que adquiriram ADA redimam as suas moedas, a participação será automaticamente delegado para uma agregação dos nós confiáveis que se manterão a rede. Durante este período nenhuma recompensa de blocos será distribuída - a rede será mantida de forma gratuita. Torna-se necessário porque de forma a que o protocolo funcione de forma correta, algumas partes interessadas que em conjunto possuem a maioria de participação têm que estar online, algo que na verdade não será o caso durante os primeiros meses de operação da rede.
+A era bootstrap dará à era de recompensa durante o qual atualizações ao protocolo serão emitidas e a maioria das partes interessadas serão fornecidos com opções convenientes para correrem os seus nós em servidores pessoais na nuvem.
+
+Bloqueio de participação
+A era de bootstrap é o período da existência de Cardano SL que permite apenas a utilizadores fixos a terem controlo sobre o sistema. Um conjunto de utilizadores (as partes interessadas do bootstrap) e a proporção de participação total que cada um controla é definido no bloco de génese.
+O propósito da era bootstrap é definido para endereçar a preocupação que no início do mainnet a maioria de participação estará provavelmente offline (que quebra o protocolo no início). A era bootstrap terminará quando a rede estabilizar e a maioria de participação estará presente ligada à rede.
+A era seguinte à era bootstrap é a chamada era da recompensa. A era da recompensa é o modo de operação "normal" de Cardano SL como uma criptomoeda PoS.
+
+Requisitos
+1.	Durante a era bootstrap a participação em Cardano SL deve estar efetivamente delegado a um número conjunto de chaves s.
+2.	s=7
+3.	Participação deve estar distribuída por entre s E S.
+4.	No final da era bootstrap participação deve estar desbloqueado.
+1.	Compradores de Ada devem ser capazes eles próprios participarem no protocolo (ou delegarem esses direitos a algum delegado e não de s).
+2.	Cada detentor de Ada deve constatar de forma explícita que pretendem tomar controlo sobre a sua participação.
+3.	Antes desta ação de extração de participação, essa participação deve ainda estar sob o controlo de nós s.
+Proposta
+Presentemos a solução para a era bootstrap:
+1.	A utxo inicial contém toda a participação distribuída por entre as partes interessadas do Bootstrap. A utxo inicial consiste em pares (txIN, txOut) e cada txOut contém um endereço com a distribuição de participação. Por isso simplesmente definimos a distribuição de forma a que envia todas as moedas a todas as partes interessadas do bootstrap.
+2.	Enquanto a era bootstrap ocorrer, utilizadores podem enviar transações alterando a utxo inicial. Impomos a definição da distribuição de participação para cada output de transação de modo a espalhar participação às partes interessadas do bootstrap. Isto efetivamente torna a distribuição de participação é uma constante do sistema.
+3.	Existe um estrado de génese de delegação peso pesado. Contém pares (Issuer, ProxySK), onde Issuer é um identificador de uma parte interessada que delega e ProxySK é uma chave proxy para delegar. É de notar que:
+o	o delegado tem de diferir de emissor em cada par, i.e., revogações não são permitidas;
+o	delegado não pode ser emissor, i.e., delegação transitiva não é suportado
+4.	Quando a era bootstrap acabar, desativamos a restrição sobre a distribuição de participação. As partes interessadas do bootstrap irão votar para o fim da era bootstrap: uma proposta de atualização especial será formada onde uma constante será apropriadamente desencadeada para terminar com a era bootstrap no momento em que a proposta torna-se a adotada. O sistema funciona da mesma forma como na era bootstrap, mas os utilizadores precisam de explicitamente constatar que compreendem que serem detentores de participação responsabiliza-os a lidar com um nó. Para receber a participação de volta o utilizador deve enviar uma transação, especificando as chaves de delegação na distribuição de participação. Poderá ser a chave detida pelo próprio utilizador ou uma chave de algum delegado (que pode também ser de uma ou várias partes interessadas da era Bootstrap).
+Para mais detalhes sobre o mecanismo de delegação ler Delegação de participação em Cardano SL.
+

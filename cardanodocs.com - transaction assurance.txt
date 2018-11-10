@@ -1,0 +1,25 @@
+
+
+Tradução EN --> PT https://cardanodocs.com/cardano/transaction-assurance/ 2018 11 02
+
+Nível de garantia de transação
+
+As tabelas abaixo mostram por código de cores os níveis de garantia que uma transação não será cancelada por uma bifurcação da blockchain.
+Por exemplo, num nível normal de segurança, se a participação de um atacante é de 10% (ou $6 milhões de uma capitalização de Cardano de $60 milhões), os níveis de garantia para a transação de um utilizador são:
+1.	Garantia mais baixa (vermelho) - quando o bloco do utilizador com uma transferência de moeda com profundidade menos que 3 blocos
+2.	Garantia Média (amarelo) - quando o bloco do utilizador tem profundidade entre 3 e 7 blocos
+3.	Garantia elevada (verde) - quando o bloco do utilizador tem profundidade superior a 9 blocos
+
+Nível de segurança normal
+
+O nível normal é para adversários encobertos (este modelo é descrito na versão mais recente de Ouroboros atualmente em preparação para partilha). Os valores da tabela correspondem a uma capitalização de mercado de Cardano de $60 milhões.
+
+
+Attackers' stake % - Participação do atacante %
+Attackers' stake $ mln - Participação do atacante $M
+Assurance level - Nível de garantia
+
+Nível de segurança rigoroso
+Níveis de segurança rigorosos protegem contra todos os tipos de adversários (requer mais confirmações de blocos). Os valores da tabela correspondem a uma capitalização de mercado de Cardano de $60 milhões.
+
+

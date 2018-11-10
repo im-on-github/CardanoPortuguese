@@ -1,0 +1,48 @@
+Tradução EN --> PT https://cardanodocs.com/technical/launcher/ 2018 11 06
+
+
+Iniciador de Cardano SL
+
+Visão geral
+O executável cardano-launcher é uma ferramenta para iniciar Cardano SL. Na verdade, executa todo o sistema de Cardano SL (i.e., um nó, uma carteira) e lida com as atualizações. Para tal, cardano-launcher utiliza duas ferramentas distintas: cardano-node e cardano-updater.
+Para informações detalhadas sobre as opções disponíveis ver a descrição de cardano-launcher.
+
+Cenários
+Existem dois cenários de funcionamento para cardano-launcher: cenário de cliente e cenário de servidor. Se for fornecido um caminho para a carteira (por exemplo, Daedalus) utilizando o argumento --wallet durante o início. cardano-node irá correr num cenário de cliente, caso contrário correrá num cenário de servidor.
+
+
+Cenário de servidor
+Após o início, existem 2 passos:
+1.	Correr um atualizador
+2.	Correr um nó
+O funcionamento do atualizador é explicado abaixo.
+
+Um nó desenvolvido num processo à parte. Depois de ocorrer é uma questão de esperar até o nó acaba. Após o nó executar, o código de encerramento é verificado. Se igualar 20, o iniciador é reiniciado, caso contrário é encerrado.
+Informação sobre os logs pode ser impresso num ficheiro lo antes do encerramento. Para tal, é necessários dois argumentos adicionais durante o arranque do iniciador: --report-server e --node-log. O primeiro argumento define um URL do relatório do servidor, o segundo argumento define o caminho para o ficheiro log. De forma assíncrona enviamos a informação do log ao relatório do servidor. É de notar que o ficheiro do argumento --node-log tem que existir.
+
+
+Cenário Cliente
+Após o início, existem 3 passos:
+1.	Correr um atualizador
+2.	Correr um nó
+3.	Correr a carteira
+Para os passos 1 e 2 ver acima Cenário de servidor
+
+A carteira é desenvolvida em processos distintos.
+Depois disto, espera-se até o nó correr ou a carteira pára. Quando parar fazemos a verificação:
+1.	Se um nó encerrar, é escrito um log (ver Cenário de servidor acima estão as explicações) e aguarda para o encerramento da carteira.
+2.	Se a carteira encerrar, verifica-se o código de encerramento, se igualar 20 o nó é encerrado e o iniciador recomeça num modo de servidor. É de notar que ao encerrar o nó não é executado imediatamente: o nó é encerrado após um determinado período de tempo, e o seu valor é determinado do argumento --node-timeout mencionado acima.
+3.	Se a carteira encerrar e o código de encerramento não for igual a 20, o nó é encerrado imediatamente.
+
+Atualizador
+Outra operação importante que cardano-launcher executa é a atualização do nó. O primeiro passo em ambos os cenários é a execução do atualizador.
+A ideia central é muito simples. O atualizador do nó é um arquivo especial .tar. Representa a diferença entre a versão antiga (atual) do nó e a nova versão. O caminho para este arquivo é obtido através do argumento --update-archive. Por isso, cardano-updater aplica este arquivo ao nó e após o reinício uma nova versão do nó pode ser utilizada.
+É de notar que quando executamos cardano-launcher num cenário de cliente, o utilizador consegue ver na sua carteira que uma atualização está disponível e existem duas situações possíveis.
+Se um utilizador concorda com a aplicação da atualização, a carteira encerra imediatamente com um código de encerramento 20. Neste caso, conforme descrito acima, o iniciador reinicia o nó e a atualização é aplicada.
+Se o utilizador não concordar com a aplicação desta atualização, a carteira continua a funcionar. No entanto, quando for reiniciado (mais cedo ou mais tarde) a atualização será aplicada.
+
+Importante: o atualizador corre de forma síncrona, é iniciado e depois espera para o seu encerramento. Se o atualizador acabar, isto é, funciona com sucesso o ficheiro arquivo .tar é apagado.
+
+Generalidades de implementação
+Para mais detalhes sobre a implementação do sistema de atualizações de Cardano SL, ver este capítulo.
+

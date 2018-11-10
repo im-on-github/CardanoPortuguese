@@ -1,0 +1,32 @@
+Tradução EN --> PT https://cardanodocs.com/cardano/topology/ 2018 10 29
+ 
+Topologia de rede de Cardano SL
+ 
+Trata-se de uma descrição generalizada da topologia de rede de Cardano SL.
+ 
+Grupos de Nós
+Apesar de Cardano SL ser concebida e implementada como uma rede distribuída, para a finalidade de proteção contra DDoS características adicionais foram atribuídas à implementação e topologia de Cardano SL. Atualmente todos os nós estão divididos em 3 grupos:
+Central
+Transmissão
+Fronteira
+Vamos descrever cada um destes grupos.
+ 
+Nó central
+Nós centrais são os mais importantes.
+Conforme descrito aqui, para o lançamento de Byron teremos a participação limitado aos nós centrais federados. Apenas um número reduzido de nós podem ser líderes de slot, daí que apenas estes nós poderão criar novos blocos ao longo deste período. isto é essencial para que os nós centrais possam operar bem e continuarem a manter a blockchain. Trazemos também níveis de segurança adicionais em torno destes nós centrais; colocando-os no interior de um perímetro de nós de transmissão, assim os nós centrais estão isolados da internet pública e apenas nós de transmissão podem comunicar com estes nós centrais. Esta é a forma de reduzir a probabilidade de serem atacados.
+É de notar que os nós centrais nunca criam transações de moeda (apenas nós de fronteira podem ver abaixo).
+ 
+Nó de transmissão
+Pode-se pensar em nós de transmissão como um proxy entre nós centrais e a internet pública.
+Dado que os nós de transmissão não estão isolados, podem ser atacados, no entanto estão em princípio sem estado e não têm participação, por isso podem ser movidos, ou o seu número aumentado. Se nós de transmissão são retirados, isto não nega o serviço, mas a integridade dos nós centrais (e da blockchain) não deverá ficar comprometida.
+Como nós de transmissão não têm participação, não podem ser líderes de slot. Por isso, também não podem criar transações.
+Nós de transmissão são totalmente sob o controlo de um comité federado das partes interessadas iniciais.
+ 
+Nó fronteira
+Um nó fronteira é um nó simples que qualquer um pode correr no seu computador. Apenas estes nós podem criar transações de moeda.
+Como os nós fronteira não têm participação, não podem ser nem líderes de slot nem nós de transmissão. Mais ainda, nós fronteira não podem comunicar diretamente com nós centrais, apenas com nós de transmissão e com outros nós fronteira.
+ 
+ 
+ 
+ 
+ 

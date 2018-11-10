@@ -1,0 +1,43 @@
+Tradução EN --> PT https://cardanodocs.com/cardano/transaction-fees/ 2018 11 02
+
+
+Custos de transação em Cardano SL
+
+Motivação
+
+Existem duas grandes motivações porque são necessários custos de transação para Cardano SL.
+1.	Pessoas que correm nós completos de Cardano SL despendem tempo, dinheiro e esforço para executar o protocolo, para o qual devem ser recompensados. Em contraste a Bitcoin, onde nova moeda é criada com a mineração de cada bloco, em Cardano SL, custos de transação são a única fonte de rendimento para participantes no protocolo.
+2.	A segunda razão é a prevenção de ataques DDoS (Negação distribuída de serviço). Num ataque DDoS, um atacante tenta inundar a rede com transações simuladas e se o atacante tiver que pagar um custo suficientemente por cada uma daquelas transações simuladas, esta forma de ataque torna-se proibitivamente cara.
+
+Como funcionam os custos de transação
+Quando alguém pretende transferir uma quantia de Ada, custos mínimos de transação são computados por cada transação. De modo a que a transação seja válida, estes custos mínimos têm que ser incluídos apesar do remetente ser livre de pagar custos mais elevados se assim o pretender.
+Ler abaixo sobre a distribuição de custos de transações.
+
+
+Custos de transação mínima
+Os custos mínimos de transação são calculados de acordo com a seguinte fórmula:
+a+b*size
+onde:
+a é uma constante que atualmente é de 0.155381 ADA
+b é uma constante que atualmente é de 0.000043946 ADA/byte
+size é o tamanho da transação em bytes.
+
+Isto significa que cada transação custa no mínimo 0.155381 ADA com um custo adicional de 0.000043946 ADA por cada byte do tamanho da transação. Por exemplo, o tamanho da transação tem um custo de 200 bytes (tamanho típico).
+A razão de haver um parâmetro a é de prevenir um ataque DDoS conforme mencionado acima: mesmo uma quantia muito pequena de uma transação simulada deverá custar o suficiente para ferir o atacante que tenta gerar muitas milhares de transações.
+O parâmetro b foi introduzido para refletir os custos atuais: armazenar transações maiores requer mais memória do computador do que transações mais pequenas, por isso transações maiores devem ser mais caras do que transações mais pequenas.
+apesar dos valores particulares dos parâmetros a e b serem calculados, estes valores serão provavelmente ajustados no futuro de modo a refletir os custos reais.
+
+Distribuição dos custos de transação
+
+Todos os custos de transação de uma dada época são recolhidos numa agregação virtual e a ideia é posteriormente redistribuir o dinheiro dessa agregação por entre as pessoas que foram eleitos líderes de slots pelo algoritmo PoS durante essa época e quem cria os blocos.
+Nesta fase de Cardano SL, onde os blocos são criados pelos nós operados por IOHK e seus parceiros, os custos são já recolhidos (de modo a prevenir ataques DDoS), mas não serão distribuídos e em vez disso serem destruídos.
+Logo que Cardano SL entra na próxima fase, a etapa de total descentralização, custos serão distribuídos conforme descrito acima.
+
+
+
+
+
+
+
+
+

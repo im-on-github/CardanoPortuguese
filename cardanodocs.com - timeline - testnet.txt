@@ -1,0 +1,10 @@
+
+
+
+Tradução EN-->PT https://cardanodocs.com/timeline/testnet/ 2018 11 02
+
+Era Testnet
+A rede de teste de Cardano SL (a testnet) é necessário de modo a que a comunidade se familiarize com a criptomoeda e para polir a implementação, eliminando as possíveis falhas ou instabilidades.
+Durante a era Testnet todas as funcionalidades, incluído o mecanismo de recompensas, são ativadas. Todos podem redimir uma chave privada da faucet da rede de testes de Cardano SL para obterem moedas.
+Encorajamos todos a descarregar o cliente Cardano SL para a sua plataforma, obtém uma moeda (nós chamamos Lovelace) da faucet e convida outras pessoas a participarem nos testes beta.
+O resultado da era de Testnet é o lançamento de Cardano SL.

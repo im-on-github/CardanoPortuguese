@@ -1,0 +1,90 @@
+Tradução EN-->PT https://cardanodocs.com/technical/blocks/ 2018 11 09
+
+Blocos em Cardano SL
+
+Este guia descreve a conceção do bloco e a lógica do tratamento do bloco.
+Os tipos relacionados com blocos são definidos nos módulos Pos.Block.Core.Main.Types e Pos.Block.Core.Genesis.Types. A lógica do trabalho com blocos está descrita no módulo Pos.Block.Logic.
+
+Conceção
+Um bloco é a parte fundamental do razão. Existem dois tipos de blocos: blocos principais e blocos de génese.
+
+Bloco principal
+Um bloco principal consiste num cabeçalho e o corpo. O cabeçalho contém meta-informação sobre o bloco:
+1.	Um apontador à assinatura do cabeçalho do bloco anterior
+2.	Prova do corpo
+3.	Dados de consenso de modo a verificar o algoritmo de consenso
+4.	Alguns dados extra
+
+O corpo do bloco contém cargas e alguns dados extra também. Cargas incluem:
+1.	Cargas de transações: Esta é a carga principal. Transações são armazenados numa árvore de Merkle. Esta carga inclui a lista de testemunhas também. Para mias informações sobre transações e testemunhas em Cardano SL ler Transações em Cardano SL.
+2.	Cargas SSC: SSC (Shared seed computation) ou computação de semente partilhada é usado para o algoritmo Segue o Satoshi. Em cada época, líderes de slots para a próxima época têm que ser eleitos. Estes líderes de slot serão capazes de gerar novos blocos principais e adicioná-los ao razão. Por isso SSC é usado como uma fonte de aleatoriedade apara o processo de eleição de líder de slot.
+3.	Cargas de delegação: Esta carga consiste numa lista de proxy chaves de assinatura para a delegação de peso pesado. Para mais informações ler Delegação de Participação em Cardano SL.
+4.	Cargas de atualizações: Contém a proposta de atualização de software e a lista de votos para uma determinada atualização. Para mais informações ler Modelo do Sistema de Atualização.
+
+
+Bloco génese
+O bloco de génese não contém transações e existe apenas um bloco de génese para cada época. Blocos de génese têm um cabeçalho e um corpo como os blocos principais. O corpo do bloco contém:
+1.	Um índice da época a que o bloco está associado
+2.	Uma lista de líderes de slot para esta época. Esta lista não pode estar vazia
+3.	Dificuldade da blockchain: Representa o esforço necessário para gerar a blockchain, é o número de blocos principais na blockchain.
+
+Lógica do tratamento do bloco
+O sistema funciona com blocos e cabeçalhos de blocos. Fundamentalmente podemos:
+•	Criar um bloco
+•	Verificar um bloco
+•	Aplicar um bloco
+•	Retroceder um bloco
+e
+
+•	obter cabeçalhos de blocos através de critérios distintos
+•	classificar cabeçalhos de blocos
+
+Criação do bloco
+Conforme mencionado acima, existem dois tipos de blocos: blocos principais e blocos de génese. Uma blockchain principal é criada com a função createMainBlock e um bloco de génese é criado com a função createGenesisBlock.
+
+Criação do bloco principal
+Criamos um novo bloco principal em cima da melhor blockchain se possível: Um novo bloco pode ser criado se as condições seguintes forem cumpridas:
+•	conhecemos o bloco de génese da época de um determinado identificador de slot
+•	O último conhecido bloco é inferior a slotSecurityParam blocos de distância de um determinado identificador de slot
+O valor de slotSecurityParam (que na verdade é um número de slots) depende do número máximo de blocos que podem ser retrocedidos. Este número máximo é um parâmetro de segurança do artigo.
+Antes de mais, temos de verificar se o nosso software pode criar um bloco de acordo com o estado global atual. Se não puder, é necessário denunciar. Se puder podemos criar e aplicar o bloco.
+
+Criação do bloco de génese
+Um bloco de génese é criado para uma época atual quando o topo da blockchain mais conhecida for MainBlock correspondendo a um dos últimos slotSecurityParam slots da (i-1)enésima época.
+Antes de mais, tenta-se obter os líderes de slot. Caso não existam líderes de slot ou não existirem blocos para LRC (Leaders and Richmen Computation ou líderes e computação para homens ricos) um error é reportado. Caso contrário, tenta-se criar um bloco de génese. Contudo, por vezes não conseguimos criar um. Por exemplo, não devemos criar um novo bloco para a 0ª época porque o bloco da 0ª época foi criado em código no protocolo.
+
+
+Aplicação do bloco
+A aplicação de blocos é realizada com a função applyBlocks.  A sequência dos blocos deve set definitivamente validada: é necessário verificar todos os predicados e verificações dos dados em relação aos blocos.
+Importante: todos os blocos naquela sequência têm de ser da mesma época!
+se todas as condições forem cumpridas podemos aplicar blocos:
+•	aplicar US (Update System ou sistema de atualização)
+•	aplicar delegação
+•	aplicar transações
+Além disso, podemos verificar blocos antes da sua aplicação (i.e., aplicar blocos apenas se forem validados). Para a verificação utilizamos a função verifyAndApplyBlocks. Se acontecer algum error durante a aplicação existem duas opções:
+1.	Todos os blocos aplicados dentro desta função serão retrocedidos
+2.	Esta função tentará aplicar tantos blocos quantos possíveis.
+
+Retroceder blocos
+Retroceder blocos é o contrário a aplicar blocos: quando retrocedemos blocos todas as alterações realizadas pela aplicação são canceladas. Para tala função rollbackBlocks é usada.
+Obtém-se a ponta  do primeiro bloco para retroceder. Caso não coincidem um erro é reportado. Se coincidirem retrocedemos a sequência de blocos:
+•	retrocessão da delegação
+•	retrocessão do sistema de atualização
+•	retrocessão de transações
+
+Classificação dos cabeçalhos de blocos
+Um cabeçalho pode ser classificado como:
+1.	Continua
+2.	Alternativa
+3.	Inválida
+4.	Sem uso
+
+Um cabeçalho é tratado como continua se a verificação for bem sucedida: o cabeçalho é a continuação direta da blockchain principal (i.e., o seu parente é a nossa ponta)
+
+Um cabeçalho é tratado como alternativo se o cabeçalho do parente não for a nossa ponta e é mais difícil do que a nossa blockchain principal.
+
+Um cabeçalho é tratado como inválido se existirem quaisquer erros nos cabeçalhos da blockchain ou se não existir bloco a corresponder ao parente do elemento mais antigo da blockchain (deverá ser um dos pontos de verificação).
+
+Um cabeçalho é tratado como sem uso em múltiplas condições (e.g. se o cabeçalho do slot é menor ou igual à ponta do nosso slot ou o cabeçalho não continua na blockchain principal e não for mais difícil).
+
+

@@ -1,0 +1,46 @@
+
+
+Tradução EN --> PT https://cardanodocs.com/cardano/monetary-policy/ 2018 10 29
+
+
+Política Monetária de Cardano
+
+Esta secção define a política monetária de Cardano.
+
+Lançamento de Cardano e a disponibilidade de ADA
+Durante a venda que ocorreu no lançamento 25 927 070 538 ADA foram vendidos. Uma quantia de 20% do total de vouchers ADA foi vendida durante o período de venda originando 5 185 414 108 unidades. Estes vouchers ADA foram gerados e distribuídos às três entidades da comunidade Cardano, cada um membro do agregado responsável pelo desenvolvimento técnico e de negócio, nomeadamente IOHK, Emurgo e a Fundação Cardano. A quantia total de ADA tornada disponível no lançamento é de 31 112 484 646 ADA.
+
+
+Limitação da oferta da ADA
+ADA tem a sua oferta limitada ao montante arbitrário de 45 000 000 000 ou quarenta e cinco mil milhões de ADA.
+
+
+ADA para emissão durante a operação do protocolo de Cardano
+A quantia remanescente de ADA 13 887 515 354 será emitida após o lançamento através do processo de cunhar moeda.
+Nota: Nunca existirá em circulação mais do que 45 000 000 000 ADA em circulação.
+
+Tesouraria e custos
+Esta secção delineia os planos de tesouraria e os custos associados.
+
+Era Bootstrap (Lançamento)
+Atualmente Cardano está na sua fase bootstrapping. Durante esta fase, custos não serão recolhidos e Ada não será cunhada. Custos nesta fase serão recolhidos no futuro e serão destruídos.
+
+Tesouraria
+Cardano terá no futuro um sistema de tesouraria. a esta tesouraria será atribuída uma porção de ADA (ainda por definir) aquando do seu cunhar e custos de transação. A tesouraria será governada pelos detentores de ADA.
+
+
+Custos mínimos (cálculo atual)
+O custo mínimo = 0.155381 ADA + 0.000043946 (ADA/Byte) x tamanho da transação.
+Nota: Cálculos dos custos e incentivos são áreas que estão atualmente em pesquisa e o seu desenvolvimento está a progredir.
+
+
+Denominações
+1 ADA = 1 000 000 Lovelaces
+1 Lovelace = 1/1 000 000 ADA
+ADA tem seis casas decimais
+1,000000 = 1 ADA
+0,000001 = 1 Lovelace
+
+Em termos de unidades monetárias, existem dois pontos a ter em consideração. Em primeiro lugar, no Japão quantias em Yen são muito superiores, onde 10 000 yen é semelhante a 100 dólares. Fatorizando isto nos cálculos das unidades, a quantia altera de 25 bilhões de ADA para 250 milhões. É de relembrar que a unidade de ADA é igual a um milhão de Lovelaces (a unidade mais pequena) e depois de considerar este ajustamento, é igual a um total de 2.5 milhões. Em segundo lugar, ADA tem seis dígitos depois da casa decimal ao contrário de Bitcoin que tem oito dígitos.
+
+

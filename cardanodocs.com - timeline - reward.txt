@@ -1,0 +1,6 @@
+Tradução EN-->PT https://cardanodocs.com/timeline/reward/ 2018 11 02
+
+Era Recompensa
+Depois da era Bootstrap, a era de Recompensa começará. Durante este período, a rede irá operar de forma completamente descentralizada, em modo sem confiança. Esperamos o surgimento de agregações de participação durante esta era permitindo que partes interessadas com pouca participação possam ser recompensadas juntamente com grandes agregações de participação permanecem com os seus nós online de modo a manter o protocolo num modo descentralizado.
+O sistema irá receber atualizações regulares de software doravante e uma quantia enorme de novas funcionalidades serão lançadas num futuro próximo.
+
