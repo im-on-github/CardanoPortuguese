@@ -1,0 +1,35 @@
+Tradução EN-> PT https://cardanodocs.com/technical/plutus/introduction/ 2019 01 04
+
+Introdução a Plutus
+Plutus é uma linguagem de programação funcional pura estritamente tipada utilizado para definir contratos inteligentes em Cardano. A sintaxe é semelhante a Haskell, mas ao contrário de Haskell a linguagem é avidamente avaliada.
+
+Declaração de tipos de dados
+Em Plutus, para definir um tipo de dados, atribui-se o nome do tipo, em seguida quaisquer parâmetros em conjunto com uma lista de construções alternativas - tal como em Haskell. Cada construção alternativa tem os tipos dos seus argumentos.
+Assim, por exemplo, o tipo de números Peano seria definido por:
+CODE
+enquanto que árvores binárias seriam definidas como:
+CODE
+
+A construção tipo Tree toma um parâmetro, a. Esta construção é inabitada por valores construídos por dois construtores, Leaf, que não tem argumentos, e Branch, que tem três argumentos, uma subárvore do tipo Tree a, o valor do tipo a, e uma subárvore direita do tipo Tree a.
+
+Podemos inspecionar dados utilizando a construção case, como:
+CODE
+
+Declaração de valores
+Para declarar um novo valor (quer seja uma função ou não), é fornecido o seu tipo e depois especifica-se o seu valor. Por exemplo, para definir a adição de números naturais podemos recorrer a uma definição recursiva utilizando case:
+CODE
+Podemos também utilizar equações de correspondência de padrões da mesma forma como em Haskell que torna a definição de funções, tal como esta, de forma mais elegante:
+CODE
+
+Computações de contratos inteligentes
+Plutus tem um tipo de dado importante de raiz na linguagem, específica para computações de contratos inteligentes: a construção tipo Comp, que toma um tipo de parâmetro. A forma mais simples de criar valores é com duas construções de computação success que toma um valor M com um tipo A (para qualquer A) e produz a computação do tipo Comp A com apenas failure, que representa a computação falhada.
+É também possível encadear computações de contratos inteligentes em conjunto com a notação do. Dado um termo M do tipo Comp A e um termo N do tipo Comp B com uma variável livre x to tipo A e podemos formar CODE que corre a computação M, liga o valor de retorno x e depois corre a computação N. Se um termo M é computado para failure, então a falha é propagada pela construção do e tudo computa failure.
+
+Esta construção é a mais utilizada para a construção de scripts de validação de contratos inteligentes. A forma estandardizada de realizar, isto é, requerendo um programa de redenção do tipo Comp A e um programa de validação do tipo A -> Comp B que depois é composto para formar CODE. O programa redeemer corre e retorna qualquer dado que validator requer e depois esse dado é atribuído a validator que depois é executado.
+
+
+Generalidades mais detalhadas
+Nos outros capítulos na secção sobre Plutus fornece-se uma visão generalizada mais detalhada da gramática, tipos e programas de Plutus incluindo tipos e funcionalidades nativos que devem ser lidos antes de enveredar na programação em Plutus. Existe também um ficheiro de demonstração que apresenta a implementação de um conjunto de funcionalidades comuns que proporcionam uma boa noção do uso da linguagem.
+
+
+

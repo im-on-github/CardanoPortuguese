@@ -1,0 +1,35 @@
+Tradução EN-> PT https://cardanodocs.com/technical/plutus/types/ 2019 01 04
+
+Tipos em Plutus
+Este capítulo contém a referência para os tipos na linguagem de Plutus. Plutus utiliza uma teoria de tipos informal que desejamos que seja compreensível para quem leia este documento.
+
+Plutus vem incorporado com um conjunto de tipos nativos (ints, floats e bytestrings) e um único tipo de operador incorporado. Outros tipos são definidos pelos autores do programa. Discutiremos cada um por sua vez.
+
+Ints, Floats e Strings de Bytes
+Int, Float e ByteString são tipos primitivos com formas de construção dados por várias constantes especificadas pela gramática seguinte.
+CODE
+Não existe nenhumas verdadeiras formas de eliminadores para estes tipos, mas existe um conjunto de operadores nativos que podem ser aplicados a estes tipos. Escrevemos as assinaturas de tipos incorporados da seguinte forma f: (A B) -> C que indica que o nome incorporado f pode ser aplicado a um A e a um B que produz C. Os construtores incorporados para estes tipos primitivos são conforme mostrado abaixo com as implementações em termos de funções Haskell:
+CODE
+O uso destas funções incorporadas é realizado aplicando um prefixo ao nome com ! e aplicá-los de forma completa aos argumentos. E.g. somar 2 e 3 seria !addInt 2 3.
+
+Tipos de funções
+Dados quaisquer tipos A e B existe uma função do tipo A->B. Para obter um termo deste tipo podemos utilizar a forma introdutória lambda da seguinte forma: se M tem um tipo B e tem uma variável livre x que tem um tipo A e depois \x->M tem o tipo A->B. Podemos utilizar um termo com a função tipo da seguinte forma: se M tem A->B e N tem tipo A então M N tem tipo B. A computação para funções é uma redução beta standard: (\x->M) N reduz para [N/x]M, i.e., para M com N substituído por x. A computação em Plutus é executado avidamente por isso N é avaliado antes da substituição é executada.
+
+Tipos declarados pelo utilizador
+Quando um utilizador declara um novo tipo de dados por exemplo:
+CODE
+isto define uma nova construção, neste caso Foo que tem a seguinte regra de inferência associada: para qualquer tipo A, Foo A é também um tipo.
+Também são associadas as regras de inferência para os construtores conforme: Bar tem tipo Foo A para qualquer A; e se M tem o tipo A então Baz M tem o tipo Foo A.
+A forma de eliminador para tipos declarados pelo utilizador é a construção case que é utilizado para todos estes tipos. A análise de case é a mesma do que em Haskell por exemplo podemos escrever
+CODE
+para analisar um elemento do tipo Foo Int que computa um Int. Contudo, existe uma pequena diferença de Haskell, é que podemos analisar múltiplos termos ao mesmo tempo através da separação dos mesmos (e os seus correspondentes padrões) com |:
+CODE
+Análise de casos não tem que ser total, o que quer dizer, podem existir padrões que faltam. Quaisquer falhas na correspondência causa todo o programa a falhar a execução e causará a transação a ser considerada inválida.
+Os literais Int, Float e ByteString podem ser padrões também: por exemplo podemos definir a função fatorial utilizando o caso desta forma.
+CODE.
+
+
+
+
+
+
