@@ -1,0 +1,97 @@
+Tradução EN ->PT https://cardanodocs.com/technical/plutus/examples/ 2-19 01 06
+ 
+Exemplos em Plutus
+ 
+Aqui iremos abordar exemplos comuns de programas de modo a fornecer uma visão da forma como a linguagem de Plutus funciona. Implementaremos números de Peano, listas de cons e árvores binárias além de algumas relacionadas funções.
+ 
+Para começar, definiremos os números de Peano:
+ 
+data Nat = { Zero | Suc Nat }
+ 
+Os números naturais suportam várias funções tais como adição, multiplicação, fatorial e Fibonacci que são exemplos típicos de programas.
+ 
+add : Nat -> Nat -> Nat {
+add Zero n = n ;
+add (Suc m) n = Suc (add m n)
+}
+ 
+mul : Nat -> Nat -> Nat {
+mul Zero _ = Zero ;
+mul (Suc m) n = add (mul m n) n
+}
+ 
+fac : Nat -> Nat {
+fac Zero = Suc Zero ;
+fac (Suc n) = mul (Suc n) (fac n)
+}
+ 
+fib : Nat -> Nat {
+fib Zero = Suc Zero ;
+fib (Suc Zero) = Suc Zero ;
+fib (Suc (Suc n)) = add (fib n) (fib (Suc n))
+}
+ 
+Listas de cons são também um tipo familiar:
+ 
+data List a = { Nil | Cons a (List a) }
+ 
+Este exemplo demonstra o uso de tipos paramétricos onde List a tem um tipo parâmetro a para o tipo de elementos. Assim, por exemplo, List Nat é o tipo das listas de números de Peano.
+Listas suportam uma variedade de funções tais como length, append e map:
+ 
+length : forall a. List a -> Nat {
+length Nil = Zero ;
+length (Cons _ xs) = Suc (length xs)
+}
+ 
+append : forall a. List a -> List a -> List a {
+append Nil ys = ys ;
+append (Cons x xs) ys = Cons x (append xs ys)
+}
+ 
+map : forall a b. (a -> b) -> List a -> List b {
+map _ Nil = Nil ;
+map f (Cons x xs) = Cons (f x) (map f xs)
+}
+ 
+Aqui podemos observar o uso do princípio de polimorfismo em Plutus. Estas funções funcionam para qualquer lista, independentemente do tipo de elemento, assim é possível abstrair o tipo de elemento através do uso de forall. Por exemplo, o tipo de length informa que para qualquer escolha de a, temos uma função do tipo List a -> Nat.
+ 
+É importante notar que em Plutus este polimorfismo existe apenas para a declaração de valores. Em qualquer momento é possível utilizar um valor declarado polimorficamente, a escolha do tipo de variável tem que ser fixada no momento de utilização. Não é possível tratar estas declarações como a atribuição de valores polimórficos em geral tais como em sistemas-F. Em vez disso, um tipo polimórfico numa declaração é uma abreviação para uma família infinita de definições idênticas que diferem apenas a escolha daquela variável tipo. Por exemplo, podemos definir múltiplas funções length tais como:
+ 
+lengthNat : List Nat -> Nat {
+lengthNat Nil = Zero ;
+lengthNat (Cons _ xs) = Suc (lengthNat xs)
+}
+ 
+lengthBool : List Bool -> Nat {
+lengthBool Nil = Zero ;
+lengthBool (Cons _ xs) = Suc (lengthBool xs)
+}
+ 
+lengthListNat : List (List Nat) -> Nat {
+lengthListNat Nil = Zero ;
+lengthListNat (Cons _ xs) = Suc (lengthListNat xs)
+}
+ 
+E são todos idênticos exceto o nome e a escolha para a. Isto é naturalmente irrelevante, por isso podemos utilizar a declaração polimórfica dada acima. Mas esta declaração não nos fornece o valor de length com o tipo forall a. List a ->Nat. Em vez disso fornece-nos uma infinita família de declarações, mas com a conveniente abreviação da sintaxe. É esta a razão porque o uso de tais declarações polimórficas requer a escolha das variáveis tipo para serem fixadas no momento de uso.
+ 
+Outro tipo de comum é a árvore binária com dados dos ramos:
+ 
+data Tree a = { Leaf | Branch a (Tree a) (Tree a) }
+ 
+Tais árvores suportam as funções count, traversal e reverse:
+ 
+count : forall a. Tree a -> Nat {
+count Leaf = Zero ;
+count (Branch _ l r) = Suc (add (count l) (count r))
+}
+ 
+traversal : forall a. Tree a -> List a {
+traversal Leaf = Nil ;
+traversal (Branch x l r) = Cons x (append (traversal l) (traversal r))
+}
+ 
+reverse : forall a. Tree a -> Tree a {
+reverse Leaf = Leaf ;
+reverse (Branch x l r) = Branch x (reverse r) (reverse l)
+}
+ 
