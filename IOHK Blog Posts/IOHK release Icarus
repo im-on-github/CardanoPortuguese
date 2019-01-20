@@ -1,0 +1,50 @@
+Tradução EN PT https://iohk.io/blog/iohk-release-icarus-to-the-cardano-community/ 2019 01 18
+
+IOHK lança Icarus para a comunidade Cardano
+
+Programadores agora podem criar carteiras leves
+
+
+Hoje IOHK lança Icarus, uma implementação de referência para o desenvolvimento de carteiras leves pela equipa de engenharia da IOHK.
+
+Esperamos com este código de base seja utilizado como um ponto de referência para permitir a programadores a criarem a sua própria carteira leve e móvel que seja segura para Cardano. Icarus é um código de base completamente em código aberto que será o primeiro passo num intervalo de iniciativas em código aberto que fornece a programadores um conjunto de ferramentas para Cardano.
+
+Icarus nasceu de uma série de provas de conceito que começou em março 2018. Uma pequena secção da equipa de engenharia de IOHK estavam interessados em saber se poderiam demonstrar que seria possível criar uma carteira leve para Cardano com todas as características de Daedalus, mas que seria fácil de configurar e utilizar. Ao mesmo tempo em que estamos a melhorar os tempos de sincronização de Daedalus, sobretudo no lançamento 1.3, queríamos ver se podíamos construir algo para utilizadores de ADA que pudessem não precisar das características de Daedalus ou podiam não ter a largura de banda ou requisitos no equipamento para facilmente correr Daedalus.
+
+Assim, investigamos se faria sentido construir uma carteira onde o utilizador não tivesse que descarregar a blockchain completa - e pudesse correr num browser ou num dispositivo móvel - valeria o esforço de uma pequena equipa dedicada.
+
+Para construir uma carteira deste tipo, precisaríamos de provar que podíamos armazenar de forma segura as chaves privadas e executar operações criptográficas num browser do lado do cliente. Em conjunto, precisaríamos de comunicar com nós de Cardano para fornecer aos utilizadores o estado atual do UTxO. Se isto fosse realizado seria um resultado significativo, daí o nome Icarus - desde o início sabíamos que iríamos estar a voar perto do sol.
+
+
+No início de março a equipa estabeleceu objetivos ambiciosos para ver se, no espaço de um mês, seria possível desenvolver o esqueleto de uma aplicação numa extensão Chrome e verificar que a criptografia de Cardano poderia correr num browser utilizando WebAssembly compilado de Rust. A libraria de Rust de primitivas de Cardano foi desenvolvido por Vincent Hanquez e Nicolas Di Prima, engenheiros especializados em criptografia da IOHK e já foi utilizado para Daedalus, a característica dos certificados de carteiras em papel.
+
+Para construir esta extensão Chrome, precisaríamos de demonstrar com sucesso que poderíamos importar e rastrear o balanço da carteira. Naturalmente teríamos de fazer tudo isto sem sacrificar os princípios qualidade e segurança característico da engenharia da IOHK.
+
+A demonstração no final de março correu bem e produzimos um protótipo funcional que poderíamos desenvolver. Uma vez desenvolvida cada uma das demonstrações a mais ampla equipa da engenharia da IOHK teve a oportunidade de rever, criticar e fornecer comentários sobre as decisões de conceção que a equipa de Icarus estava a tomar que provaram ser valiosos para o processo. Após a prova de conceito 1, foi sentido que grande progresso estava a ser realizado e outro mês de empenho que valeria a pena.
+
+A prova de conceito 2 foi entregue a meados de abril. Os engenheiros Rust que dedicaram o seu tempo a estender a libraria Rust para apoiar as primitivas Cardano para a criação, assinatura, emissão das transações e fornecimento de um API de modo que pudessem correr num browser. Do lado da aplicação, queríamos ver se podíamos reutilizar os componentes UX/UI de Daedalus para fornecer uma experiência suave para o utilizador. Felizmente a equipa de desenvolvimento de Daedalus tem mantido um enquadramento de alta qualidade e transportável para React, chamado React-Polymorph que encontramos ser facilmente transportável para uma extensão Chrome.
+
+A prova de conceito 3, no final de maio, envolveu tornar Icarus totalmente interoperacional com a carteira Daedalus. A equipa trabalhou de modo a desenvolver um novo esquema de endereços determinístico hierárquicas que Daedalus irá usar no futuro e irá assegurar compatibilidade contínua. Uma característica importante que construímos neste momento foi permitir ao utilizador introduzir a sua frase de recuperação da carteira Daedalus em Icarus e para que a sua ADA em Daedalus fosse transferida para a carteira Icarus. Também otimizamos o tempo de restauro da carteira. Por fim, após apenas três meses e três demonstrações tínhamos o protótipo de uma carteira leve em Cardano totalmente funcional!
+
+Antes de podermos assegurar que era uma implementação de referência que pudéssemos disponibilizar à comunidade queríamos assegurar que desempenhava em escala. Isto, em conjunto com alguma limpeza do código foi a atividade principal da última prova de conceito no início de junho. Apelamos à experiência de Philipp Kant, na parte de avaliação comparativa de IOHK e Neil Davies que lidera as redes e conduziram com sucesso uma série de testes de stress e de falha à arquitetura.
+
+O código de base foi assegurado em termos de qualidade pela Alied Testing, uma empresa de referência neste domínio e em testar. Também envolvemos Kudelski Security, uma consultora de cripto segurança para realizar uma auditoria total ao código - o relatório será publicado em breve.
+
+Sabemos que Emurgo, a organização que apoia novos empreendimentos em Cardano, tinha interesse em lançar uma primeira implementação de Icarus para a comunidade. Para essa finalidade, convidamos dois membros da equipa de Emurgo - Nicolás Arqueros, Diretor de tecnologia e Sebastien Guillemot, Gerente Técnico - a Buenos Aires para conhecer o programador líder de Icarus, Alan Verbner e a sua equipa em julho. O objetivo desta viagem foi para ver se o código era facilmente compreendido e implementado por uns membros de uma comunidade de código aberto. Emurgo forneceu comentários sobre a forma como a implementação de referência podia ser lançado como um produto e escreveram uma especificação técnica para o código de base. Estamos empolgados em saber que Emurgo irá lançar brevemente a sua implementação de Icarus, a carteira Yoroi e iremos observar como pretendem continuar com a sua visão para o produto.
+
+Em meados de julho, Hayley McCool Smith, Gerente do Marketing de produto visitou Emurgo nos seus escritórios em Tóquio. Um dos propósitos da viagem foi para participar numa oficina de nomeação que ajudaria Emurgo a trazer vida ao seu produto. Após um dia a passar por uma infinidade de candidatos que a Emurgo já tinha reduzido numa lista, foi decidido que "Yoroi" era o nome perfeito. Em japonês, Yoroi significa "grande armadura" e é um proeminente exemplo do tipo de armamento que os Samurais vestiriam para se protegerem. Com o nome decidido, estava nas mãos da equipa criar o logotipo que melhor refletia a nova carteira leve, ao mesmo tempo que também incorporavam o significado etimológico da palavra.
+
+A livraria Rust que foi usada para trazer a criptografia de Cardano para o browser despoletou outro projeto na IOHK, o projeto Cardano Rust. (anteriormente era conhecido pelo projeto interno Prometheus). A IOHK irá lançar mais informação nisto na devida altura. O projeto Cardano Rust irá manter o espírito de código aberto de Icarus e ainda estender a caixa de ferramentas de módulos Rust. O projeto tornar-se-á disponível à comunidade de código aberto para facilmente construírem aplicações de elevada qualidade usando Cardano. O primeiro produto do projeto será uma linha de comando de interface à carteira completa que pudesse esperar a partir de setembro.
+
+Este desenvolvimento com uma equipa segmentada e abordagem de iterações rápidas ao desenvolvimento de software tem trabalho bem no projeto Icarus e iremos empregar esta estratégia novamente. Estamos felizes que detentores de ADA têm agora a possibilidade de armazenarem a sua ADA numa carteira Yoroi realmente porreira e que programadores têm uma implementação de referência de elevada qualidade na qual se podem basear para a sua própria carteira leve e móvel para Cardano. Este projeto permitiu também ao crescimento do projeto Prometheus que é a evolução natural do espírito de Icarus.
+
+Sentimos que desenvolvemos, num curto espaço de tempo, uma implementação de referência de elevada qualidade assegurada e auditado em termos de segurança para uma carteira leve de Cardano. Encorajamos a comunidade de código aberto em Cardano a bifurcar o código de base de Icarus, compilá-lo e talvez até construírem uma carteira vossa para Cardano. Convidamos contribuições e esperamos que este esforço irá beneficiar toda a comunidade.
+
+Este blog foi emendado para atualizar o nome do projeto Cardano Rust de projeto Prometheus.
+
+
+
+
+
+
+
