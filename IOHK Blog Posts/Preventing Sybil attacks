@@ -1,0 +1,87 @@
+
+
+Tradução EN PT https://iohk.io/blog/preventing-sybil-attacks/?__hstc=64163184.aea69343060ccee31cdf51d964fcd1d0.1541869991363.1547759968897.1547835640801.42&__hssc=64163184.1.1547835640801&__hsfp=641329318 2019 01 20
+
+
+Prevenir ataques Sybil
+
+
+Na sequência do post da semana passada do Professor Aggelos Kiayias, o diretor científico da IOHK, quero utilizar este post para discutir outra escolha pela qual optamos enquanto concebíamos o mecanismo de recompensa de Cardano. O mecanismo foi concebido para dar um incentivo às partes interessadas a 'fazerem a coisa certa' e participar no protocolo de forma a assegurar a operação suave, eficiente e segura.
+
+Conforme explicado na semana anterior, para assegurar a justiça e descentralização o mecanismo de recompensa segue três princípios:
+•	Total de recompensas por agrupamento de participação deve ser proporcional ao tamanho do agrupamento até o agrupamento atingir o ponto de saturação.
+•	Recompensas dentro de um agrupamento devem ser proporcionais à participação dos membros do agrupamento.
+•	Operadores de agrupamentos devem receber uma maior recompensa pelos seus esforços.
+
+Uma modificação necessária tem que ver com o desempenho do agrupamento. Se um operador de agrupamento negligenciar o seu 'dever' e não cria os blocos que deveria criar, as recompensas irão decrescer de acordo.
+
+Tomemos como exemplo de Alice e Bob que operam agrupamentos de igual dimensão. Ambos são eleitos como líderes de slot em 100 slots cada um. A Alice cria todos os 100 blocos dos slots que lidera conforme o seu dever, ao passo que o Bob falha 20 slots e cria apenas 80 blocos. Neste caso, o agrupamento da Alice recebe a totalidade das recompensas, por sua vez o Bob receberá menos. O quão menos é controlado por um parâmetro.
+
+O desafio
+
+Neste post, quero concentrar num outro potencial desafio aos princípios de Cardano e explicar como decidimos ultrapassá-lo. O desafio foi mencionado no final do post da semana passada: Como prevenimos que uma pessoa cria dezenas ou centenas de pequenos agrupamentos?
+
+É de notar que para agrupamentos com muitas partes interessadas é perfeitamente legítimo dividir a sua participação em vários agrupamentos de modo a receber uma parcela justa das recompensas.
+
+Exemplo de um ataque Sybil
+
+Vamos assumir que pretendemos atingir 100 agrupamentos e por isso o limite superior das recompensas é de 1%. Vamos assumir também que a Alice detém 3.6% de participação. Se a Alice não dividir a sua participação, ela irá apenas receber 1% do total de recompensas. Contudo, se a Alice dividir a sua participação, colocando 0.9% em quatro agrupamentos diferentes, a recompensa de cada um dos agrupamentos não será limitada.
+
+O desafio surge se um pequeno número de partes interessadas, mas desonesta criar um grande número de agrupamentos (possivelmente sob identidades assumidas). Se conseguirem atrair pessoas a estes agrupamentos (por exemplo mentindo sobre os seus custos e prometendo recompensas mais elevadas aos membros do agrupamento, ele poderá controlar a maioria de participação com muito pouca participação própria no sistema. Como é que isto pode acontecer?
+
+Imaginemos que existem 100 agrupamentos legítimos e honestos. Se não salvaguardássemos contra isto, um jogador malicioso poderia de forma relativamente barata criar 100, 200 ou até 500 agrupamentos sob nomes falsificados e reclamar baixos custos operacionais e uma margem de lucro baixa. Muitas partes interessadas seriam tentados a parar de delegar a um dos 100 agrupamentos honestos e em vez disso delegar a sua participação a um dos agrupamentos maliciosos que poderia superar o número de agrupamentos honestos. Como consequência, o operador dos agrupamentos maliciosos seria selecionado como líder de slot para a maioria dos blocos e assim ganhar controlo sobre a blockchain, abrindo-o a todo o tipo de prejuízo e atividades criminosas, tais como ataques de gasto duplo! Naturalmente ele teria que pagar a operação de centenas de nós, mas esse custo é irrelevante em comparação com o custo de adquirir a maioria de participação através da compra de toda a ADA em existência que seria na ordem das centenas de milhões a biliões de dólares.
+
+Isto seria desastroso porque a segurança do sistema em prova de participação como Cardano depende da ideia de que as pessoas com muita influência sobre o sistema devem deter muita participação e por isso terem toda a motivação a suportar o funcionamento normal e suave do sistema.
+
+A nossa solução
+
+Este tipo de ataque, onde o atacante assume muitas identidades chama-se um ataque Sybil, nomeado depois de uma novela de 1973 de Flora Rheta Schreiber sobre uma mulher que sofria do transtorno de personalidades múltiplas.
+
+Como é que prevenimos ataques Sybil?
+
+Uma ideia pode ser o de fazer o registo muito dispendioso. Mas para prevenir ataques, tais despesas teriam que ser demasiado elevadas e preveniria pessoas honestas de criarem agrupamentos legítimos. Tal barreira seria má para a descentralização; queremos encorajar membros da comunidade a começar os seus próprios agrupamentos e não limitar a entrada! Tem que haver um custo modesto pela simples razão de que cada certificado de registro tem que ser armazenado na blockchain e irá consumir recursos que têm que ser pagos.
+
+A nossa análise recorrendo à teoria dos jogos levou-nos a uma solução diferente, uma que não barra pequenas partes interessadas de iniciar os seus próprios agrupamentos sem o fardo de altos custos proibitivos e elevado risco financeiro.
+
+Aquando do registro de um agrupamento, o operador do agrupamento pode decidir comprometer parte da sua participação pessoal para o agrupamento. Comprometer mais ira aumentar ligeiramente o potencial de recompensas do seu agrupamento.
+
+Isto significa que agrupamentos cujos operadores comprometem uma grande quantia da sua participação será um pouco mais atrativo. Assim, se um atacante quiser criar dezenas de agrupamentos terá de dividir a sua participação pessoal em muitas partes, tornando os seus agrupamentos menos atrativos, levando em vez disso às pessoas a delegarem a agrupamentos geridos por partes interessadas honestos.
+
+Por outras palavras, um atacante que cria um grande número de agrupamentos terá de se dividir de forma muito fina ao longo de todos eles. Não consegue fazer com que todos os seus agrupamentos sejam atrativos porque o atacante tém que dividir a sua participação em muitas partes. Operadores de um agrupamento honesto irão juntar toda a sua participação num único agrupamento tendo assim maior possibilidade de atrais mais membros para o agrupamento.
+
+O grau de influência que a participação de um operador de agrupamento tem sobre a recompensa do agrupamento pode ser ajustado através de um parâmetro configurável. Sendo um conjunto de matemático com alguma criatividade chamamos a este parâmetro 'a0'. (Um colega sugeriu um caracter grego phi porque soava como o canto do gigante na história João e o pé de feijão - 'Fee-fo-fi-fum' - e estamos a tentar advertir contra agrupamentos grandes com efeitos nocivos, mas ficaremos gratos a algum membro da comunidade que surja com um bom nome!).
+
+Definindo 'a0' a zero significaria 'A recompensa do agrupamento não depende da quantidade de participação comprometida pelo operador no agrupamento'. Escolher um valor elevado de 'a0' resultaria numa grande vantagem para os operadores de agrupamentos que comprometem uma grande parte da participação aos seus próprios agrupamentos.
+
+Temos uma escolha clássica, entre justiça e um jogo equilibrado para todas as partes, por um lado (a0=0) e a segurança e por outro lado a proteção contra ataques Sybil (a0 é elevado).
+
+Para demonstrar o efeito de a0, vejamos os três gráficos na figura 1.
+
+Figura 1 - Como a quantia de participação que operadores de agrupamento
+
+Nos gráficos procuramos atingir 10 agrupamentos, por isso as recompensas serão limitadas a 10%. O tamanho da participação do agrupamento está traçado no eixo horizontal e o eixo vertical mostra as recompensas do agrupamento. Este gráfico mostra 3 agrupamentos hipotéticos onde os operadores comprometeram 0%, 5% e 8% respetivamente aos seus agrupamentos (a quantia comprometida é denominado s nos gráficos).
+O primeiro gráfico tem a0=0, por isso a participação comprometida não tem influência nas recompensas do agrupamento e os três agrupamentos comportam-se da mesma forma: recompensas continuam a aumentar à medida que o tamanho do agrupamento aumenta até atingirem o limite superior quando o agrupamento controla 10% da participação.
+
+No segundo gráfico vemos o efeito de a0=0.1. Os três agrupamentos são semelhantes, especialmente para tamanhos pequenos, no entanto são limitados a valores ligeiramente diferentes. Agrupamentos com mais participação comprometida regozijam ligeiramente maiores recompensas quando crescem ainda mais.
+
+Por fim, o terceiro gráfico mostra o efeito para a0=0.5. É semelhante ao segundo gráfico, no entanto as diferenças entre os três agrupamentos são mais pronunciadas. Continuamos a ter de escolher um bom valor para a0. Esta escolha dependerá de quantidades tais como os custos operacionais do agrupamento, o total de recompensas e - mais importante - o desejado nível de segurança.
+
+Queremos manter o valor de a0 o mais baixo quanto possível, enquanto ainda garantir elevados níveis de segurança contra ataques Sybil.
+
+De qualquer forma é importante ter em mente que a introdução de a0 não previne pequenas partes interessadas a correr com sucesso os seus agrupamentos porque alguém com uma boa ideia pode sempre estender a mão à comunidade, convencer outros e convidá-los para trabalharem em conjunto e agruparem recursos para comprometer ao agrupamento de participação. No fundo, correr um agrupamento sólido, de confiança e a trabalhar com proximidade à comunidade será mais importante do que apenas ser detentor de muita participação. 
+
+Também já começamos a pensar sobre em substituir a dependência de recompensas na participação comprometida do gerente do agrupamento por um sistema de reputação. Isto permitiria que pessoas com pouca participação criarem um agrupamento mais atrativo correndo-os de forma mais eficiente e de confiança por um longo período de tempo. Isto não será implementado na primeira iteração, mas está na mesa para futuras versões de Cardano.
+
+Poderá também querer ler o nosso relatório técnico 'Conceção por especificação para a delegação e incentivos em Cardano' para uma análise mais detalhada da descrição do sistema.
+
+Na segunda-feira 5 de novembro 2018, a IOHK vai realizar um AMA (pergunta-me qualquer coisa) sobre participação em Cardano onde todos têm a oportunidade de colocar questões à equipa da IOHK. Detalhes do AMA serão anunciados em breve.
+
+
+
+
+
+
+
+
+
+
