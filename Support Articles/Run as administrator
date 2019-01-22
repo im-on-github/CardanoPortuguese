@@ -1,0 +1,18 @@
+Tradução EN PT https://iohk.zendesk.com/hc/en-us/articles/360011409513 2018 01 14
+
+Correr como administrador (apenas para Windows)
+
+Problema
+
+Daedalus apresenta a mensagem 'Cannot connect to Network'.
+Este problema afeta apenas equipamentos com Windows instalado.
+
+Causa
+Quando corre a carteira Daedalus não tem permissões para a conta de o utilizador correr o Daedalus devidamente.
+
+É de notar que a mensagem 'Cannot connect to Network' pode ser causado por inúmeros problemas. Para mais informações consultar o artigo Mensagem 'Cannot Connect to Network'.
+
+Solução
+Clique no botão direito do rato no ícone da Daedalus e selecione 'Run as Administrador'.
+
+
