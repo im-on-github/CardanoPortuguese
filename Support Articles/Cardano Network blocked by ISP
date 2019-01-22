@@ -1,0 +1,16 @@
+Tradução EN  PT https://iohk.zendesk.com/hc/en-us/articles/360011408873 2019 01 14
+
+Rede de Cardano bloqueado pelo ISP
+
+Problema
+Daedalus apresenta a mensagem 'Cannot connect to Network'.
+
+Causa
+Daedalus não consegue ligar à rede Cardano devido à censura na rede. O ISP (fornecedor de serviço de internet) poderá estar a bloquear este tipo de tráfego.
+
+É de notar que a mensagem 'Cannot connect to Network' pode ser causado por inúmeros problemas. Para mais informações consultar o artigo Mensagem 'Cannot Connect to Network'
+
+Solução
+
+A solução poderá ser a utilização de um novo ISP ou o uso de uma VPN. É de notar que o uso de VPN em alguns países é restrito. Poderá ser útil consultar o link para conhecer mais sobre restrições de VPN.
+
