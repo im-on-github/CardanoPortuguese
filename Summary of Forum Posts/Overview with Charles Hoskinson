@@ -1,0 +1,87 @@
+Tradução EN -> PT https://forum.cardano.org/t/summary-overview-with-charles-hoskinson/11273 2019 01 15
+
+Quadro branco: Cardano - Visão global com Charles Hoskinson
+
+Introdução
+Cardano é um protocolo de terceira geração construído para ser escalável, interoperável e sustentável. Trata-se de uma visão de equipa por trás de como entendemos trazer criptomoedas ao primeiro milhão a bilhão de utilizadores. Trata-se de um protocolo com revisão de pares com normas de software de alta qualidade e por uma equipa internacional.
+
+1.	Escalabilidade
+•	Transações por segundo
+•	Rede
+•	Escalar dados
+
+2.	Interoperabilidade
+•	Comunicação entre criptomoedas (cc)
+•	Comunicação entre espaço das criptomoedas e os bancos
+
+3.	Sustentabilidade
+•	Como pagamos desenvolvimentos futuros?
+•	Para onde vamos?
+
+
+Escalabilidade
+O que estamos a procurar entender são formas de resolver os problemas de escalabilidade de uma forma muito elegante nomeadamente quando adicionamos pessoas à rede de forma natural aumentamos as transações por segundo aumentamos os recursos de rede e eventualmente adicionamos mais espaço disponível sem comprometer a segurança do modelo.
+1.	Transações por segundo
+Ouroboros o protocolo de prova de participação foi concebido de forma modular. Divide tempo em épocas e agarra numa parte interessada tornando-o o líder de slot que faz o mesmo trabalho conforme os mineiros na rede de bitcoin. Mas um líder de slot não tem que manter apenas um só bloco e uma só blockchain, podem na verdade manter vários blocos e outras blockchains (processando transações em paralelo). A intenção é que Ouroboros irá utilizar esquemas de assinatura resistentes à computação quântica (algures em 2018).
+
+2.	Rede
+RINA: Arquitetura recursiva inter-redes
+A blockchain é como um computador distribuído e TCP/IP não é particularmente adequado para isto. RINA é um melhor tipo de estrutura de redes que nos proporciona garantias de privacidade, transparência e escalabilidade que seria de esperar de TCP/IP. A equipa ainda está a trabalhar sobre este assunto e iremos trazer para o ecossistema Cardano em parte durante 2018 e de forma completa durante 2019.
+
+3.	Escalar dados
+•	Criar partições.
+Um utilizador não tem uma cópia da blockchain em vez disso tem pedaços de dados da blockchain e há uma noção que permite juntar esses pedações num conjunto, no entanto continuaria a ter o mesmo nível de garantia de segurança do protocolo.
+•	Side chains
+Criar uma representação da blockchain comprimida e a criação de interoperabilidade entre blockchains com um elevado grau de certeza mesmo que as evidências sejam relativamente pequenas.
+
+Interoperabilidade
+Digamos que tem uma empresa que desenvolve criptomoedas e emite um token ERC-20 [...] angaria milhões de dólares para a conta bancária. A primeira questão que vão perguntar é donde vieram estes milhões de dólares? [...]. Quem é vos entregou o dinheiro? Quem são os vossos clientes? Ao que respondem pessoas pela internet - infelizmente não é propriamente uma boa resposta.
+1.	Comunicação entre criptomoedas
+Atualmente é muito difícil para Ethereum e Bitcoin entenderem-se um ao outro.
+Câmbios atómicos ou sidechains fornece a possibilidade de conhecerem se uma transação é legítima ou não. É necessário ter essa competência de uma forma muito comprimida sem requerer uma cópia completa da blockchain porque a blockchain torna-se cada vez maior ao longo do tempo.
+O artigo de Sidechains em Cardano desenvolve a abordagem para gerar evidências no mundo de prova de trabalho.
+O objetivo é construir a internet de blockchains.
+Vê o vídeo sobre Sidechains aqui.
+
+2.	Comunicação entre espaço das criptomoedas e os bancos
+Se formos bem-sucedidos podemos realmente pensar que Cardano é a cola que facilita a internet de blockchains. Bitcoin pode manter-se como Bitcoin é, Ethereum pode manter-se conforme é, Ripple pode manter-se conforme é e os bancos não têm que mudar muito, mas Cardano fornece esta ponte necessária que não é centralizada e não é frágil em vez disso é uma rede descentralizada e realmente inaugura nesta grande nova era de interoperabilidade.
+
+Meta dados
+Trata-se da história por trás da transação (onde foi realizada a transação / em que é foi gasto / a quem foi dado). Meta dados permite hierarquizar transações em função do seu risco. Estas informações são incrivelmente pessoais e privadas e numa blockchain estas informações seriam permanentes para o público em geral. Cardano quer solucionar onde, quando e como colocamos meta dados na blockchain para benefícios em termos de auditoria, imutabilidade e carimbo temporal de forma responsável.
+
+Atribuição
+trata-se de identificar os autores envolvidos na transação. Temos que saber donde veio e para onde vai o dinheiro. Agora não temos uma forma muito eficaz de identificar pessoas. Cardano está a explorar como e quando podemos utilizar mecanismos criptográficos para nos identificarmos. Pode ser utilizado de uma forma fácil e graciosa quando as pessoas são requisitadas a serem atribuídas às transações.
+
+Conformidade
+Conformidade combina tópicos como:
+KYC - Conheça o seu cliente
+AML - Branqueamento de capitais
+ATF - Financiamento terrorismo
+Estes pontos não são considerados no espaço das criptomoedas, no entanto trata-se dos elementos fundamentais das instituições financeiras.
+Cardano quer encontrar um equilíbrio saudável para que meta dados e conformidade podem ser colocados em conjunto caso-a-caso e numa base voluntária. Quando alguém no espaço das criptomoedas quer fazer negócios no atual legado financeiro, essa pessoa teria que transformar a transações de uma transação criptográfica para um formato que o banco possa reconhecer e sentir-se confortável com a mesma.
+
+Sustentabilidade
+1.	Como pagamos o desenvolvimento futuro?
+Atualmente conhecemos dois principais métodos de financiamento.
+O primeiro é o modelo do patrocínio (para mais detalhes ver vídeo aqui). Este modelo leva à centralização do poder num conjunto restrito de pessoas que querem alterar o protocolo numa determinada direção.
+O segundo modelo é o ICO (oferta inicial de moeda). É um surto inicial de energia e fornece muito capital muito no início, é finito e eventualmente esgota-se.
+
+Podemos construir um sistema com uma tesouraria?
+Tesouraria é uma conta bancária descentralizada financiada através do sistema. Existe uma participação democrática ligado ao sistema que permite às partes interessadas de começarem a ter discussões sobre as prioridades nomeadamente que propostas devem ser financiadas. Assim, se alguém quer trabalho em Cardano submete uma proposta e as partes interessadas podem votar sobre a proposta. Se a proposta for aceite a tesouraria pagará esse mesmo desenvolvimento.
+O sistema é robusto porque é possível refinanciar a tesouraria de uma forma continuada. É diretamente proporcional à influência geral da moeda, assim à medida que a moeda cresce existem mais recursos disponíveis que podem por sua vez serem utilizados para fazer crescer a moeda.
+Trata-se de um desafio tremendo
+Precisamos de:
+-Um sistema de votação adequado e justo
+incentivos para votar e participar para fornecer uma noção de que o sistema serve um bem comum
+sistema de propostas fácil e construtivo onde as propostas razoáveis têm maior precedência, mas que não requer uma governação centralizada.
+
+Sistema de votação
+Haverá uma modificação à democracia líquida combinado com um modelo de tesouraria de incentivos. Para mais informações veja o vídeo aqui.
+
+2.	Para onde devemos ir?
+Uma criptomoeda não é estática e tem que ser capaz de se adaptar e genericamente isto é realizado através de bifurcações soft ou hard. Por isso como é que podemos fazer uma alteração à blockchain sem a quebrarmos?
+Uma boa analogia é a constituição de um país: Se a queremos alterar é possível de uma forma difícil através de um consenso universal sem alterar a constituição.
+
+Adoção de Cardano
+Com um sistema de tesouraria para a aprovação de propostas, é possível submeter a Cardano propostas de melhoria.
+Alguém pode criar uma proposta de melhoria e em seguida haverá um processo que podem seguir que permite à rede votar se a proposta deve ser ratificada ou não. Este processo deve ser um processo lento sistemático e deliberado que demora tempo e esforço com limiares cada vez mais elevados antes da eventual adoção.
