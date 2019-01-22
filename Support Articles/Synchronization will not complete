@@ -1,0 +1,12 @@
+Tradução EN PT https://iohk.zendesk.com/hc/en-us/articles/360011536933 2019 01 14
+
+Sincronização não termina
+
+Problema
+Sincronização para durante muito tempo.
+
+Causa
+A carteira Daedalus é um nó completo. Isto significa que cria uma cópia de toda a blockchain na máquina. Por vezes estes dados da blockchain corrompe-se causando a carteira Daedalus a parar de funcionar devidamente. Apagando a blockchain e voltando a sincronizar novamente é a solução para alguns tipos de problemas encontrados durante a utilização de Daedalus.
+
+Solução
+É necessário apagar e restaurar os dados da blockchain.
