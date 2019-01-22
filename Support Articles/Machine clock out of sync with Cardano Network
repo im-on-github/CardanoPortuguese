@@ -1,0 +1,44 @@
+
+
+
+Tradução EN  PT https://iohk.zendesk.com/hc/en-us/articles/360010230873 2019 01 14
+
+
+Relógio não sincronizado com a rede de Cardano
+
+
+Problema
+
+
+Daedalus apresenta uma mensagem com ecrã vermelho relacionado com o equipamento estar dessincronizado.
+
+Causa
+O tempo no computador não está sincronizado com a rede. Se o tempo no computador estiver desacertado por mais do que 20 segundos do tempo de rede (utilizado pela carteira Daedalus), a carteira Daedalus não poderá ligar-se à rede.
+
+É de notar que a mensagem 'Cannot connect to Network' pode ser causado por inúmeros problemas. Para mais informações consultar o artigo Mensagem 'Cannot Connect to Network'
+
+Solução
+Para solucionar o problema, é necessário sincronizar o tempo no computador com o servidor do Network Time Protocol (NTP). Para tal é necessário realizar uma atualização às definições do sistema operativo.
+
+Windows
+1.	Carregar no botão Windows+S (Win+S)
+2.	Digite Settings
+3.	No campo ‘Find a Setting’ digite Date
+4.	Ir para ‘Date and time settings’
+5.	Selecionar ‘Additional date, time & regional settings’. Uma nova janela aparecerá.
+6.	Selecionar ‘Set date and time’.
+
+1.	Ir para o separador ‘Internet time’
+2.	Selecionar ‘Change settings’
+3.	Selecionar ‘Atualizar agora’
+É de notar que deverá aparecer uma mensagem do tipo 'O relógio foi sincronizado com sucesso'. Se ocorrer um erro tente selecionar Update Now outra vez ou selecione um servidor diferente do menu.
+
+
+macOS
+
+1.	Clique no relógio localizado no canto superior direito do ecrã
+2.	Selecione Open Date and Time Preferences
+3.	Selecione o ícone do aloquete no canto inferior esquerdo da janela. Se o aloquete estiver fechado, clique no aloquete e escreva o login e palavra passe para desbloquear as definições.
+4.	Desseleccione o ‘Set Date and time automatically’.
+
+
