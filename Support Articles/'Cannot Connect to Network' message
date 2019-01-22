@@ -1,0 +1,8 @@
+Tradução EN ->PThttps://iohk.zendesk.com/hc/en-us/articles/360010522913 2019 01 14Mensagem 'Cannot Connect to Network Message'ProblemaDaedalus mostra a mensagem 'Cannot Connect to Network Message'.CausaA mensagem 'Cannot Connect to Network Message' pode ser causado por inúmeros problemas. Para mais detalhes ver a lista de soluções e as suas causas.Soluções
+	1. Paragem na otimização do armazenamento de blocos, parando o Daedalus.
+	2. Relógio não sincronizado com a rede de Cardano
+	3. Rede de Cardano bloqueado pelo ISP
+	4. Encerramento da carteira incompleta
+	5. Windows Defender bloqueia a ligação (apenas para Windows)
+	6. Correr como administrador (apenas para Windows)
+	7. Reinstalar a carteira Daedalus.
