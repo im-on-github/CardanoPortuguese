@@ -1,0 +1,41 @@
+
+
+Tradução EN PT https://iohk.io/blog/cardano-smart-contracts-testnet-iele-launches/ 2019 01 17
+
+Lançamento da rede de testes IELE para contratos inteligentes em Cardano
+
+Programadores podem correr programas com elevada confiança
+
+Hoje lançamos a segunda rede de testes de Cardano que é para a máquina virtual (VM) IELE e segue o lançamento da rede de testes para o KEVM. Esta tecnologia é não só um passo importante para o roteiro de Cardano, mas também para a indústria - ao oferecer uma infraestrutura financeira robusta e de confiança. Programadores agora têm a oportunidade de explorar a tecnologia de contratos inteligentes que serão disponibilizados como parte de Cardano e fornecer-nos feedback que esperamos receber ao longo dos próximos meses.
+
+Porquê contratos inteligentes?
+Em muitos processos do negócio que envolvem o intercâmbio de valor (incluindo dinheiro, propriedade e ações) intermediários estão envolvidos na verificação de que os termos do acordo estão completos e inequívocos além de satisfeitos antes do intercâmbio tomar lugar. Estes intermediários adicionam ao custo da transação. A tecnologia de contratos inteligentes (também conhecido como contratos autoexecutáveis ou contratos blockchain) têm emergido como uma forma de endereçar a necessidade para reduzir o tempo de verificação, envolvimento de terceiros e o custo de executar um acordo de confiança.
+
+Contratos inteligentes são programas de software que são armazenados de forma imutável na blockchain. São executados por máquinas virtuais e armazenam os seus dados nessa mesma infraestrutura imutável. Contratos inteligentes oferecem grandes benefícios ao negócio perspetivando a otimização das operações. Muitas indústrias - incluindo automóvel, cadeia de fornecimento, imobiliário e cuidados de saúde - estão a investir em investigação para compreender como é que esta tecnologia lhes pode tornar mais competitivos.
+
+Que tecnologias de contratos inteligentes estão atualmente disponíveis?
+Existem alguns atores no mercado que oferecem competências de contratos inteligentes como Hyperledger, NEO e Ethereum. Esta tecnologia está a evoluir ao encontro da procura do mercado por plataformas que são rápidas, seguras e rigorosas e que podem ser de confiança. Muitos negócios já tentaram implementar aplicações em larga escala nestas plataformas e depararam-se com problemas (o DAO hack, bug na Parity ou a moeda POWH para nomear alguns) com estas plataformas em evolução. Apesar da vasta publicidade os bugs mais sérios continuam a reaparecer em contratos inteligentes. Há aqui muita espaço para a inovação e a IOHK está a trabalhar muito para se tornar líder nesta tecnologia.
+
+O que é IELE?
+IELE (pronunciado YELL-eh) é uma máquina virtual com uma linguagem de baixo nível atendente, concebido para executar contratos inteligentes na blockchain de Cardano. Foi desenvolvido pela Runtime Verification em parceria com a IOHK que financiou o projeto. A palavra IELE refere-se a ninfas da mitologia Romena.
+
+Como é que IELE melhora as plataformas de contratos inteligentes?
+IELE foi concebido para ir ao encontro das necessidades que evolvem no mercado de contratos inteligentes:
+-Servindo-se como uma plataforma uniforme de baixo nível para traduzir e executar contratos inteligentes de linguagens de alto nível. Suporta a compilação de Solidity e muitas outras linguagens virão.
+-Fornecer o modelo de gás uniforme para todas as linguagens
+-Tornar mais fácil a redação de contratos inteligentes seguros. IELE é correta por construção por isso muitos erros descobertos depois do facto (durante a execução do código) noutras VMs não é possível em IELE.
+-Utiliza uma arquitetura baseado no registo em oposição ao stack.
+
+O que posso fazer com IELE que não podia fazer antes?
+IELE contém duas partes: a construção correta da VM concebida usando o enquadramento K e uma construção corretado compilador Solidity para IELE, apanhará muitos dos erros que anteriormente escapariam e que causaram muitos contratos a falharem ou serem explorados.
+
+Mais, à medida que o desenvolvimento de IELE avança, planeámos entregar 'linguagens de superfície' permitindo a programadores proficientes em Javascript, Python e outras linguagens a terem uma forma facilitada de integrarem contratos inteligentes nas suas aplicações.
+
+
+O que faço a seguir?
+A linguagem de IELE e a respetiva VM estão completas. Está agora no processo de ser integrado com Cardano, que fornecerá uma blockchain onde armazenar e retirar dados. Enquanto a integração toma o seu lugar, programadores têm a oportunidade de usarem a VM IELE em conjunto com as ferramentas Mallet e Remix para criarem e executarem contratos inteligentes no site da rede de testes da IOHK.
+
+É possível ainda começar a sentir as capacidades quer de IELE quer da máquina virtual - e até aprender a escrever código em IELE diretamente.
+
+Junta-te à conversa!
+
