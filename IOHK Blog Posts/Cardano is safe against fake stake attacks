@@ -1,0 +1,44 @@
+Tradução EN PT https://iohk.io/blog/cardano-is-secure-against-fake-stake-attacks/ 2019 01 31
+
+
+Cardano é seguro contra ataques de participação falsa
+
+Conceção baseado na revisão de pares significa que Ouroboros está livre de uma falha que afeta muitas blockchains prova de participação.
+
+
+Ada não está entre as 26 criptomoedas identificadas, na semana passada por investigadores do Estados Unidos, listadas como vulneráveis a ataques de participação falsa. A blockchain de Cardano subjacente a Ada é baseado na prova de participação (PoS) mas o protocolo Ouroboros não utiliza código de Bitcoin e por isso não é afetado pelo problema PoSv3. Não se trata apenas de sorte, mas é a consequência de uma abordagem exaustiva e verificada formalmente tomada durante o desenvolvimento de Cardano.
+
+A vulnerabilidade.
+A vulnerabilidade é bem explicada no artigo original. De modo a compreender o porquê de Cardano não ser afetado, iremos sumariar a essência da vulnerabilidade aqui.
+
+Todos os sistemas vulneráveis estão a utilizar PoSv3, a modificação do código de Bitcoin que se destina a substituir a potência de hash com participação para a finalidade de determinar quem é elegível a criar um bloco. No código original de bitcoin, a decisão de quem cria o próximo bloco é baseado na potência de hashing: quem conseguir encontrar o número aleatório e por isso atinge o hash correto em primeiro, ganha. Contudo, PoSv3, adiciona uma variável adicional que visa simular a noção de participação.
+
+Num sistema PoS, a probabilidade de ter a possibilidade de criar um bloco é proporcional à quantia de participação um utilizador tiver no sistema: quanto mais participação tiver um utilizador maior é a probabilidade de que sejam os próximos a criar o próximo bloco. Para imitar esta funcionalidade, PoSv3 permite aos utilizadores de adicionarem informação ao seu bloco candidato, sob a forma de uma transação de participação. Quantos mais fichas tiverem disponíveis para usar na transação de participação, mais fácil se torna para lhes retornar um hash correto e, por conseguinte, ganhar o direito de criar um novo bloco.
+
+Enquanto que PoSv3 executa com sucesso a ligação entre os direitos de criação dos blocos à participação, torna a validação do bloco mais difícil. Não só se torna necessário verificar o hash do bloco como também é necessário verificar a transação de participação: isto é ,o utilizador tinha na verdade as fichas que utilizaram para a transação de participação em sua posse? Para verificar esta informação um nó da blockchain tem poder referenciar-se ao razão e - se um bloco não estender a blockchain, mas introduz uma bifurcação - também o histórico do razão. Uma vez que não está em cache nem é barato de calcular, blocos num sistema PoSv3 não são validados imediatamente, mas sim (pelo menos em parte) armazenados em memória ou no disco quando passam algumas regras heurísticas.
+
+As vulnerabilidades discutidas no artigo original podem ser exploradas de inúmeras formas, mas em última instância envolve enganar as regras heurísticas e apresentar muitos blocos inválidos a um nó, de modo que o nó esgota a memória esbarrando-se antes de poder identificar corretamente que os blocos são inválidos.
+
+Porque é que Cardano é diferente
+
+Para Cardano, IOHK recorreu a uma abordagem diferente. Em vez de encontrar uma variante mínima à Bitcoin, recorremos aos líderes académicos e investigadores mundiais para criarem um novo protocolo e código de base de raiz, com o requisito de que deve assegurar garantias de segurança equivalentes (ou melhores) do que a Bitcoin, mas que dependesse exclusivamente da participação dos utilizadores. O resultado é o protocolo Ouroboros, o primeiro protocolo em prova de participação com provada segurança, na qual Cardano foi construído.
+
+A conceção básica de Cardano é extremamente simples: tempo é dividido em incrementos discretos, chamados slots e slots são agrupados em períodos maiores, chamadas épocas. No início de cada época, uma lotaria determina quem tem o direito de criar o bloco para cada slot. Em vez da lotaria ser implícita, isto é, quem tiver o hash correto primeiro ganha, a lotaria é explícita: um número gerado de forma aleatória determina o líder para cada slot e as probabilidades de ganhar para qualquer slot são proporcionais à participação que cada um controla.
+
+Neste protocolo, validar que um bloco foi assinado pelo participante correto também é simples: requer apenas o horário dos líderes para uma determinada época (que não se altera no caso de uma bifurcação temporária) e a verificação da assinatura. Isto pode e deverá ser realizado por cada nó uma vez que recebem o cabeçalho do bloco, por oposição com os sistemas PoSv3 que são vulneráveis a ataques de falsa participação.
+
+Em suma: Cardano é seguro contra ataques de falsa participação porque se baseia num sistema fundamentalmente diferente. Criptomoedas com PoSv3 correm sistemas prova de trabalho (PoW) modificados para tomarem em consideração a participação na eleição implícita do líder e a vulnerabilidade em questão resulta desta modificação e das complexidades adicionais que envolve.
+
+Não só tem Cardano uma fundação fundamentalmente diferente como também tem como fundação o resultado de múltiplos artigos científicos com revisão de pares e uma colaboração entre investigadores e programadores sem precedentes. Os métodos formais e semiformais envolvidos na criação do lançamento Shelley de Cardano asseguram que a construção ao nível do código iguala o protocolo descritos nos artigos científicos incorporando fiabilidade e segurança na conceção - evitando assim os problemas de PoSv3, que surgem em resultado da modificação de um protocolo existente em vez de criar um protocolo exaustivamente comprovado, conforme o referido protocolo, Ouroboros.
+
+Notas de rodapé
+
+	1. ‘“Fake Stake” attacks on chain-based Proof-of-Stake cryptocurrencies’ por Sanket Kanjalkar, Yunqi Li, Yuguang Chen, Joseph Kuo, e Andrew Miller do Laboratório de sistemas descentralizados da Universidade de Illinois em Urbana-Champaign
+	2. Para ser preciso, a discussão seguinte destina-se ao próximo lançamento Shelley de Cardano. A implementação atual do lançamento Byron corre numa configuração federada e por conseguinte é por isso operacionalmente protegido deste tipo de ataque.
+	3. Existem neste momento inúmeras variações do protocolo de Ouroboros. Descrevemos aqui apenas a versão clássica, mas o argumento geral é firme para todas as variantes - em particular para Ouroboros Praos que será o protocolo usado no lançamento Shelley.
+	4. Para ser preciso, a eleição do líder para uma dada época utiliza a distribuição de participação num momento antes da época começar, para prevenir ataques de moagem e o recálculo do horário no caso de uma bifurcação temporária na fronteira entre épocas.
+
+
+
+
+
