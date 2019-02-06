@@ -1,0 +1,63 @@
+Tradução EN PT https://iohk.io/blog/how-cardano-releases-are-versioned/ 2019 01 02
+
+
+
+Um guia para o versionamento de Cardano
+
+Tatyana Valkevych, Darko Mijić, e Jacob Mitchell explicam
+
+Cardano, uma blockchain de terceira geração está em evolução. Alterações a Cardano são planeadas como produtos interinos dentro das fases de desenvolvimento de Cardano e são implementadas e lançadas como software Cardano. Neste blog, o gerente do produto Darko Mijić, o gerente dos lançamentos Tatyana Valkevych e programador operacional líder Jacob Mitchell vão esclarecer a forma como Cardano é atribuído versões como um produto blockchain e enquanto software e a correspondência entre ambos.
+
+Versionamento de Cardano enquanto produto e enquanto software.
+
+A versão do produto Cardano reflete a evolução de Cardano numa sequência de implementações de conjuntos de características dentro de uma fase de desenvolvimento e utiliza a seguinte esquema de versionamento de três números separados por pontos:
+
+development_phase.feature_set-1.refinement
+
+onde a parte do refinamento por ser omisso. Por exemplo, a versão de Cardano em produção no momento em que este artigo foi redigido é 1.3.2 que significa que é o segundo refinamento do quarto conjunto de características para a primeira fase de desenvolvimento.
+
+Atualmente, Cardano aproxima-se ao fim da primeira fase de desenvolvimento chamado Byron.
+
+As fases de desenvolvimento de Cardano são:
+
+1.	Byron (Cardano 1.N). Na fase de Byron uma pilha tecnológica completamente nova de uma criptomoeda foi concebida e construída, incluindo código completamente novo e a implementação da primeira geração de Ouroboros, um protocolo prova de participação com provada segurança no seu cerne. A camada de liquidação (Cardano SL) de Cardano foi lançado de um modo federada onde o sistema era operado pela IOHK, fundação Cardano e Emurgo. Isto permitiu o lançamento da criptomoeda Ada e permite aos utilizadores transferirem e cambiarem Ada.
+2.	Shelley (Cardano 2.N). A fase de Shelley transitará a camada de liquidação de Cardano do modelo federado para um sistema completamente descentralizado que permitirá aos utilizadores participarem no protocolo e receberem as recompensas pela produção dos blocos colocando a sua participação a participar no protocolo de forma individual ou através de agrupamentos de participação.
+3.	Goguen (Cardano 3.N) A fase Goguen irá trazer a segunda coleção de protocolos para a camada de computação (Cardano CL) de Cardano implementados sob a forma de sidechains com o suporte de contratos inteligentes.
+4.	Basho (Cardano 4.N) A fase Basho irá focar-se nas melhorias de desempenho, segurança e escalabilidade do protocolo. Estas melhorias iram permitir Cardano a escalar para milhões e biliões de utilizadores.
+5.	Voltaire (Cardano 5.N) A fase final de desenvolvimento, Voltaire, adicionará um sistema de tesouraria e governação, permitindo que Cardano seja sustentável e autossuficiente.
+
+
+Até agora lançamos quatro principais lançamentos estáveis de Byron, que se referem a Cardano 1.0, Cardano 1.1, Cardano 1.2 e Cardano 1.3.
+
+Um novo conjunto de características a implementar são transportados através de um lançamento principal estável. Neste caso uma versão do lançamento pode ser representada apenas pelos primeiros dois números: por exemplo, Cardano 1.3 é o mesmo que Cardano 1.3.0. Cada lançamento principal pode ter lançamentos de refinamento subsequentes que incluem correções de bugs e outras melhorias, mas sem novas características. Até agora lançamentos principais de Cardano têm sido seguidos de lançamentos de refinamento. É importante enfatizar que apesar de uma versão de produto Cardano consistir de três números não segue um versionamento semântico.
+
+O produto Cardano vivo é representado pelo software do último lançamento, implementado na rede principal de Cardano. Quando um lançamento de Cardano está em discussão em canais públicos é a versão do produto Cardano que é usado por defeito. Quando se lança um incremento do produto Cardano especificamos as versões dos componentes do software nas notas de lançamento no site daedaluswallet.io e no GitHub [Daedalus releases, Cardano SL releases]. Abaixo esclarecemos a correspondência entre o produto Cardano e as versões de software Cardano.
+
+No momento de escrever este artigo, Cardano consiste nos dois seguintes componentes do software:
+•	Camada de liquidação de Cardano (CSL) é um componente de software do backend e o código vive no repositório de Cardano SL. É a implementação do nó de Cardano com todas as componentes necessárias tais como networking e também a implementação da carteira de Cardano e os seus APIs. Cardano SL é implementado no cerne de Cardano e retransmite nós da blockchain e também é transportado como um componente de software da backend com o frontend Daedalus.
+•	Componente de software Daedalus (D) é uma aplicação desktop para computadores pessoais que correm Windows, Mac o Linux e o código vivi no repositório Daedalus. Trata-se do frontend para utilizadores de Cardano e é transportado com o componente CLS como o seu backend.
+Estes componentes do software são atribuídos versões de acordo com o esquema de versionamento semântico que a maioria de software segue, que consiste em três números major.minor.patch onde:
+•	major é incrementado quando alterações ao código é retroativamente incompatível
+•	minor é incrementado quando funcionalidades adicionadas são retroativamente compatíveis
+•	patch é incrementado apenas quando bugs são corrigidos de uma forma retroativamente compatível
+
+O lançamento principal de Cardano 1.3.0 consiste de Cardano SL 1.3.0 e Daedalus 0.11.0, ou escrito de forma simbólica:
+C_1.3.0 = CSL_1.3.0 + D_0.11.0
+O lançamento de refinamento de Cardano 1.3.2 empacota Cardano SL 1.3.2 e Daedalus 0.11.2:
+C_1.3.2 = CSL_1.3.2 + D_0.11.2
+Os lançamentos de software Cardano SL e Daedalus têm tags com as versões no repositório da IOHK no GitHub (ver tags Cardano SL e tags Daedalus).
+
+As versões de lançamento de Cardano SL e Daedalus também são atualmente manifestadas no nome do ficheiro de instalação de Daedalus e no link do download na página  https://daedaluswallet.io/#download, por exemplo o instalados de Cardano no Windows chama-se:
+
+daedalus-0.11.2-cardano-sl-1.3.2-mainnet-windows-10311.exe
+
+que inclui a versão de Daedalus, a versão de Cardano SL, rede, sistema operativo e o número de construção.
+
+Apesar da versão de produto de Cardano e a versão de Cardano SL terem coincidido, isto não será o caso para o lançamento de Cardano 1.4 devido às alterações que são retroativamente incompatíveis no API da carteira de Cardano. O API da carteira é uma parte de Cardano SL e por isso devido às alterações incompatíveis o número major da versão de Cardano SL foi incrementado e isto resultou em Cardano SL 2.0.0. Assim, Cardano 1.4 consiste de Cardano SL 2.0.0 e Daedalus 0.12.0:
+
+C_1.4.0 = CSL_2.0.0 + D_0.12.0
+
+Conclusão
+Existe uma diferença distinta entre a versão do produto de Cardano e versões das componentes de software de Cardano. Apesar de ter sido sempre assim, Cardano 1.4 é o primeiro lançamento onde esta distinção é evidente, por isso queríamos explicar exatamente a forma como funciona o versionamento.
+
+O lançamento de Cardano 1.4 é a quinta principal lançamento de fase de Byron e consiste em dois componentes de software Cardano SL 2.0.0 e Daedalus 0.12.0 com versões ade acordo com o versionamento semântico. No futuro, Cardano irá incluir mais componentes que seguirão o seu próprio esquema de versionamento. Por exemplo, a carteira Cardano está a ser novamente redigida como um componente de software independente. A fase seguinte no desenvolvimento de Cardano, Shelley, será atribuída a versão como Cardano 2.N.
