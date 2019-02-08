@@ -1,0 +1,45 @@
+Tradução EN PT https://iohk.io/blog/backwards-incompatible-changes-in-cardano-1-4-wallet-api/ 2019 02 07
+
+Alterações retroativamente incompatíveis na API da carteira Cardano 1.4
+
+Matthias Benkort e Jacob Mitchell cobrem o que há de novo.
+
+Neste blog, o líder da API da carteira Matthias Benkort explica as alterações retroativamente incompatíveis da API da carteira Cardano que surgem com Cardano 1.4 e o líder de desenvolvimento Jacob Mitchell mostra como construir um cliente Cardano com quer a antiga versão V0 da API da carteira e a nova V1 da API da carteira, em vez da opção por defeito fornecendo apenas o novo API.
+
+Este post é essencialmente direcionado a utilizadores atuais da API da carteira Cardano, em particular, aqueles que já integraram com a versão beta do lançamento de V1 da API antes de Cardano 1.4.
+
+A API da carteira Cardano tem a sua própria atribuição de versões. A partir de Cardano 1.4, a anterior versão V0 da API da carteira tornar-se-á obsoleta. Todas as extremidades V0 API REST foram portados para V1 API e a nova programação da carteira permitiu à equipa da carteira a oportunidade de corrigir e melhorar as semânticas da carteira Cardano. Como consequência, houveram 4 grandes alterações conforme descritas abaixo. A versão V1 da API da carteira tornar-se-á a API da carteira por defeito em Cardano 1.4.
+
+	1. A estrutura de diagnóstico do erro NotEnoughMoney foi alterado para acomodar mais casos.
+	2. A estrutura de diagnóstico do erro WalletAlreadyExists foi modificado para fornecer um campo extra walletId para a identificação da carteira pré-existente.
+	3. O comportamento de /api/v1/addresses/{address} foi ajustado para refletir de forma mais rigorosa a semântica de propriedade em relação ao endereço. A versão anterior desta extremidade falhou com um erro HTTP quando o dado endereço era desconhecido para a carteira. Isto induzia em erro, uma vez que um endereço que é desconhecido para a carteira pode na verdade pertencer à mesma. Para refletir isto, a extremidade de V1 já não falha e em vez disso quando um endereço não é reconhecido devolve um novo campo isOurs, que indica ou que o endereço é na verdade da carteira ou que não é reconhecida.
+	4. O pedido DELETE a /api/v1/wallets/{wallet} agora falha de forma correta com um código de resposta 404 HTTP se a carteira não existir. Anteriormente, respondia incorretamente com 204.
+
+Independentemente de se executar a camada de dados antiga ou nova, a versão V1 da API terá as alterações descritas acima. As primeiras duas alterações visam melhorar a compreensão de programadores ao que se passa. Se cripto câmbios ou outras terceiros estivessem a construir uma mensagem de erro específica para o seu API ou frontend, então poderá quebrar.
+
+A terceira alteração é mais subtil e na verdade é a correção de um bug. O comportamento anterior de GET da extremidade do endereço estava a enviar informação errada aos nós, por isso corrigimos de modo a melhorar o rigor. Fazendo isso, introduzimos um novo campo isOurs e revimos que estados HTTP estavam a ser enviados - caso os cripto câmbios estivessem a depender desta informação para qualquer lógica do negócio, eles teriam de atualizar.
+
+A instalação por defeito de Cardano 1.4 virá apenas com a API V1 da carteira.
+
+Em geral, cripto câmbios e outros integradores usam lançamentos estáveis para construírem um cliente Cardano usando Shell script que lança a carteira Cardano na rede:
+
+nix-build -A connectScripts.mainnet.wallet
+
+Neste caso não existe retrocesso - a carteira Cardano é atualizada para V1.
+
+De modo a ter as funcionalidades de quer V0 quer V1, programadores devem usar useLegacyDataLayer num ficheiro custom-wallet-config.nix conforme descrito na nossa documentação para cripto câmbios. Atenção! Neste modo, apesar de tornar as extremidades de V1 disponíveis, a API não utiliza a camada de dados desenvolvida recentemente. Como consequência, programadores podem sentir algumas limitações conhecidas da camada de dados incumbente. Este modo é por esse motivo debilitado e por isso recomendámos vivamente que utilizadores corram os nós sem o mesmo.
+
+Descrevemos as alterações retroativamente incompatíveis vindas com a API da carteira de Cardano 1.4. Caso alguém tenha problemas com a atualização para 1.4, procurem ajuda quer por um canal de comunicação existente ou pelo nosso portal de apoio.
+
+
+
+
+
+
+
+
+
+
+
+
+
