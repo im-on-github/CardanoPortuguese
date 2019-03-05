@@ -1,0 +1,132 @@
+Tradução EN PT https://iohk.io/blog/how-we-use-nix-at-iohk/ 2019 02 08
+
+Como usamos Nix na IOHK
+
+IOHK tem histórico em colocar investigação fantástica em prática. Isto inclui o uso de linguagens de programação funcionais, adoção de métodos formais e claro - a implementação de investigação com revisão de pares em algoritmos de consenso de blockchains.
+
+Abordamos o problema de desenvolvimento de software de forma similar, usando ideias emergentes de trabalho académico recente. Este sistema aplica os princípios de programação funcional ao domínio de gestão de pacotes de software ou administração em sistemas.
+
+Neste custo artigo técnico vamos descrever como alavancámos Nix na IOHK e partilhar alguns dos nossos planos para o futuro.
+
+O que são Nix, Nixpkgs e NixOS?
+NixOS é uma distribuição Linux construído num gestor de pacotes Nix.
+
+O que pessoalmente gosto do gestor de pacote Nix é a capacidade de instalar múltiplas versões do mesmo pacote ou aplicar mais facilmente uma modificação a um pacote do código de base. Para o desenvolvimento em Haskell em particular, existem pacotes binários para um número impressionante de compiladores, ferramentas e pacotes Haskell disponíveis.
+
+O que distingue NixOS dos restantes é o sistema de configuração.  Inclui uma grande coleção de módulos de elevada qualidade que são configurados de forma declarativa e uniforme. Este é o benefício para administradores de sistema precisam de aplicar a mesma configuração a muitos sistemas ou integrar uma variedade de software num único sistema.
+
+Por baixo do gestor de pacotes Nix e NixOS é a linguagem Nix - uma linguagem de domínio específica, puramente funcional, uma linguagem avaliada de forma preguiçosa para configuração e desenvolvimento de software.
+
+O artigo NixOS: Uma distribuição Linux puramente funcional é uma excelente introdução. Define claramente os problemas que NixOS procura resolver, muitos dos quais serão familiares aos utilizadores técnicos.
+
+Quem está por detrás do projeto NixOS?
+NixOS foi inicialmente criado em 2003 na universidade de Utrecht como o projeto de investigação da Eelco Dolstra, formando a parte principal da sua tese de doutoramento. Quinze anos depois, o projeto NixOS corre no GitHub com centenas de contribuidores envolvidos e o código de base está atualmente a uma taxa de cerca de 500 git comentários por semana.
+
+A comunidade também comunica através do canal IRC no Free node, um quadro de comentários uma conferência cerca de anualmente e encontros regulares.
+
+Além disso, várias empresas fornecem à Nix serviços de consultoria como por exemplo Tweag, I/O e Mayflower.
+
+Porquê Nix?
+Existem já muitos sistemas para a gestão de configurações, alguns com muitos mais utilizadores do que Nix. No entanto, acreditamos que Nix tem a melhor implementação disponível do conceito "infraestrutura como código" não só em termos de características, mas também na sua conceção e potencial.
+Se se trata da implementação como um programa escrito numa linguagem funcional, então obtém-se as vantagens da programação funcional como transparência referencial, reutilização segura de código e a capacidade de realizar testes unitários à implementação. No seu cerne, a derivação "Nix" abstrai os detalhes e permite a criação de módulos de software que são usados todos mais ou menos da mesma forma, independentemente do seu código de base.
+
+Uma derivação é uma função que toma código de base, bibliotecas dependentes e produz um pacote de software imutável; porque Nix é puo (no sentido aplicado à linguagem de programação), se quaisquer inputs se altera, então o resultado é um pacote de software diferente. Em alternativa, se uma derivação com exatamente os mesmos inputs foi construído noutro local (por exemplo por integração contínua (CI)), Nix apenas descarrega aquele pacote em vez de construir uma derivação própria, reduzindo o esforço de duplicação.
+
+A forma como Nix calcula se um input de uma derivação foi alterado é tomando o hash criptográfico. Dependências são recursivas, por isso este hash é na verdade um hash de hashes - um conceito poderoso instantaneamente reconhecido pelos entusiastas de blockchain.
+
+Como utilizamos o Nix
+Aqui seguem alguns exemplos da forma como utilizamos Nix na IOHK.
+
+1 - Implementação da rede de Cardano SL
+
+Nós corremos cerca de 200 nós em AWS para várias redes de testes, a rede principal Cardano SL Byron e o desenvolvimento faseada de Cardano SL (um ambiente usado para atualizações dos testes).
+
+Estes são todos sistemas NixOS implementados com NixOps.
+
+Escrevemos uma ferramenta chamada iohk-ops, que gera a rede NixOps de uma descrição topológica abstrata. Esta descrição topológica descreve o número de nós de transmissão de Cardano SL, que centros de dados estão hospedados e rotas estáticas entre pares. iohk-ops chama NixOps para executar a implementação.
+
+A mesma ferramenta permite a implementação de clusters de desenvolvimento mais pequenos que são usados para atividades de testes. Estes clusters partilham o mesmo código de implementação e idênticas versões de software, mas são mais pequenos e podem ser iniciados e parados quando necessário.
+
+As características de retrocesso de NixOS e NixOps já provaram serem de imenso valor por várias vezes no nosso desenvolvimento faseado: a rede inteira pode ser reimplementada com apenas um comando ou apenas para nós específicos.
+
+Com NixOps temos a capacidade de aplicar alterações às configurações e patches e em seguida reconstruir no momento de implementar, confiantes de que o resultado será idêntico daquilo que vem de CI e pode ser desfeito sem deixar código desorganizado.
+
+2 - Implementação reproduzível
+
+Medidas extremas tais como modificações ao código em tempo real, normalmente não são necessárias, porque o ambiente de desenvolvimento pode ser reproduzido e testado localmente, assegurando que quaisquer problemas são apanhados com muita antecedência.
+
+Conforme mencionado anteriormente, a derivação Nix é uma função pura. O código pode ser executado localmente com exatamente o mesmo ambiente e bibliotecas (até ao kernel Linux) conforme são utilizados em produção.
+
+3 - Reconstruções rápidas de imagens do Docker
+
+Os pontos fortes do Docker consistem nas propriedades de imutabilidade, encapsulamento e reprodutibilidade partilhados pela Nix. No entanto, é limitado de forma severa pelo modelo de dados e DSL restrito.
+
+A estrutura de dependências de software é uma árvore e não uma sequência de camadas conforme modelado pelo Docker. Uma chatice típica aquando da construção de imagens de Docker com o Docker file é que se uma camada próxima do fundo requer uma alteração, então tudo que está por cima tem que ser reconstruído. Mais, a não ser que certos passos são tomados para utilizar múltiplas etapas de construção, produtos intermédios de camadas inferiores serão incluídos na imagem final.
+
+Em contraste, o pacote Nix será apenas reconstruído se as dependências (as dependências destas) alteraram. O fecho mínimo de um pacote Nix contém apenas o que é necessário para correr aquele software.
+
+Assim, geramos imagens de Docker do fecho de derivações Nix que são mínimas e rápidas de serem reconstruídos. Este processo de construção pode também ser parametrizado pela definição de uma função na linguagem Nix.
+
+4 - Implementação declarativa de construções macOS slaves.
+
+Para construir pacotes de instaladores macOS para Daedalus, mantemos uma pequena coleção de sistemas macOS (hospedados na MacinCloud). Estes sistemas foram um tédio de manterem até começarmos a usar nix-darwin. Nix-darwin permite a configuração declarativa de sistemas macOS de forma semelhante a NixOS.
+
+Escrevemos um script para configurar o Mac através de SSH. Todas as coisas são geridas através do código Nix, incluindo o ambiente de construção, monitorização e acesso SSH.
+
+5 - Compilação cruzada para Cardano SL em Windows
+
+Para produzir pacotes de instalação Windows para Daedalus, dependíamos de recursos limitados de instâncias de construção fornecidos por CIs ou manter uma pequena coleção de sistemas Windows. A infraestrutura CI em Windows tem-nos sido uma constante fonte de problemas.
+
+Contudo, agora já somos capazes de compilar de forma cruzada código Haskell para Windows através do Linux! A próxima versão maior de Daedalus para Windows será transportado com cardano-node.exe que foi construído em Linux.
+
+Devido ao tamanho de Cardano SL, trata-se de uma realização significativa e o resultado de vários meses de esforço.
+
+6 - Ambientes de desenvolvimento.
+
+Com nix-shell, podemos fornecer ambientes de desenvolvimento que contêm todas as ferramentas e bibliotecas necessárias para construir um projeto agarradas a versões definidas com precisão.
+
+Em cardano-sl, a shell Nix apoia quer o workflow stack ou cabal new-build com dependências pré-construídas em Haskell descarregadas do cache binário da IOHK.
+
+Em daedalus, a shell Nix fornece yarn e um método de executar a blockchain cardano SL e uma carteira localmente.
+
+Programadores e utilizadores que não são familiarizados com ferramentas de outras linguagens tais como Cabal, Stack (Haskell), NPM, Yarn (JavaScript) ou Cargo (Rust) ainda serão reconstruídos (ou descarregada uma versão em execução em cache de CI) apenas executando nix build.
+
+Existem outras ferramentas para fornecer ambientes de desenvolvimento, tais como Apache Maven ou Docker, mas estes não são facilmente compostos. Porque a Nix é uma linguagem funcional, ambientes de desenvolvimento são aplicações de funções que podem ser compostos. Assim, com Nix é possível escrever uma função que combina ambientes de desenvolvimento ou apenas as partes que são precisas.
+
+Futuras direções
+2019 será um ano excitante para a IOHK, com vários projetos ambiciosos no pipeline. Antecipamos que Nix terá um papel importante no sucesso destes projetos. Algumas das coisas que planeámos são:
+
+Construção Daedalus Pura
+Atualmente construímos instaladores para Windows e macOS usando um script Haskell. Isto é mais lento do que o necessário e precisa de correr num sistema Windows ou macOS: preferimos executar em Linux com Nix de modo que as componentes do software podem estar em cache conforme necessário.
+
+iohk-nix
+IOHK está a dividir o código de base de Cardano SL em módulos independentes que têm de ser integrados num produto final executável. Começamos um repositório de código comum Nix iohk-nix que pode ser reutilizado por cada subprojecto de Cardano SL.
+
+Como com qualquer linguagem, o código Nix pode ser escrito de uma forma bonita ou de forma péssima - e porque Nix não é um sistema de tipos estáticos, o código que é péssimo é mesmo muito mau. Assim, como parte deste projeto haverá um esforço de melhorar a elegibilidade e documentação o nosso código Nix para que seja fácil de compreender e manter.
+
+Ferramentas para a implementação de um nó de um agrupamento de participação
+Em 2019, Cardano SL será descentralizado. Queremos tornar isto muito simples para utilizadores técnicos implementar um ou mais nós de Cardano SL ou operam um agrupamento de participação.
+
+Isto inclui:
+	* Suavizar as arestas do iohk-ops de modo a torná-lo pronto a usar pelo público
+	* Fornecer uma variedade de opções tais como imagens do Docker ou executáveis totalmente ligados de forma estática.
+	* Usando ferramentas disponíveis em NixOs para fornecer uma configuração de monitorização chave-na-mão para todas as métricas necessárias ao nível da aplicação.
+
+nix-tools Haskell Builder
+A infraestrutura executável em Nix Haskell precisava de trabalho significativo de modo a compilar Haskell num ambiente de destino em Windows, maior parte das vezes para rastrear mais informação sobre alertas e dependências do compilador.
+
+O resultado é um builder mais poderoso em Haskell e uma nova implementação do syack2nix que corre mais rápido por entre outras coisas. Esta infraestrutura de construção em Haskell chama-se nix-tools. Pretendemos preencher as partes que faltam e adicionar a montante a Nixpkgs durante o próximo ano.
+
+Este tópico é tão interessante que merece o seu próprio blog, que pretendemos postar em breve.
+
+Conclusão
+Esta redação foi uma breve descrição de como utilizamos Nix para nos auxiliar a desenvolver e implementar Cardano.
+
+Naturalmente, nem tudo é excelente. Utilizadores encontram que Nix tem uma curva de aprendizagem muito grande e a comunidade é relativamente pequena. Também temos uma lista de desejos de características e correções de bugs que ainda não foram implementados.
+
+Se está interessado em apreender mais sobre Nix, então visite o site NixOs. Se gosta de programar ou da administração de sistemas, é muito fácil contribuir para o projeto NixOs. É necessário algum tempo até ficar orientado com a linguagem Nix, mas depois encontra que quase tudo que precisa está num repositório git.
+
+Na IOHK contribuímos regularmente ao projeto NixOS. Estas contribuições incluem melhorias a pacotes e módulos NixOS e contratar programadores para melhorias mais significativas. Adicionalmente, apenas usar NixOS numa larga escala em projetos de investigação ou comerciais, contribuímos ao ecossistema - pela publicação do nosso código sob uma licença gratuita, submetendo relatórios de bugs e partilhando experiências com a comunidade.
+
+Estamos a contratar
+A equipa da IOHK está a crescer e estamos à procura das pessoas certas para se juntarem a nós. Se ajudar uma plataforma de blockchain mais avançada do que qualquer outra é algo que te interessa então vai à nossa lista de empregos e contacta-nos!
