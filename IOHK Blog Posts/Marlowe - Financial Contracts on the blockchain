@@ -1,0 +1,22 @@
+Tradução EN PT https://iohk.io/blog/marlowe-financial-contracts-on-blockchain/ 2019 03 04
+
+Marlowe: Contratos financeiros na blockchain
+
+Os primeiros computadores eram programados em código de máquina. Cada tipo de sistema tem um código diferente e estes códigos eram de baixo nível e inexpressivos: programas eram longas sequências de instruções muito simples incompreensíveis a qualquer um que não as tenha redigido. Hoje em dia podemos utilizar linguagens de alto nível como C, Java e Haskell a programar sistemas. As mesmas linguagens podem ser usadas em máquinas muito distintas e as estruturas do programa refletem o que fazem; na blockchain as equivalências são as linguagens como Solidity e Simplicity. Estas linguagens modernas de alto-nível são de propósito geral - podem ser utilizados para resolver uma variedade de problemas - mas as soluções que expressam continuam ainda a serem programas e ainda requerem competências de programação para as utilizar de forma efetiva.
+
+Pelo contrário, Marlowe é uma linguagem especifica de domínio (DSL) que é concebida para ser usados por alguém que é perito num determinado campo: no caso de Marlowe, contratos financeiros, em vez de requerer competências de programação para os utilizar.
+
+Utilizar um DSL tem muitas vantagens além da utilização por não programadores:
+
+•	Podemos assegurar que certos tipos de maus programas não podem sequer serem redigidos através da conceção dessas possibilidades serem vedadas da linguagem e ao fazer isto evita-se algumas manipulações não antecipadas que têm sido um problema para algumas blockchains existentes.
+•	Podemos mais facilmente verificar que programas têm propriedades que desejamos: por exemplo, no caso de um contrato financeiro podemos querer que o contrato nunca falhe um pagamento que deva realizar.
+•	Porque se trata de um DSL, podemos construir ferramentas com um específico fim para ajudar pessoas a escrever programas na linguagem. No caso de Marlowe podemos emular como um contrato se irá comportar antes da execução na realidade no sistema; isto ajuda-nos a assegurar que o contrato que escrevemos faz aquilo que intencionamos que faça.
+
+Marlowe está modelado em contratos financeiros DSL popularizados na última década por académicos e empresas tais como LexiFi que fornece software para contratos no setor financeiro. No desenvolvimento de Marlowe temos adaptado estas linguagens para funcionar na blockchain. Marlowe é implementado na camada de liquidação (SL) do blockchain de Cardano, mas que também poderia ser implementado em Ethereum / Solidity ou outras plataformas de blockchain; neste respeito somos agnósticos em termos de plataforma tal como linguagens de programação modernas como Java e C++. A ferramenta de emulação Meadow permite experimentação, desenvolvimento e interação com contratos Meadow no browser sem a necessidade de instalar qualquer software.
+
+O que é que é um contrato Marlowe? É construído pela combinação de um pequeno número de blocos que descrevem a realização de um pagamento, fazendo uma observação de qualquer coisa no mundo real, à espera que certa condição se torna verdadeira e assim por diante. Onde nos distinguimos de abordagens anteriores é na forma como asseguramos que o contrato é seguido. Isto significa que não só que as instruções do contrato foram desobedecidas, mas também que os participantes não abandonem mais cedo deixando o dinheiro preso no contrato para sempre. Fazemos isto através de duas ferramentas, compromissos e mensagens de tempo esgotado: um compromisso requer que um participante "coloque o dinheiro na mesa" e através dos tempos esgotados garantimos que o compromisso ocorre de uma forma atempada ou uma ação de remedeio é tomada. Ao colocar estas construções todas juntas tornam-se possível incentivar participantes a continuar com o contrato uma vez realizado o compromisso ao contrato.
+
+Estamos a trabalhar num lançamento completo de Marlowe para meados de 2019, quando se tornará disponível em Cardano SL. Desde hoje, é possível explorar Marlowe usando Meadow e encontrar muitos mais detalhes do nosso artigo online. Nos próximos seis meses iremos polir a conceção da linguagem e desenvolver normas de instrumentos financeiros populares além de utilizar ferramentas de lógica formal para provar as propriedades de contratos Marlowe dando aos utilizadores o mais alto nível de garantia que os contratos se realizaram conforme intencionados.
+
+
+
