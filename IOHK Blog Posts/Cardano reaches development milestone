@@ -1,0 +1,38 @@
+Tradução EN->PT https://iohk.io/blog/cardano-reaches-development-milestone/ 2019 03 28
+
+
+Cardano alcança meta de desenvolvimento
+
+O lançamento de Cardano 1.5 marca o início de uma mudança da era Byron de Cardano para a era Shelley e é uma excelente oportunidade de descrever o trabalho em andamento para Shelley e como ocorrerá a transição.
+
+Há cerca de seis meses atrás, mudamos quase todo o nosso esforço de desenvolvimento para o código de base de Shelley, e desde então o trabalho tem progredindo rapidamente. O último trabalho significativo no código de base de Byron foi completada em Cardano 1.4 e para 1.5 limitamos o trabalho a apenas as alterações necessárias para uma transição suave para Shelley.
+
+O código de base de Shelley não é apenas uma extensão do código de Byron, mas sim uma fundação totalmente nova. Para a era Shelley, tomamos partido da oportunidade para desnudar e reconstruir o sistema além de incluir as novas funcionalidades de comprometer participação e delegação de participação. O resultado é que pudemos remediar inúmeras limitações na arquitetura do código de base de Byron além de nos dedicar a uma abordagem semiformal no desenvolvimento de software que sistematicamente refiro nos meus vídeos.
+
+Em particular, temos agora especificações matemáticas formais das regras de validação para as blockchains de Byron e Shelley e iremos apresentar estas especificações em abril na IOHK summit. Quando o desenvolvimento estiver completo, seremos capazes de fornecer evidências que o código implementa de forma correta as nossas especificações. Trata-se de uma mudança chave no sistema de qualidade e será pioneira na nossa indústria.
+
+Uma transição sem falhas.
+
+Naturalmente temos que gerir a transição de Byron para Shelley de forma muito cautelosa. Não se trata apenas de uma mudança significativa das regras, mas sim de uma migração de um código de base para outra. Esforçámo-nos e fomos mais além para assegurar que o processo de transição seria suave o tanto quanto possível.
+
+Enquanto que se poderia esperar que a transição para Shelley envolvesse uma bifurcação total (hard fork) na verdade haverão duas. Vale a pena enfatizar que enquanto que estas bifurcações são técnicas, não serão de forma alguma disruptivas da forma como tradicionalmente bifurcações totais são. As alterações foram concebidas para utilizar o nosso sistema de atualização existente e serem minimamente disruptivas. Para utilizadores da carteira Daedalus, será muito semelhante a qualquer outra atualização.
+
+Para ambas as bifurcações totais, iremos implementar uma atualização que inclui as regras da nova era que estarão num estado não ativadas a serem ativadas várias semanas mais tarde. Isto é a chave para evitar uma disrupção no momento da bifurcação total. A atualização do software ocorre mais cedo e uma vez que todas estejam prontos podemos ativar de forma suave as alterações.
+
+A única diferença entre uma bifurcação total e uma atualização regular é que a atualização é obrigatória entre o lançamento do software e a ativação da bifurcação total. Para utilizadores de Daedalus, isto ocorre via o sistema de atualização standard do software. Câmbios de criptomoedas têm que realizar a atualização manualmente, mas terão várias semanas para assim o fazer.
+
+Porquê duas bifurcações totais?
+
+Por razões técnicas, a transição de Byron para Shelley é mais expedita se enveredarmo-nos por um período transicional. Há uma bifurcação total para entrar na era transicional e depois uma segunda para iniciar a era Shelley. A era Byron utiliza Ouroboros Classic e a era Shelley utiliza Ouroboros Genesis (que é uma extensão de Ouroboros Praos). Ambos são protocolos complexos. Para uma implementação única de um nó completo e gerir uma bifurcação total de forma suave é necessário que implemente as regras quer antes quer apos a bifurcação total. Uma bifurcação direta de Byron para Shelley requereria uma única implementação para compreender Ouroboros Classic, Ouroboros Genesis e todas as outras regras de validação - que é um prospeto deveras muito complicado.
+
+Não só isso, mas também a versão de Byron de Ouroboros Classic tem adicionada complexidade que teria que ser replicado numa nova implementação para preservar o consenso de forma perfeita. Em vez disso, utilizamos Ouroboros BFT, uma variante simples de Ouroboros para a era transicional. Isto significa que o código de base de Byron tem que compreender Ouroboros Classic e Ouroboros BFT, enquanto que o código de base de Shelley tem apenas que compreender Ouroboros BFT e Ouroboros Genesis. Nem um nem outro dos códigos de base têm que compreender quer Ouroboros Classic e Ouroboros Genesis. Em particular, isto significa que o novo código de base de Shelley não necessita de replicar cada detalhe da implementação de Ouroboros Classic da era de Byron alcançando assim uma genuína redução da complexidade - que no desenvolvimento de software, complexidade é o inimigo.
+
+A era transicional
+
+Assim, explicamos para que serve Cardano 1.5: trata-se do lançamento em que o código de base de Byron começa a compreender Ouroboros BFT permitindo-nos completar a primeira bifurcação total no espaço de algumas semanas. Após a bifurcação total estaremos na era transicional utilizando Ouroboros BFT e poderemos começar a implementação do novo código de base ao longo do tempo e à medida que se vai desenvolvendo. Este será o novo código de base que será utilizado para os subsequentes lançamentos na era Shelley, mas que inicialmente ainda utilizará Ouroboros BFT para uma perfeita compatibilização durante a transição.
+
+Durante este período de transição, iremos correr uma rede de testes para a delegação e compromisso de participação. Inicialmente, esta rede de testes utilizará um subconjunto das regras de Shelley, mas iremos atualizar ao longo do tempo até que todas as regras de Shelley estejam implementadas e quaisquer incidentes que possam emergir na rede de testes sejam resolvidos.
+
+Uma vez satisfeitos com a implementação total das regras de Shelley, então implementaremos uma atualização do código de base na rede principal. Umas semanas a seguir iremos ativar a bifurcação total e então estaremos por fim na era Shelley na rede principal.
+
+Em suma, o lançamento de Cardano 1.5 é empolgante, não porque haja grandes características implementadas, ou numerosas melhorias incrementais a Daedalus, mas porque se trata de uma meta que marca o início do fim da era Cardano Byron e o início do processo de transição para Cardano Shelley.
