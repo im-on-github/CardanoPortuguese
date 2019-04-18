@@ -1,0 +1,21 @@
+Tradução EN -> PT  https://iohk.io/blog/new-shelley-formal-specifications-complete/ 2019 04 18
+
+Novas especificações formais de Shelley completas
+
+O objetivo da era de Shelley é tornar Cardano descentralizada, movendo-o para além da época federada e atribuir o controlo do razão para a comunidade através dos agrupamentos de participação.
+
+Como parte integrante do processo de entregar Shelley, criamos especificações formais que permitiram-nos verificar que o código final está em linha com o que os investigadores inicialmente visionaram nas suas publicações. Ao criar especificações independentes da implementação, podemos construir componentes do sistema usando linguagens diferentes, confiantes de que trabalharam em conjunto.
+
+Estamos gratos por poder anunciar que atingimos com sucesso uma etapa importante no percurso de Shelley, com as especificações chave estarem concluídas. As especificações completas são descritas abaixo:
+-Especificação para a conceção do modelo de delegação e incentivos em Cardano-Shelley: Descreve os requisitos e conceção para os mecanismos de delegação e incentivos a serem usados no lançamento Shelley de Cardano
+-Especificação formal do razão de Cardano: Especifica as regras do razão, incluindo a delegação e incentivos.
+-Especificação dos cálculos não-integrais no razão: Este documento define uma forma como se realiza os cálculos não integrais do razão para Shelley que utiliza funções matemáticas básicas. O principal objetivo é fornecer uma especificação sem ambiguidade que fornece o mesmo resultado, independente da arquitetura ou linguagem de programação de modo a prevenir bifurcações da blockchain em consequência de diferenças de resultados.
+
+Para fornecer uma transição suave entre a era de Byron e a era Shelley, o código de Shelley terá de ser compatível com as regras de Byron. Para implementar isto, criamos especificações também para a era de Byron:
+
+-Especificação formal do razão de Cardano para o lançamento de Byron: Este documento define as regras para estender o razão com transações, conforme implementado no razão de Cardano no lançamento de Byron.
+-Especificação para a camada de blockchain (Byron): Este documento define as regras de inferência para operações numa blockchain como uma especificação da camada de blockchain de Cardano no lançamento de Byron e numa fase de transição para o lançamento de Shelley.
+
+O processo de implementar estas especificações em código para produção está bem encaminhado, e as especificações irão continuar a melhorar com o feedback de matemáticos, investigadores e comunidades de desenvolvimento.
+
+Para as versões mais atualizadas das especificações veja o repositório no GitHub Formal Models for Ledger Rules.
