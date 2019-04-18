@@ -1,0 +1,82 @@
+
+
+
+Tradução EN -> PT https://iohk.io/blog/training-blockchain-developers-in-africa/ 2019 04 11
+
+Treinando programadoras de blockchain em África
+
+Mulheres da Etiópia e do Uganda embrenham-se em Haskell
+
+Quando saí do avião no aeroporto de Bole em Addis Ababa na noite de 4 de janeiro, não sabia o que esperar. Era a minha primeira vez na Etiópia e tudo que sabia era que a minha colega canadiana da IOHK, Dr. Polina Vinogradova, especialista em métodos formais, e eu eramos para ensinar um longo curso de Haskell durante 3 meses a uma turma de jovens mulheres etíopes e ugandesas.
+
+Quando as nossas estudantes graduaram três meses mais tarde no dia 22 de março, foi o ponto alto da minha vida profissional. Faltaram-me palavras para descrever o quão orgulhoso estava daquelas jovens mulheres corajosas que sacrificaram tanto para frequentarem esta aula, que trabalharam de forma incansável e com vontade de se empenharem nalguns dos problemas mais prementes que os seus países terem que encarar.
+
+Sinto-me humilde, não só pela inteligência feroz e apaixonante, mas também pela sua gentileza e carinho.
+
+O curso foi organizado pelo John O'Connor, diretor das operações africanas da IOHK em cooperação com o Ministério da Inovação e tecnologia do governo Ugandês. Tivemos 22 estudantes, 18 da Etiópia e 4 do Uganda. Todas as estudantes tinham estudado matérias de IT na universidade, algumas estavam a graduar outras já tinham vários anos de trabalho no desenvolvimento de software ou eram docentes universitários.
+
+A maioria das estudantes etíopes eram de Addis Ababa, mas algumas eram de muito longe deixando as suas famílias e amigos para trás para frequentarem este curso. As quatro estudantes ugandesas viveram num hostel, passando três meses num país estranho e estrangeiro sem falarem a língua e sem serem familiares com os costumes locais.
+
+Ensinar a estudantes com tão variado contexto parece desafiante, mas o fato de nenhuma ter experiência com linguagens de programação funcionais em geral ou Haskell em particular tornou tudo mais fácil: conhecer outras linguagens não ajuda propriamente na aprendizagem de Haskell e pode até ser contraprodutivo.
+
+Haskell é a linguagem de programação mais importante utilizada pela IOHK. É uma linguagem funcional, ao passo que as mais conhecidas linguagens são imperativas e orientada a objetos. Haskell é de elevado nível, matemática, extremamente flexível e expressiva, não propriamente das massas; uma linguagem ideal para explanar protocolos complexos e algoritmos criptográficos de forma eficiente e de forma provadamente correta.
+
+Haskell é uma linguagem difícil de ensinar e de apreender - não porque é intrinsecamente mais complicada do que as outras linguagens, mas porque força o programador a aprender uma nova forma de pensar, abordando os problemas numa forma pouco familiar para programadores de Java, Python ou JavaScript. Aprender Haskell é uma experiência que nos abre a mente. Após a sua aprendizagem, mesmo que não volte a utilizar Haskell outra vez, tem-se uma perspetiva muito mais abrangente e aprendeu-se a abordar problemas de uma outra forma. É-se com toda a certeza um melhor programador.
+
+Foi isso que uma das estudantes etíopes, Bethlehem Teka, nos disse sobre Haskell e o nosso curso:
+
+Apesar de programar em linguagens de programação imperativas ao fim de seis anos, eu era um estranho perante linguagens de programação de base funcional como Haskell. Inicialmente, foi excitante internalizar as suas processas de ser pura, funcional, preguiçosa e sem efeitos secundários e por aí adiante.
+
+Existem conceitos da linguagem orientada a objetos usado em Haskell, mas são implementados de uma forma diferente e foi estranho ouvir fatos como não haver herança ou sem objetos.
+
+Obviamente houveram muitas alturas duras ao longo do curso, especialmente na interpretação de conceitos em código. Perceber e implementar monads para alcançar a pureza funcional, sendo um elemento crucial da linguagem, foi ainda mais difícil.
+
+Houveram muitas perguntas tontas que surgiram em momentos distintos, como ponderações de como é que Haskell mantém a pureza e evita os efeitos secundários antes da descoberta de um monad, mas estas perguntas foram prontamente respondidas quer pelo Lars, pela Polina ou pelos nossos amigos.
+
+Houveram também momentos que precisei de tomar os trabalhos por minha conta e embrenhar-me com mais detalhe no futuro.
+
+Por fim, sinto-me privilegiada por ter apreendido paradigma de uma linguagem de programação funcional como um todo e acho todas as suas noções fantásticas e prometedoras.
+
+Não posso dizer que compreendi tudo de todos os conceitos cobertos ao longo do curso, mas encheu-me de confiança para começar a trabalhar e ler mais sobre o assunto.
+
+As circunstâncias foram muito menos que ideais e encontramos sempre problemas. O trânsito era horrível e algumas das estudantes passavam três horas cada manhã para chegar às aulas.
+
+A internet não era fiável e a maioria das estudantes não tinham acesso em casa, o que as forçou a ficar até tarde na sala de aula a trabalhar. Mesmo na sala de aula, sofremos de falhas de internet e eramos forçados a distribuir material em pens USB de computador em computador.
+
+Numa noite, recebia mensagens exasperantes no Telegram de estudantes que ficaram a trabalhar até tarde nos trabalhos: e que tinham ficado presas no interior! Um guarda noturno tinha decidido que era hora de jantar e encerrou tudo e deixou-as. Levou vários telefonemas, ir buscar um empregado do ministério com chaves e conduzir até ao edifício para libertar as estudantes. Mantiveram os espíritos alegres apesar de tudo!
+
+Algumas das estudantes tinham problemas com os computadores - memória insuficiente, processadores muito lentos ou com falhas nos teclados. Após um começo lento e doloroso, a IOHK por fim providenciou máquinas melhores.
+
+As estudantes ugandesas nem gostavam do clima moderado nem estavam contentes com a comida etíope pouco familiar. Addis está a uma altitude de 2500m acima do nível do mar e é a segunda capital mais elevada do mundo, por isso o clima é mais fresco do que seria de esperar de uma cidade africana. Polina e eu sentíamos pena pelas quatro durante as primeiras semanas, elas também pareciam miseráveis.
+
+Outro problema, pelo menos no início, foi o fato das estudantes estarem habituadas a um sistema de educação que não fomenta perguntas "estúpidas" onde os professores por norma eram pouco aproximáveis. Foi com paciência e com encorajamento que convencemos as estudantes a abrirem-se e mostrar-lhes que não há mal em nos interromper com qualquer coisa que não tivessem entendido.
+
+As estudantes também pareciam habituadas a um estilo de ensino que se foca na teoria. No início, seguiam as aulas o suficientemente bem, mas a componente prática e a aplicação dos conceitos em código era mais fraca.
+
+Quando nos apercebemos disto, fornecemos mais exemplos e exercícios e fizemo-las escrever código com frequência. Repetir o workflow de Haskell vezes sem conta. Escrever código, compilar, corrigir erros, testar repetir.
+
+Trata-se de um curso exigente e vai bem mais além do que uma mera introdução a Haskell. Muitos tópicos avançados e conceitos foram abordadas, muito material foi incluído. Isto coloca as estudantes sob pressão e requer que trabalhem muito. Mas vale a pena! Após terminarem o curso, as estudantes podem estar orgulhosas duma aprendizagem sólida em Haskell e estarem preparadas para trabalhar em problemas reais.
+
+Para um projeto, as estudantes tiveram que implementar um protocolo peer-to-peer e estavam excitadas para ver os conceitos abstratos que tinham apreendido a serem implementados. Nas palavras de Bethlehem:
+
+"Trabalhar nos projetos era a minha parte favorita de todas as atividades do curso.
+
+Estava a tentar compreender e trabalhar em todas as questões. Apesar de ser um trabalho em grupo, cada projeto tinha algo prático e dava-me desconforto falhar um.
+
+Assim, se não escrevia o código, pelo menos discutia-se com o grupo para visualizar o algoritmo. Trabalhar em equipa era divertido! Ajudou o conhecermos umas às outras e aprecio as aulas bem organizadas e as apresentações muito claras. As gravações de ecrã também ajudaram muito.
+
+Uma novidade deste curso foi uma secção de duas semanas sobre Plutus, ensinada pelo Phil Wadler, um dos criadores de Haskell. Plutus é uma linguagem para contratos inteligentes desenvolvidas pela IOHK para ser usado com a blockchain Cardano; foi implementado em Haskell e é muito semelhante a Haskell, assim as nossas estudantes estavam numa posição ideal para a apreenderem.
+
+Outra estudante, Bethel Tadesse, tinha sugestões para o curso e a parte de Plutus:
+
+Sobre o curso, gostei muito e foi muito interessante e útil para mim. também me inspirou a trabalhar mais e mais. É mesmo ótimo podermos trazer esta tecnologia relevante e eficiente para o nosso país em desenvolvimento e também para África. Estou orgulhosa por poder dizer que aprendi isto e que se trata de uma infraestrutura fundamental e criadora de soluções.
+
+Permite-me ver um futuro brilhante. É realmente bom e bem organizado, exceto as alturas em que o tempo é curto o que torna mais stressante e exige mais esforço nosso. Na sessão sobre contratos inteligentes, falando honestamente, interiorizamos apenas os conceitos de base e não os detalhes e a minha conclusão foi que precisamos de uma pouco mais de clarificações para podermos trabalhar mais. Nos conceitos básicos achei muito interessante e poderoso em assegurar segurança nas diferentes áreas que requerem ser lidadas com tecnologia.
+
+como sugestão, quero dizer que a sessão sobre contratos inteligentes poderá ser mais produtiva e interagir mais em adiantado como funciona com a linguagem Haskell poderosa como é do que lidar sem incluir o Haskell."
+
+Após três meses de muito trabalho, muitos desafios, inúmeras falhas de internet e de energia, após apreender conceitos esotéricos como monads e equational reasoning e aplicações do dia-a-dia em servidores web e bases de dados, após desilusões sobre resultados menos bons em testes e elação sobre melhorias contínuas a momentos Eureka!, após aprender, estudar e trabalhar e comer e café juntos, após emergências médicas, tragédias de famílias e doenças, após muitos triunfos, muita risada e muita alegria, após o receio dos fantasmas na noite e evitar inúmeros rapazes "shoeshin", culminou com uma cerimónia de graduação lindíssima no Hotel Sapphire em Addis Ababa.
+
+Observados pelas famílias e amigos orgulhosos, diplomados e peritos de indústria, jornalistas e filantropos, as estudantes foram galardoadas os seus certificados pelo Dr. Getahun Mekuria Kuma, Ministro da Inovação e Tecnologia, e por Charles Hoskinson, cofundador da IOHK.
+
+Ninguém estava mais orgulhoso do que eu. As mulheres todas com vestidos Etíopes, brilhavam de contentamento e alegria; estavam todas lindas, tive que controlar as lágrimas. De acordo com a minha mulher, " elas sempre foram lindas, mas o sucesso tornou-as lindíssimas.
