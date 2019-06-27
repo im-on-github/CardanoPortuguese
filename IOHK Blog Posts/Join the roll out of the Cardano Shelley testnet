@@ -1,0 +1,43 @@
+Tradução EN -> PT 2019 06 26  https://iohk.io/blog/join-the-roll-out-of-the-cardano-shelley-testnet/
+
+Junta-te a nós para implementar a rede de testes de Cardano Shelley
+Participa no nosso programa de testes.
+
+Muitos de vós ter-nos-ão ouvido falar sobre as nossas redes de testes, onde corremos as versões de Cardano e outros simuladores de testes de modo a podermos testar os produtos e obter algum feedback da nossa comunidade.
+
+Alguns de vós já tiveram a brincar com o código dos nossos repositórios no GitHub. Assim à medida que transitamos da era Byron para a era Shelley, queremos estender essa colaboração e aprender mais do talento da nossa comunidade Cardano.
+
+Com os códigos de base Rust para Shelley agora próximos do seu momento de ação, estamo-nos a abrir para a comunidade para nos ajudar a construir a rede de testes. A era Shelley tem tudo a ver com a descentralização, assim estamos a tomar uma posição mais descentralizada no que se refere aos testes e à documentação. Trata-se de um passo importante em expandir a comunidade técnica de Cardano e em última instância preparar toda a gente para o dia quando a comunidade toma conta da blockchain.
+
+Durante algum tempo, tem havido um grupo dedicado e vibrante de melhores práticas no Telegram - o grupo Stake Pool Best Practices (1733 membros). Claramente existe muito talento e interesse por aí fora. Recentemente colocamos um inquérito para aprender mais sobre os potenciais operadores de agrupamentos de participação. Temos tido muito positiva respostas com cerca de 150 respostas totais até ao momento de publicação.
+
+Qual o intervalo de competências técnicas e de conhecimento da nossa comunidade? Quais são os interesses particulares em criarem agrupamentos de participação? Temos pessoas que fazem disto um passatempo ou temos empreendedores com planos de gerirem um agrupamento como um negócio? Que equipamento tencionam utilizar? Marketing ou outras atividades de apoio ao negócio também seriam úteis? Perguntamos muito para apreender o mais que conseguíamos. Por fim, o nosso objetivo é descobrir como podemos apoiar a nossa comunidade em implementar o modelo de descentralização de Shelley da forma mais eficaz possível. Serão estas as pessoas que nos ajudarão a dar o pontapé de saída.
+
+Assim, começamos a recolher o poder da comunidade de Cardano para a implementação da rede de testes de agrupamentos de participação. Iremos apoiar este grupo inicial ao longo do caminho e de inúmeras formas.
+
+Existe agora um repositório aberto de código dedicado e logs para apoiar o programa de testes. Em breve iremos lançar as novas páginas da web da rede de testes Shelley no nosso website da rede de testes de Cardano. Iremos publicar instruções, vídeos e tutoriais e por aí adiante a explicar o que fazer e como fazê-lo. Estamos a redigir um conjunto de boa documentação para o cliente em Rust. Haverão vídeos com instruções como instalar e operar um nó além de um relatório de bugs e problemas nos logs usando GitHub.
+
+Uma componente chave do programa de teste será trabalhar com as pessoas com níveis de experiência técnica mistos, trabalhando com plataformas e configurações diferentes. O feedback deste grupo irá em última análise tornar a nossa tecnologia mais fácil de instalar, configurar e operar para todos aqueles que seguem.
+
+A rede de testes haverá uma série de lançamentos a serem implementados ao longo de três fases principais.
+
+Fase 1: O nó próprio, também chamado "blockchain numa caixa"
+A primeira fase tem tudo a ver com a configuração e disponibilização do "nó próprio". Pode-se pensar o nó próprio como uma "blockchain numa caixa", um produto com mínima viabilidade para testar competências chave. Trata-se basicamente de um conjunto de ferramentas e de documentação para agarrar ao teu próprio bloco de génese e correr um ambiente multi-nodal na tua própria máquina onde poderás ver como os agrupamentos estão a operar. É como ter uma rede completa dentro de uma única instância.
+
+Iremos disponibilizar instruções e convidaremos pessoas a correrem nós através de várias configurações e fornecer-nos feedback no que descobrem.
+
+E quanto à rede? Não é suposto ser uma solução descentralizada que estamos a testar? Bem, apesar de começar com um nó próprio, codificamos de modo a implementar mais características no nó próprio mais adiante. Assim, à medida que adicionamos mais funcionalidades - nomeadamente as componentes de rede e de incentivos - o código desenvolvido contra o nó próprio não se alterará. Esse é o plano!
+
+Assim, na primeira fase trata-se de estabelecer a configuração básica que nos fornece um sentido de como as coisas funcionarão localmente. O código inicial irá conter apenas as funcionalidades centrais, concebido para explorar as competências fundamentais. Por todo o grupo de trabalho dos agrupamentos de participação iremos apreender sobre a operação em hardware diferente, sistemas operativos diferentes, ambientes de hospedagem na nuvem e níveis técnicos. Obteremos um conjunto muito mais lato de resultados ao colaborar com o grupo de trabalho.
+
+Fase 2: Conectar a rede
+Uma vez contentes com a fase 1 e temos um robusto número de nós próprios e a correr, iremos começar a conectá-los. O objetivo é criar uma única rede de testes unificada e que se possa adicionar mais nós à medida que se prossegue, escalando a rede passo a passo. Assim, em vez de experimentar com a nosso próprio cliente, iremos mover para um sistema onde falamos com os nós através da internet. Irão conversar, descarregar blocos dos pares e em seguida iremos aprender de um conjunto completamente de comportamentos e potenciais cenários de risco.
+
+Fase 3: O sistema de incentivos
+Aqui é onde iremos adicionar o sistema de incentivos pela rede. Mover blocos de um local para outro é muito bonito, contudo o potencial de Shelley será realizado com a estacamento de participação. Trata-se de demonstrar como as recompensas de participação irão para os agrupamentos de participação para os encorajar.
+
+Assim, de um modo geral, é esse o plano dos próximos meses. Iremos também trabalhar de perto com a malta de EMURGO nisto. Eles irão ajudar-nos com os testes e assegurar que a carteira Yoroi tem toda a interoperabilidade. Seiza, o novo explorador de blockchain, será uma ótima ferramenta para visualizar muito do que fazemos e que é único no nosso ecossistema.
+
+Este programa de testes é uma experiência na colaboração com a comunidade. Haverá muitos testes, reprogramação, melhoria de documentação e material de treinos, ajustes e por aí adiante. Iremos verificar a integridade dos componentes individuais além de demonstrar que aqueles componentes jogam convenientemente uns com os outros. O objetivo é claro, mas será interessante ver como chegámos lá. Estamos comprometidos a isso porque se encaixa na perfeição: um processo descentralizado para testar um sistema descentralizado. Uma colaboração ampla da comunidade para testar um sistema que será detido pela comunidade.
+
+Iremos manter-vos atualizados. Para aqueles que decidem trabalhar connosco no programa uns sinceros agradecimentos em avanço pela parceria.
