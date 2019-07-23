@@ -1,0 +1,35 @@
+Tradução EN PT 2019 07 19  https://iohk.io/blog/announcing-the-release-of-symphony-2/
+
+Anunciar o lançamento da Sinfonia 2.0
+Vive a blockchain como nunca antes
+
+O projeto da Sinfonia começou com uma questão: como é que representamos a tecnologia de blockchain numa forma que é estimulante, entretido e que capta a atenção de uma audiência alargada técnica ou não. Por outras palavras, como é que explicamos o abstrato e damos forma àquilo que não tem forma.
+
+Foi há mais de um ano desde que respondemos a essa questão e continuamos a trabalhar de modo a tornar a Sinfonia a experiência mais interativa e imersiva da blockchain disponível. O que começou como uma forma de visualizar a blockchain tem evoluído de uma forma de viver a blockchain: uma jornada imersiva acessível através do browser do dispositivo.
+
+O resultado da Sinfonia 2.0: um explorador 3D através do qual qualquer um pode atravessar a história topográfica da blockchain Bitcoin desde a primeira transação à mais recente. Quando comparado com a primeira versão, a Sinfonia 2.0 vai de forma mais aprofundada em todas as direções. Detalha nos dados transacionais para criar paisagens sonoras ao vivo - cada bloco tem a sua própria assinatura áudio - usando a sua própria síntese sonora. Parece-se com isto:
+
+https://youtu.be/gyo5BQjA5OE
+
+Como funciona
+Conforme podes imaginar, dar um sentimento aos dados não é fácil. Criar um som para cada bloco foi como queria representar a singularidade e a permanência da blockchain: uma vez adicionado, um bloco está lá para sempre, fazendo aquele mesmo som, contendo aquelas mesmas transações.
+ 
+Usei uma técnica chamada síntese aditiva para gerar um som e utilizei a natureza das placas gráficas paralelas para sintetizar um som singular para cada um dos milhares de transações que podem perfazer um bloco. A assinatura de som que toca quando se visita um bloco consiste em cada transação produzindo oito ondas sinusoidais (um timbre fundamental e sete harmónicos). O timbre fundamental é determinado pelo valor da transação e a quantidade de aleatoriedade adicionado aos parciais harmónicos é controlado pelo rácio do custo pelo valor da transação.
+
+Filosofia de conceção
+
+Com a Sinfonia 2.0 o mempool da blockchain - que armazena transações não confirmadas - é visualizado pelo inchaço gravitacional em torno do qual transações confirmadas criam uma espiral em anéis concêntricos. Pensa nos anéis de Saturno, mas em vez de partículas de gelo e rocha temos transações adicionadas continuamente ao tamanho dos anéis à medida que se estendem para o exterior. Depois, suportando cada bloco estão representações de árvores de Merkle, sem surpresa, como árvores.
+
+Em cima de cada bloco, transações confirmadas são visualizadas em 3D como hexágonos. A altura corresponde ao volume transacionado e a largura (é de notar os indivíduos rotundos à direita da imagem acima) corresponde à saúde do bloco. O resultado é uma imagem da blockchain sem precedentes cujas componentes representativas sincronizadas que é explorável bloco-a-bloco ou através de um simulador de voo.
+
+Como viver a Sinfonia
+A Sinfonia 2.0 está agora ao vivo. Pode-se aceder usando qualquer browser moderno, mas a melhor experiência é em Google Chrome. Para portáteis e dispositivos móveis é aconselhado selecionar a opção de qualidade média e para aqueles com dispositivos de elevado desempenho ou placas gráficas dedicadas, a opção de alta qualidade. Otimizações do desempenho irão continuar no futuro.
+
+Em conjunto com os nossos amigos Kuva, uma agência de criatividade sediada em Bristol, também crescemos um projeto para incluir eventos e peças de exibição. Estes eventos - um dos quais esteve este ano em Bristol - incluiu uma realidade virtual (VR) e uma realidade aumentada (AR).
+
+Usando software WebVR, construí uma experiência VR baseado no código para a Sinfonia 2.0 que demonstra a extensibilidade do sistema. Será exibido em futuros eventos e espero um dia disponibilizar dispositivos em casa.
+
+Próximos passos
+Vamos fazer um circuito. Temos a história e agora precisamos de uma audiência. Também estou a começar a construir uma versão baseada na blockchain da Ethereum usando o mesmo código de base que irá demonstrar como explorar contratos inteligentes e depois disso Cardano. Sabemos que existem milhares de pessoas que estão apenas ligeiramente familiarizadas com a tecnologia blockchain e que querem saber mais sobre o assunto - e com a Sinfonia 2.0 serão capazes de cortar pela confusão. Uma imagem vale mil palavras e uma experiência interativa vale muito mais.
+
+Sinfonia é um projeto a longo prazo. É tanto uma aventura para nós como para a nossa audiência. Queremos ver o quão longe podemos levá-lo - porque a tecnologia blockchain ainda está em desenvolvimento, ainda cresce e a oportunidade de educar está apenas no início. O lançamento da Sinfonia 2.0 marca uma meta significativa para nós e estamos entusiasmados por podermos partilhar contigo. Há muita oportunidade para a Sinfonia desde as otimizações à incorporação de outras blockchain a eventos e mais formas de usufruir a Sinfonia em casa. Assim, fica à espera de mais atualizações nossas e, entretanto, usufruem desta primeira experiência interativa mundial com a blockchain.
