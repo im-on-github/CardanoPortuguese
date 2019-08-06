@@ -1,0 +1,46 @@
+Tradução EN PT 2019 08 02 https://iohk.io/blog/write-secure-smart-contracts-with-the-plutus-ebook/
+
+Contratos inteligentes seguros com o Plutus e-book.
+Sessão de perguntas e respostas com a equipa de educação da IOHK.
+
+A equipa de educação da IOHK lançou este mês a primeira edição do seu novo livro eletrónico: Plutus: Redigir contratos inteligentes fiáveis. Disponível na Amazon ou no LeanPub, trata-se de um guia introdutório a Plutus, a linguagem baseada em Haskell da IOHK para contratos inteligentes. Haskell é uma linguagem de programação funcional, o que significa que é mais fácil de testar e menos propenso ao erro humano, assim qualquer coisa escrita em Haskell - e por extensão a Plutus - é provavelmente mais fiável e mais seguro. Plutus pode também ser usado para código na blockchain e fora da blockchain, simplificando a experiência de desenvolvimento e eliminando erros comuns introduzidos pela transição entre linguagens na blockchain e fora da mesma.
+
+Este livro eletrónico cobre toda a forma como os contratos inteligentes interagem com a blockchain incluindo código de exemplos práticos com explicações linha-a-linha. Eu falei com o Lars Brünjes e a Polina Vinogradova, os autores principais do livro para mais detalhes sobre o mesmo e sobre os planos para o futuro da equipa de educação da IOHK.
+
+Introduzam-se por favor!
+
+Lars: Sou o diretor de educação da IOHK, que significa que sou o responsável por todas as nossas atividades educativas, tais como os cursos em Haskell, vídeos da comunidade, workshops, hackatonas, livros e treinos internos. É um papel profundamente recompensador: educação é uma parte extremamente importante da nossa missão de trazer serviços financeiros a três biliões de pessoas que não usufruem dos mesmos. Ensinar Haskell para trazer jovens mulheres na Etiópia e correr um workshop de Marlowe na Mongólia foram experiências inesquecíveis para mim e sinto que estou a fazer a diferença.
+
+Polina: Sou uma programadora de métodos formais em software da IOHK. Trabalhei nas especificações formais do razão de Cardano e na carteira, mas também tenho estado envolvida em muitas atividades relacionadas com a educação. Fui professora assistente do curso de Haskell na Etiópia e estou entusiasmada por fazer parte de outras iniciativas no futuro. A IOHK leva a educação a sério e tenho recolhido muitos benefícios disso nos cursos internos que têm ocorrido durante o ano. Aprendi muito sobre testes e especificações formais e consegui implementar logo no meu trabalho.
+
+O que tens feito ultimamente?
+Polina: Enquanto co-instrutora do curso de Haskell na Etiópia, escrevi e instruí várias aulas. Foi uma experiência única e senti que realmente estava a ajudar pessoas a mudarem de vida. Depois disso, realizei um curso interno e instruí em workshops sobre Marlowe na Mongólia e Israel. Também tenho estado a escrever o livro eletrónico em conjunto com o Lars. No ano passado trabalhei em tarefas ligadas aos métodos formais, o razão de Shelley e a carteira, mas devido às viagens e do processo da escrita não tenho tido muito tempo para trabalhar nestas coisas este ano.
+
+Lars: Tenho estado a preparar um curso de três meses de Haskell para mulheres etíopes e ugandesas em Addis Ababa, executado um workshop sobre Marlowe em Ulaanbaatar na Mongólia (e andei de camelo e caí de cavalo no processo) e outro workshop em Tel Aviv, Israel. Tenho estado a trabalhar no livro eletrónico com a Polina além de desenvolver a estratégia de educação da IOHK e trabalhar nas nossas iniciativas de investigação, escrever simulações em Haskell para fins de ilustração e apoiar os resultados teóricos.
+
+Qual foi a inspiração para o livro eletrónico?
+
+Lars: A ideia era de tornar fácil e interessante a redação de contratos inteligentes de elevada garantia e para começarem com Plutus. Tentamos equilibrar entre a teoria e a prática, entre a informação de contexto e exemplos práticos em código, dar interesse aos leitores das fundações para se iniciarem rapidamente. Na IOHK já sabemos que Plutus é fantástico e esperamos que o livro convença todos os outros!
+
+Polina: Além das explicações bastante compreensíveis e passo-a-passo de como escrever contratos inteligentes em Plutus, o livro fornece uma visão geral de como é que a contabilidade funciona em Cardano, quais os benefícios, objetivos, os desafios do que os contratos inteligentes são e onde os contratos inteligentes se enquadram na arquitetura de Cardano - este livro fornece aos leitores as ferramentas não só para escreverem contratos mas também de criar formas criativas de os utilizar.
+
+Para quem é o livro eletrónico e o que poderão apreender dele?
+Lars: O livro destina-se a programadores de software em geral e em específico para aqueles que programam contratos inteligentes. Plutus é essencialmente Haskell, assim ser-se familiarizado com Haskell ou a vontade de aprender uma nova linguagem é importante. Plutus foi criado como uma forma mais segura de criar contratos inteligentes. Assim, todos que sonham em escrever contratos inteligentes são os principais alvos e devem dar uma vista de olhos a Plutus!
+
+Polina: Trata-se não só de um livro para programadores com experiência em Haskell. É também uma boa leitura para qualquer um interessado em alternativas à dependência de terceiros tais como bancos ou o sistema legal, para assegurar a adesão a um contrato. Plutus oferece essa alternativa, onde a confiança é substituída por código testado, documentado e de elevada garantia. Se isto não soa bom de mais verifica os detalhes no livro!
+
+Qual a tua parte favorita do livro?
+Lars: É difícil dizer - penso que o melhor aspeto é o equilíbrio entre as partes do livro: por um lado a teoria e os fundamentos e por outro a facilidade de acompanhamento dos exemplos em código.
+
+Polina: Tenho que concordar também com o equilíbrio: o livro inclui quer explicações por alto de como contratos inteligentes funcionam na blockchain além de exemplos concretos de como desenvolver o código com explicações linha-a-linha.
+
+Qual o próximo passo para quem já leu o livro?
+Polina: Se o leitor se sentir com confiança nas suas competências em Plutus, têm que pensar em grande - que problema poderá esta tecnologia ser útil em resolver? Talvez exista alguma funcionalidade que gostavam houvesse disponível como parte integrante do sistema de Cardano e que poderiam trabalhar nela? Por exemplo, o livro menciona dois exemplos práticos: a introdução de tokens especiais (não fungíveis) na blockchain e uma política customizada de assinar transações - ideias como estas.
+
+Lars: Acredito plenamente que para apreender alguma coisa é preciso a utilizar e idealmente - ensiná-la. Assim, o próximo passo deve ser de utilizar Plutus, trabalhar num projeto interessante e implementar alguns contratos inteligentes. Depois ir um passo mais além e explicar Plutus a outros, num encontro por exemplo.
+
+Que outras iniciativas educacionais estão programadas pela IOHK?
+Lars e Polina: Estamos a preparar os próximos workshops em Plutus e Marlowe além do próximo curso em Haskell e estamos a trabalhar em torná-lo num curso massificado aberto e online (MOOC).
+
+
+
